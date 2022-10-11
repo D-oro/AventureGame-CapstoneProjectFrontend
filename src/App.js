@@ -1,9 +1,6 @@
-import logo from './logo.svg';
 import './App.css';
 import React, {useEffect, useState} from 'react';
 import Request from './helpers/request';
-
-
 
 
 function App() {
@@ -19,9 +16,16 @@ function App() {
     })   
   }, [])
 
+
+  const allHealthPoints = players.map((player, index) =>{
+    return <li key={index}>
+      {player.healthPoints}
+    </li>
+  })
+
   return (
     <div>
-      
+        {allHealthPoints}
     </div>
   )
   
