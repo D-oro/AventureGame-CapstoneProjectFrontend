@@ -16,7 +16,6 @@
     height: 40vh;
     border: solid black 2px;
     flex-direction: row;
-
 }
 
 .health-bar {
@@ -27,7 +26,6 @@
 .enemy-box {
     border: solid black 2 px;
     width: 50%;
-    
 }
 
 .player-box {
