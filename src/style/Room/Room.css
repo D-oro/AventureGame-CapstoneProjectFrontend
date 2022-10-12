@@ -27,6 +27,7 @@
     width: 50%;
     background-image: url('/src/images/dragon.gif');
     background-repeat: no-repeat;
+    background-position: 50% 0%;
 }
 
 .player-box {
@@ -34,6 +35,7 @@
     width: 50%;
     background-image: url('/src/images/warrior.gif');
     background-repeat: no-repeat;
+    background-position: 50% 30%;
 }
 
 
