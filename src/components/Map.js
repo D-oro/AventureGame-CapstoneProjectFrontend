@@ -1,4 +1,6 @@
+import { useNavigate } from 'react-router';
 import React from 'react';
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import {Link} from 'react-router-dom';
 import '../style/map/Map.css'
 
@@ -66,8 +68,10 @@ function Map (){
       else{window.alert("I can only go up")}
     }
 
+    const navigate = useNavigate()
+
     const clickDoor = () => {
-      window.alert("this will redirect us to the room page")
+      navigate('/room')
     }
 
   return (

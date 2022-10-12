@@ -1,12 +1,12 @@
-.Map{
-    background-image: url("images/brickwall.png");
+.App{
+    background-image: url("http://localhost:3000/images/brickwall.png");
     background-size: cover;
     background-repeat: no-repeat;
     margin: .5%;
   }
   /* door */
   button{
-    background-image: url("images/door.png");
+    background-image: url("http://localhost:3000/images/door.png");
     background-color: rgba(255, 0, 0, 0.0);
     background-repeat:no-repeat;
     background-position: bottom;
@@ -17,7 +17,7 @@
   
   /* rope ladder */
   button2{
-    background-image: url("images/rope_ladder.png");
+    background-image: url("http://localhost:3000/images/rope_ladder.png");
     background-color: rgba(255, 0, 0, 0.0);
     background-repeat:no-repeat;
     background-position: 0% 0%;
@@ -27,7 +27,7 @@
   }
   
   button3{
-    background-image: url("images/gate.png");
+    background-image: url("http://localhost:3000/images/gate.png");
     background-repeat:no-repeat;
     width: 20%;
   }
@@ -55,7 +55,7 @@
   .radioRow4 input[type="radio"]:checked + label {
     display: flex;
     align-items: flex-end;
-    background-image: url("../src/images/player1.png");
+    background-image: url("http://localhost:3000/images/player1.png");
     background-repeat:no-repeat;
     background-position: 0% 100%;
   }
@@ -84,7 +84,7 @@
   .radioRow3 input[type="radio"]:checked + label {
     display: flex;
     align-items: flex-end;
-    background-image: url("../src/images/player1.png");
+    background-image: url("http://localhost:3000/images/player1.png");
     background-repeat:no-repeat;
     background-position: 50% 100%;
   }
@@ -107,13 +107,13 @@
     /* change width to 25% at the end */
     width: 20%;
     /* delete background-colour at the end, just makes it easier to work with */
-    background-color: azure;
+    /* background-color: azure; */
   }
   
   .radioRow2 input[type="radio"]:checked + label {
     display: flex;
     align-items: flex-end;
-    background-image: url("../src/images/player1.png");
+    background-image: url("http://localhost:3000/images/player1.png");
     background-repeat:no-repeat;
     background-position: 0% 100%;
   }
@@ -141,7 +141,7 @@
   .radioRow1 input[type="radio"]:checked + label {
     display: flex;
     align-items: flex-end;
-    background-image: url("../src/images/player1.png");
+    background-image: url("http://localhost:3000/images/player1.png");
     background-repeat:no-repeat;
     background-position: 100% 100%;
   }
