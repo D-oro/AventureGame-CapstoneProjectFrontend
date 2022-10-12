@@ -12,7 +12,7 @@
     background-position: bottom;
     border-width: 0px;
     width: 8%;
-    margin-bottom: 1%;
+    margin-bottom: 0%;
   }
 
   .floor{
@@ -29,9 +29,10 @@
     background-position: 0% 0%;
     border-width: 0px;
     width: 5%; 
-    /* margin-bottom: 8%; */
   }
   
+  /* gate */
+
   button3{
     background-image: url("http://localhost:3000/images/gate.png");
     background-repeat:no-repeat;

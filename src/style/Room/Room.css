@@ -25,7 +25,7 @@
 .enemy-box {
     border: solid black 2 px;
     width: 50%;
-    background-image: url('/src/images/smoku01.gif');
+    background-image: url('/src/images/dragon.gif');
     background-repeat: no-repeat;
 }
 

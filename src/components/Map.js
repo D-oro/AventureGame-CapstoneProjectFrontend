@@ -170,6 +170,10 @@ function Map (){
 {/* Button, looks like a door */}
           <button onClick={clickDoor}></button>
         </div>
+
+{/* floor */}
+        <div className="floor"></div>
+
       </header>
     </div>
   );
