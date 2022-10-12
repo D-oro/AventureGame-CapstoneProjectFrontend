@@ -26,6 +26,8 @@
 .enemy-box {
     border: solid black 2 px;
     width: 50%;
+    background-image: url('/src/images/smoku01.gif');
+    background-repeat: no-repeat;
 }
 
 .player-box {
