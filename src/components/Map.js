@@ -97,6 +97,9 @@ function Map (){
           <label for="Right4">Right4</label>
         </div>
 
+{/* floor */}
+        <div className="floor"></div>
+
 {/* second row from the top */}
         <div className="radioRow3">
           <input type="radio" id="Left3" name="Row3" value="Left3"></input>
@@ -120,7 +123,8 @@ function Map (){
           {/* Button, looks like a ladder */}
           <button2 onClick={useLadder3}></button2>
         </div>
-
+{/* floor */}
+        <div className="floor"></div>
 
 {/* third row from the top */}
         <div className="radioRow2">
@@ -142,6 +146,9 @@ function Map (){
           <input type="radio" id="Right2" name="Row2" value="Right2"></input>
           <label for="Right2">Right2</label>
         </div>
+
+{/* floor */}
+        <div className="floor"></div>
 
 {/* fourth row from the top */}
         <div className="radioRow1">
