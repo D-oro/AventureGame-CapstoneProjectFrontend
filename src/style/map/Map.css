@@ -1,12 +1,12 @@
 .Map{
-    background-image: url("../src/images/brickwall.png");
+    background-image: url("images/brickwall.png");
     background-size: cover;
     background-repeat: no-repeat;
     margin: .5%;
   }
   /* door */
   button{
-    background-image: url("../src/images/door.png");
+    background-image: url("images/door.png");
     background-color: rgba(255, 0, 0, 0.0);
     background-repeat:no-repeat;
     background-position: bottom;
@@ -17,7 +17,7 @@
   
   /* rope ladder */
   button2{
-    background-image: url("../src/images/rope_ladder.png");
+    background-image: url("images/rope_ladder.png");
     background-color: rgba(255, 0, 0, 0.0);
     background-repeat:no-repeat;
     background-position: 0% 0%;
@@ -27,7 +27,7 @@
   }
   
   button3{
-    background-image: url("../src/images/gate.png");
+    background-image: url("images/gate.png");
     background-repeat:no-repeat;
     width: 20%;
   }
