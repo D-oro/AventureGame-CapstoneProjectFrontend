@@ -74,6 +74,10 @@ function Map (){
       navigate('/room')
     }
 
+    const startGame = () => {
+      document.getElementById("Left1").checked = true;
+    }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -152,6 +156,9 @@ function Map (){
 
 {/* fourth row from the top */}
         <div className="radioRow1">
+
+          <button className="sign" onClick={startGame}></button>
+
           <input type="radio" id="Left1" name="Row1" value="Left1"></input>
           <label for="Left1">Left1</label>
 

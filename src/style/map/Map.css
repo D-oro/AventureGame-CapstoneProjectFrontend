@@ -4,6 +4,16 @@
     background-repeat: no-repeat;
     margin: .5%;
   }
+
+  .sign{
+    background-image: url('/src/images/sign.png');
+    background-repeat: no-repeat;
+    width: 7%;
+    background-color: rgba(255, 0, 0, 0.0);
+    background-position: bottom;
+    border-width: 0px;
+  }
+
   /* door */
   .door{
     background-image: url("http://localhost:3000/images/door.png");
