@@ -32,7 +32,7 @@
 .player-box {
     border: solid black 2 px;
     width: 50%;
-    background-image: url('/src/images/player1.png');
+    background-image: url('/src/images/warrior.gif');
     background-repeat: no-repeat;
 }
 
