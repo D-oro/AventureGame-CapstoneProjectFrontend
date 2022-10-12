@@ -6,18 +6,29 @@ import Request from '../helpers/request';
 
 const Room = () =>{
 
-   
-
+    const [NPCOne, setNPCOne] = useState(null);
     const [playerOne, setPlayerOne] = useState(null);
-     
+
         useEffect(() => {
-     
-         const request = new Request()
-         request.get("/api/players")
-         .then((data) => {
-           setPlayerOne(data[0]);
-         })   
+            const request = new Request()
+            request.get("/api/npcs")
+            .then((data) => {
+            setNPCOne(data[0]);
+            })
+        }, [])
+
+        useEffect(() => {
+            const request = new Request()
+            request.get("/api/players")
+            .then((data) => {
+            setPlayerOne(data[0]);
+            })   
        }, [])
+
+
+        if(!NPCOne){
+            return "Loading..."
+        }
 
        if(!playerOne){
         return "Loading..."
@@ -27,7 +38,7 @@ const Room = () =>{
         <div className='room-container'>
             <header className='header'>
             <progress className='health-bar' id="playerHealth" value={playerOne.healthPoints} max="100"></progress>
-            <progress className='health-bar' id="enemyHealth" value="100" max="100"></progress>
+            <progress className='health-bar' id="enemyHealth" value={NPCOne.healthPoints} max="100"></progress>
             </header>
 
             <main className='main'>
