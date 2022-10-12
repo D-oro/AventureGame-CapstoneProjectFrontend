@@ -1,10 +1,18 @@
 import React, {useState, useEffect} from 'react';
+import { useNavigate } from 'react-router';
 import '../style/Room/Room.css'
 import PlayerContainer from '../containers/PlayerContainer';
 import Request from '../helpers/request';
+import { Navigate } from 'react-router-dom';
 
 
 const Room = () =>{
+
+    const navigate = useNavigate()
+
+    const handleClick = () =>{
+     navigate('/map')
+    }
 
     const [NPCOne, setNPCOne] = useState(null);
     const [playerOne, setPlayerOne] = useState(null);
@@ -34,6 +42,9 @@ const Room = () =>{
         return "Loading..."
        }
 
+       
+
+    
     return(
         <div className='room-container'>
             <header className='header'>
@@ -56,6 +67,9 @@ const Room = () =>{
                 </div>
                 <div className='text-box'>
                     game text here
+                    <div>
+                    <button className="back-to-map" onClick={handleClick}>Back To The Map!</button>
+                    </div>
                 </div>
                 <div className='reward-box'>
                     reward goes here

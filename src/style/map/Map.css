@@ -5,7 +5,7 @@
     margin: .5%;
   }
   /* door */
-  button{
+  .door{
     background-image: url("http://localhost:3000/images/door.png");
     background-color: rgba(255, 0, 0, 0.0);
     background-repeat:no-repeat;
@@ -22,7 +22,7 @@
   }
   
   /* rope ladder */
-  button2{
+.ladder{
     background-image: url("http://localhost:3000/images/rope_ladder.png");
     background-color: rgba(255, 0, 0, 0.0);
     background-repeat:no-repeat;
@@ -33,9 +33,11 @@
   
   /* gate */
 
-  button3{
-    background-image: url("http://localhost:3000/images/gate.png");
+.gate{
+    background-image: url('/src/images/gate.png');
     background-repeat:no-repeat;
+    background-color: rgba(255, 0, 0, 0.0);
+    border-width: 0px;
     width: 20%;
   }
   
