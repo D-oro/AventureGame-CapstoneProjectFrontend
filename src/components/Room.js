@@ -14,17 +14,25 @@ const Room = () =>{
      navigate('/map')
     }
 
-    // const attackEnemy = () => {
-    //     playerOne.healthPoints -= NPCOne.attackValue
-    //     console.log(NPCOne.attackValue)
-    //     console.log(playerOne.weapon.attackPoints)
-    // } 
 
     const attackEnemy = () => {
         const npcOneCopy = {...NPCOne}
         npcOneCopy.healthPoints -= playerOne.weapon.attackPoints
         setNPCOne(npcOneCopy)
+
+        // update backend, we just use attack button for ease
+        const copyNPCOne = {...NPCOne}
+        copyNPCOne.name = "Bash"
+        const request = new Request()
+        request.put("/api/npcs", copyNPCOne)
+        .then((res) => {
+           return res.json()
+        })
+        .then((data) =>{
+            console.log(data)
+        })
     }
+
 
     const [NPCOne, setNPCOne] = useState(null);
     const [playerOne, setPlayerOne] = useState(null);
