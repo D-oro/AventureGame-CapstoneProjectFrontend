@@ -21,16 +21,20 @@ const Room = () =>{
         setNPCOne(npcOneCopy)
 
         // update backend, we just use attack button for ease
-        const copyNPCOne = {...NPCOne}
-        copyNPCOne.name = "Bash"
+        const copyPlayer1 = {...playerOne}
+        copyPlayer1.name = "Ash"
+        copyPlayer1.weapon.attackPoints += 5
         const request = new Request()
-        request.put("/api/npcs", copyNPCOne)
+        request.put("/api/players", copyPlayer1)
         .then((res) => {
            return res.json()
         })
         .then((data) =>{
             console.log(data)
         })
+
+        // and to keep the frontend in sync with the backend
+        setPlayerOne(copyPlayer1)
     }
 
 
