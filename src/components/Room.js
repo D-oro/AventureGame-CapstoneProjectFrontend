@@ -90,7 +90,7 @@ const Room = () =>{
                     inventory here
                 </div>
                 <div className='text-box'>
-                    game text here
+                    text box here
                     <div>
                     <button className="back-to-map" onClick={handleClick}>Back To The Map!</button>
                     <button className='attack' onClick={attackEnemy}>Attack!</button>
