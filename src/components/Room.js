@@ -14,6 +14,18 @@ const Room = () =>{
      navigate('/map')
     }
 
+    // const attackEnemy = () => {
+    //     playerOne.healthPoints -= NPCOne.attackValue
+    //     console.log(NPCOne.attackValue)
+    //     console.log(playerOne.weapon.attackPoints)
+    // } 
+
+    const attackEnemy = () => {
+        const npcOneCopy = {...NPCOne}
+        npcOneCopy.healthPoints -= playerOne.weapon.attackPoints
+        setNPCOne(npcOneCopy)
+    }
+
     const [NPCOne, setNPCOne] = useState(null);
     const [playerOne, setPlayerOne] = useState(null);
 
@@ -48,8 +60,8 @@ const Room = () =>{
     return(
         <div className='room-container'>
             <header className='header'>
-            <progress className='health-bar' id="playerHealth" value={playerOne.healthPoints} max="100"></progress>
-            <progress className='health-bar' id="enemyHealth" value={NPCOne.healthPoints} max="100"></progress>
+            <progress className='health-bar' id="playerHealth" value={playerOne.healthPoints} max={playerOne.startHealthPoints}></progress>
+            <progress className='health-bar' id="enemyHealth" value={NPCOne.healthPoints} max={NPCOne.startHealthPoints}></progress>
             </header>
 
             <main className='main'>
@@ -69,6 +81,7 @@ const Room = () =>{
                     game text here
                     <div>
                     <button className="back-to-map" onClick={handleClick}>Back To The Map!</button>
+                    <button className='attack' onClick={attackEnemy}>Attack!</button>
                     </div>
                 </div>
                 <div className='reward-box'>
