@@ -1,6 +1,7 @@
 # Big thanks to all artists sharing their work on OpenGameArt
 Many of the images have been altered, here are the links to the originals: 
 - Dragon : https://opengameart.org/content/dragon-9
+- Crawly monster: https://opengameart.org/content/monster-sprite 
 - Player character: https://opengameart.org/content/lpc-heroine
 - Axe: https://opengameart.org/content/war-axe-64x64 
 - Stonewall: https://opengameart.org/content/grey-stone-wall-256px 

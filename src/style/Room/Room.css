@@ -25,9 +25,9 @@
 .enemy-box {
     border: solid black 2 px;
     width: 50%;
-    background-image: url('/src/images/dragon.gif');
+    background-image: url('/src/images/chicken.gif');
     background-repeat: no-repeat;
-    background-position: 50% 0%;
+    background-position: 50% 50%;
 }
 
 .player-box {
