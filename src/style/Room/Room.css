@@ -1,0 +1,60 @@
+.room-container {
+    text-align: center;
+}
+
+.header {
+    display: flex;
+    justify-content: space-evenly;
+    border: solid black 2px;
+    height: 10vh;
+}
+
+.main {
+    display: flex;
+    height: 40vh;
+    border: solid black 2px;
+    flex-direction: row;
+}
+
+.health-bar {
+    height: 3em;
+    width: 16em;
+    
+}
+
+.enemy-box {
+    border: solid black 2 px;
+    width: 50%;
+    background-image: url('/src/images/smoku01.gif');
+    background-repeat: no-repeat;
+}
+
+.player-box {
+    border: solid black 2 px;
+    width: 50%;
+    background-image: url('/src/images/warrior.gif');
+    background-repeat: no-repeat;
+}
+
+
+.footer {
+    display: flex;
+    border: solid black 2px;
+    height: 50vh;
+    flex-direction: row;
+}
+
+.reward-box {
+    width: 20%;
+    border: 2px solid black;
+}
+
+.inventory-box {
+    width: 20%;
+    border: 2px solid black;
+}
+
+.text-box {
+    width: 60%;
+    border: 2px solid black;
+}
