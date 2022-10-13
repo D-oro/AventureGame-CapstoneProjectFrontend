@@ -74,6 +74,10 @@ function Map (){
       navigate('/room')
     }
 
+    const startGame = () => {
+      document.getElementById("Left1").checked = true;
+    }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -81,8 +85,8 @@ function Map (){
 {/* first row from the top */}
         <div className="radioRow4">
 
-          {/* Button, looks like a gate */}
-          <button3 onClick={clickDoor}></button3>
+{/* Gate */}
+          <button className="gate" onClick={clickDoor}></button>
 
           <input type="radio" id="Left4" name="Row4" value="Left4"></input>
           <label for="Left4">Left4</label>
@@ -97,19 +101,22 @@ function Map (){
           <label for="Right4">Right4</label>
         </div>
 
+{/* Floor */}
+        <div className="floor"></div>
+
 {/* second row from the top */}
         <div className="radioRow3">
           <input type="radio" id="Left3" name="Row3" value="Left3"></input>
           <label for="Left3">Left3</label>
 
-          {/* Button, looks like a door */}
-          <button onClick={clickDoor}></button>
+{/* Door*/}
+          <button className="door" onClick={clickDoor}></button>
 
           <input type="radio" id="MidLeft3" name="Row3" value="MidLeft3"></input>
           <label for="MidLeft3">MidLeft3</label>
 
-          {/* Button, looks like a door */}
-          <button onClick={clickDoor}></button>
+{/* Door*/}
+          <button className="door" onClick={clickDoor}></button>
 
           <input type="radio" id="MidRight3" name="Row3" value="MidRight3"></input>
           <label for="MidRight3">MidRight3</label>
@@ -117,21 +124,22 @@ function Map (){
           <input type="radio" id="Right3" name="Row3" value="Right3"></input>
           <label for="Right3">Right3</label>
 
-          {/* Button, looks like a ladder */}
-          <button2 onClick={useLadder3}></button2>
+{/* Ladder */}
+          <button className="ladder" onClick={useLadder3}></button>
         </div>
-
+{/* Floor */}
+        <div className="floor"></div>
 
 {/* third row from the top */}
         <div className="radioRow2">
-          {/* Button, looks like a door */}
-          <button onClick={clickDoor}></button>
+{/* Door*/}
+          <button className="door" onClick={clickDoor}></button>
 
           <input type="radio" id="Left2" name="Row2" value="Left2"></input>
           <label for="Left2">Left2</label>
 
           {/* Button, looks like a ladder */}
-          <button2 onClick={useLadder2}></button2>
+          <button className="ladder" onClick={useLadder2}></button>
 
           <input type="radio" id="MidLeft2" name="Row2" value="MidLeft2"></input>
           <label for="MidLeft2">MidLeft2</label>
@@ -143,16 +151,22 @@ function Map (){
           <label for="Right2">Right2</label>
         </div>
 
+{/* Floor */}
+        <div className="floor"></div>
+
 {/* fourth row from the top */}
         <div className="radioRow1">
+
+          <button className="sign" onClick={startGame}></button>
+
           <input type="radio" id="Left1" name="Row1" value="Left1"></input>
           <label for="Left1">Left1</label>
 
           <input type="radio" id="MidLeft1" name="Row1" value="MidLeft1"></input>
           <label for="MidLeft1">MidLeft1</label>
 
-          {/* Button, looks like a ladder */}
-          <button2 onClick={useLadder1}></button2>
+{/* Ladder */}
+          <button className="ladder" onClick={useLadder1}></button>
 
           <input type="radio" id="MidRight1" name="Row1" value="MidRight1"></input>
           <label for="MidRight1">MidRight1</label>
@@ -160,9 +174,13 @@ function Map (){
           <input type="radio" id="Right1" name="Row1" value="Right1"></input>
           <label for="Right1">Right1</label>
 
-{/* Button, looks like a door */}
-          <button onClick={clickDoor}></button>
+{/* Door */}
+          <button className="door" onClick={clickDoor}></button>
         </div>
+
+{/* Floor */}
+        <div className="floor"></div>
+
       </header>
     </div>
   );
