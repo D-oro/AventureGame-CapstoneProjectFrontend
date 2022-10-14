@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router';
 import '../style/Room/Room.css'
 import Request from '../helpers/request';
 import Narrator from './Narrator';
-import Treasure from './Treasure'
-import { wait } from '@testing-library/user-event/dist/utils';
+import Treasure from './Treasure';
+
 
 const Room = () =>{
 
@@ -13,10 +13,6 @@ const Room = () =>{
     const handleClick = () =>{
      navigate('/map')
     }
-
-    // const attackModifier = () => {
-    //    return Math.round(Math.random()) * 2 - 1
-    // }
 
     const attackEnemy = () => {
         const npcOneCopy = {...NPCOne}
@@ -27,11 +23,6 @@ const Room = () =>{
         setNarratorMessage(`${playerOne.name} attacks ${npcOneCopy.name} with ${playerOne.weapon.attackPoints}`)
         setNPCOne(npcOneCopy)
 
-        // useEffect(() => {
-        
-       
-        //     setNarratorMessage(`${playerOne.name} attacked ${NPCOne.name} for ${playerOne.weapon.attackPoints} damage`)
-        // })
 
         // update backend, we just use attack button for ease
 
@@ -99,7 +90,9 @@ const Room = () =>{
         <div className='room-container'>
             <header className='header'>
             <progress className='health-bar' id="playerHealth" value={playerOne.healthPoints} max={playerOne.startHealthPoints}></progress>
-            <div>{playerOne.name} VS {NPCOne.name}</div>
+            <div className='char-name'>{playerOne.name}</div>
+            <img className='vs-img' src={require(`../images/vs-41949.png`)} alt='oopsie'/>
+            <div className='char-name'>{NPCOne.name}</div>
             <progress className='health-bar' id="enemyHealth" value={NPCOne.healthPoints} max={NPCOne.startHealthPoints}></progress>
             </header>
 
@@ -124,8 +117,8 @@ const Room = () =>{
                     }/>
                    
                     <div>
-                    <button className="back-to-map" onClick={handleClick}>Back To The Map!</button>
                     <button className='attack' onClick={attackFunction}>Attack!</button>
+                    <button className="back-to-map" onClick={handleClick}>Run Away!</button>
                     </div>
                 </div>
                 <div className='reward-box'>
