@@ -1,0 +1,43 @@
+/* the box in which the treasure popup is */
+.treasure{
+    background-image: url('/src/images/closed_chest.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 20vh;
+    position: relative;
+    display: flex;
+    cursor: pointer;
+}
+
+/* The treasure popup, appears on top */
+.treasure .treasuretext{
+    visibility: hidden;
+    width: 100%;
+    height: 100%;
+    background-image: url('/src/images/open_chest.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    z-index: 1;
+}
+
+/* Toggle this class - hide and show the popup */
+.treasure .show{
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;} 
+    to {opacity: 1;}
+  }
+  
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+  }
