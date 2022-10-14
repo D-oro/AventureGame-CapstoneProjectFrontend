@@ -69,4 +69,6 @@ progress {
 .text-box {
     width: 60%;
     border: 2px solid black;
+    font-size: 12px;
 }
+

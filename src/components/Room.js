@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import { useNavigate } from 'react-router';
 import '../style/Room/Room.css'
-import PlayerContainer from '../containers/PlayerContainer';
 import Request from '../helpers/request';
 import { Navigate } from 'react-router-dom';
+import Narrator from './Narrator';
 
 
 const Room = () =>{
@@ -40,6 +40,7 @@ const Room = () =>{
 
     const [NPCOne, setNPCOne] = useState(null);
     const [playerOne, setPlayerOne] = useState(null);
+    const [narratorMessage, setNarratorMessage] = useState('');
 
         useEffect(() => {
             const request = new Request()
@@ -90,7 +91,12 @@ const Room = () =>{
                     inventory here
                 </div>
                 <div className='text-box'>
-                    text box here
+                    
+                    <Narrator 
+                    message={
+                        narratorMessage || `Welcome to the battle ${playerOne.name}`
+                    }/>
+                   
                     <div>
                     <button className="back-to-map" onClick={handleClick}>Back To The Map!</button>
                     <button className='attack' onClick={attackEnemy}>Attack!</button>
