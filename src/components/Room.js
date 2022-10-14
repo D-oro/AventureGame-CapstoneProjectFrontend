@@ -94,7 +94,7 @@ const Room = () =>{
                     
                     <Narrator 
                     message={
-                        narratorMessage || `Welcome to the battle ${playerOne.name}`
+                        narratorMessage || `Prepare for battle ${playerOne.name}`
                     }/>
                    
                     <div>
