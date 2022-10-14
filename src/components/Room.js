@@ -3,10 +3,8 @@ import { useNavigate } from 'react-router';
 import '../style/Room/Room.css'
 import Request from '../helpers/request';
 import Narrator from './Narrator';
+import Treasure from './Treasure'
 import { wait } from '@testing-library/user-event/dist/utils';
-
-
-
 
 const Room = () =>{
 
@@ -20,9 +18,6 @@ const Room = () =>{
     //    return Math.round(Math.random()) * 2 - 1
     // }
 
-   
-
-
     const attackEnemy = () => {
         const npcOneCopy = {...NPCOne}
         const copyPlayer1 = {...playerOne}
@@ -31,11 +26,6 @@ const Room = () =>{
         npcOneCopy.healthPoints -= playerOne.weapon.attackPoints + Math.round(Math.random()) * 2 -6
         setNarratorMessage(`${playerOne.name} attacks ${npcOneCopy.name} with ${playerOne.weapon.attackPoints}`)
         setNPCOne(npcOneCopy)
-
-    
-        
-
-       
 
         // useEffect(() => {
         
@@ -67,7 +57,6 @@ const Room = () =>{
         const copyPlayer1 = {...playerOne}
         playerOne.healthPoints -= npcOneCopy.attackValue + Math.round(Math.random()) * 2 -6
         setNarratorMessage(`${npcOneCopy.name} attacks ${playerOne.name}`)
-
     }
 
     const attackFunction = () => {
@@ -76,12 +65,7 @@ const Room = () =>{
         setTimeout(() => {
             attackPlayer();
         }, 3500)
-        
-
     }
-
-    
-
 
     const [NPCOne, setNPCOne] = useState(null);
     const [playerOne, setPlayerOne] = useState(null);
@@ -103,9 +87,6 @@ const Room = () =>{
             })   
        }, [])
 
-    
-
-
         if(!NPCOne){
             return "Loading..."
         }
@@ -114,11 +95,6 @@ const Room = () =>{
         return "Loading..."
        }
 
-   
-
-       
-
-    
     return(
         <div className='room-container'>
             <header className='header'>
@@ -154,13 +130,13 @@ const Room = () =>{
                 </div>
                 <div className='reward-box'>
                     <div className='reward-box-content'>
-                    Defeat {NPCOne.name} to receive a reward!
+                        Defeat {NPCOne.name} to receive a reward!
+                        <Treasure/>
                     </div>
                 </div>
             </footer>
         </div>
     )
-
 }
 
 export default Room;
