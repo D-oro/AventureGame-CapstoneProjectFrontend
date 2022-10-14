@@ -79,10 +79,10 @@ const Room = () =>{
 
             <main className='main'>
                <div className='player-box'>
-                    player avatar here
+                    {playerOne.name}
                </div>
                <div className='enemy-box'>
-                    enemy avatar here
+                    {NPCOne.name}
                </div>
             </main>
 
@@ -103,7 +103,12 @@ const Room = () =>{
                     </div>
                 </div>
                 <div className='reward-box'>
-                    reward goes here
+                    <div className='reward-box-content'>
+                    <Narrator 
+                    message={
+                        narratorMessage || `Defeat ${NPCOne.name} to recieve a reward!`
+                    }/>
+                    </div>
                 </div>
             </footer>
         </div>

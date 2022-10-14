@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import wait from "../helpers/helpers";
+import wait from "../helpers/wait";
 
 const useTypedMessage = (message) => {
 
