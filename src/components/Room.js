@@ -4,6 +4,7 @@ import '../style/Room/Room.css'
 import PlayerContainer from '../containers/PlayerContainer';
 import Request from '../helpers/request';
 import { Navigate } from 'react-router-dom';
+import Treasure from './Treasure';
 
 
 const Room = () =>{
@@ -97,7 +98,7 @@ const Room = () =>{
                     </div>
                 </div>
                 <div className='reward-box'>
-                    reward goes here
+                    <Treasure/>
                 </div>
             </footer>
         </div>
