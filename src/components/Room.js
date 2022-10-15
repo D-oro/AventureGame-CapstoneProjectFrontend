@@ -3,9 +3,8 @@ import { useNavigate } from 'react-router';
 import '../style/Room/Room.css'
 import Request from '../helpers/request';
 import Narrator from './Narrator';
-import Treasure from './Treasure'
+import Treasure from './Treasure';
 import Inventory from './Inventory';
-import { wait } from '@testing-library/user-event/dist/utils';
 
 const Room = () =>{
 
