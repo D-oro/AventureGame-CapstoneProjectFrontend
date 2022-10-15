@@ -4,7 +4,7 @@ import '../style/Room/Room.css'
 import Request from '../helpers/request';
 import Narrator from './Narrator';
 import Treasure from './Treasure';
-
+import Inventory from './Inventory';
 
 const Room = () =>{
 
@@ -106,7 +106,7 @@ const Room = () =>{
 
             <footer className='footer'>
                 <div className='inventory-box'>
-                    inventory here
+                    <Inventory/>
                 </div>
                 
                 <div className='text-box'>
