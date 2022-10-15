@@ -16,15 +16,21 @@ const Room = () =>{
 
     const attackEnemy = () => {
         const npcOneCopy = {...NPCOne}
-        npcOneCopy.healthPoints -= playerOne.weapon.attackPoints + Math.round(Math.random()) * 2 -1
-        setNarratorMessage(`${playerOne.name} attacks ${npcOneCopy.name} with ${playerOne.weapon.attackPoints}`)
+        const modifiers = Array(-5, -4, -3, -2, -1, 0, 1, 2);
+        const modifier = modifiers[Math.floor(Math.random()*modifiers.length)];
+        const modifiedAttackValue = playerOne.weapon.attackPoints + modifier;
+        npcOneCopy.healthPoints -=  modifiedAttackValue
+        setNarratorMessage(`${playerOne.name} attacks ${npcOneCopy.name} for ${modifiedAttackValue} damage`)
         setNPCOne(npcOneCopy)
     }
 
     const attackPlayer = () => {
         const npcOneCopy = {...NPCOne}
-        playerOne.healthPoints -= npcOneCopy.attackValue + Math.round(Math.random()) * 2 -1
-        setNarratorMessage(`${npcOneCopy.name} attacks ${playerOne.name}`)
+        const modifiers = Array(-5, -4, -3, -2, -1, 0, 1, 2);
+        const modifier = modifiers[Math.floor(Math.random()*modifiers.length)];
+        const modifiedAttackValue = npcOneCopy.attackValue + modifier;
+        playerOne.healthPoints -=  modifiedAttackValue
+        setNarratorMessage(`${npcOneCopy.name} attacks ${playerOne.name} for ${modifiedAttackValue} damage`)
     }
 
     const btn = document.getElementById('attack') 
@@ -35,12 +41,9 @@ const Room = () =>{
         }, 4000)
     }
 
-    
-
     const attackFunction = () => {
-
-        attackEnemy();
-        disableButton();
+    attackEnemy();
+    disableButton();
         setTimeout(() => {
             attackPlayer();
         }, 3500)
