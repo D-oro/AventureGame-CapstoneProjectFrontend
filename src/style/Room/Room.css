@@ -7,6 +7,11 @@
     justify-content: space-evenly;
     border: solid black 2px;
     height: 10vh;
+    align-items: center;
+    background-color: slategray;
+    font-family: 'Silkscreen', cursive;
+    font-size: 20px;
+    color: azure;
 }
 
 .main {
@@ -14,19 +19,37 @@
     height: 40vh;
     border: solid black 2px;
     flex-direction: row;
-}
-
-.health-bar {
-    height: 3em;
-    width: 16em;
+    background-image: url('/src/images/castle-walls.png');
+    background-size: contain;
+    
     
 }
+
+progress {
+    border: solid rgb(25, 30, 178) 2px;
+    border-radius: 7px; 
+    width: 16em;
+    height: 1.8em;
+    box-shadow: 2px 2px 4px rgba( 0, 0, 0, 0.2 );
+  }
+  progress::-webkit-progress-bar {
+    background-color: rgb(255, 0, 30);
+    border-radius: 7px;
+  }
+  progress::-webkit-progress-value {
+    background-image: linear-gradient(to right, yellow, green, green);
+    border-radius: 7px;
+  }
 
 .enemy-box {
     border: solid black 2 px;
     width: 50%;
-    background-image: url('/src/images/smoku01.gif');
+    background-image: url('/src/images/chicken.gif');
     background-repeat: no-repeat;
+    background-position: 50% 50%;
+    color: azure;
+    font-size: 30px;
+    font-family: 'Silkscreen', cursive;
 }
 
 .player-box {
@@ -34,8 +57,11 @@
     width: 50%;
     background-image: url('/src/images/warrior.gif');
     background-repeat: no-repeat;
+    background-position: 50% 30%;
+    color: azure;
+    font-size: 30px;
+    font-family: 'Silkscreen', cursive;
 }
-
 
 .footer {
     display: flex;
@@ -45,16 +71,41 @@
 }
 
 .reward-box {
+    display: flex;
     width: 20%;
     border: 2px solid black;
+    align-items: center;
+    justify-content: space-between;
+    background-color: firebrick;
 }
 
 .inventory-box {
     width: 20%;
     border: 2px solid black;
+    background-color: firebrick;
 }
 
 .text-box {
     width: 60%;
     border: 2px solid black;
+    font-size: 20px;
+    background-color: slategray;
+    font-family: 'Silkscreen', cursive;
+    align-items: center;
+    
 }
+
+.vs-img {
+    width: 10%;
+    height: 75%;
+}
+
+.char-name {
+    width: 15%;
+
+}
+
+
+
+
+

@@ -1,0 +1,11 @@
+.start-game{
+    height: 100px;
+    width: 500px;
+}
+.home-page {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+}
+

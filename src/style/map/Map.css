@@ -4,31 +4,50 @@
     background-repeat: no-repeat;
     margin: .5%;
   }
+
+  .sign{
+    background-image: url('/src/images/sign.png');
+    background-repeat: no-repeat;
+    width: 7%;
+    background-color: rgba(255, 0, 0, 0.0);
+    background-position: bottom;
+    border-width: 0px;
+  }
+
   /* door */
-  button{
+  .door{
     background-image: url("http://localhost:3000/images/door.png");
     background-color: rgba(255, 0, 0, 0.0);
     background-repeat:no-repeat;
     background-position: bottom;
     border-width: 0px;
     width: 8%;
-    margin-bottom: 1%;
+    margin-bottom: 0%;
+  }
+
+  .floor{
+    background-image: url('/src/images/floor.png');
+    height: 1vh;
+    width: 100vw;
   }
   
   /* rope ladder */
-  button2{
+.ladder{
     background-image: url("http://localhost:3000/images/rope_ladder.png");
     background-color: rgba(255, 0, 0, 0.0);
     background-repeat:no-repeat;
     background-position: 0% 0%;
     border-width: 0px;
     width: 5%; 
-    /* margin-bottom: 8%; */
   }
   
-  button3{
-    background-image: url("http://localhost:3000/images/gate.png");
+  /* gate */
+
+.gate{
+    background-image: url('/src/images/gate.png');
     background-repeat:no-repeat;
+    background-color: rgba(255, 0, 0, 0.0);
+    border-width: 0px;
     width: 20%;
   }
   
@@ -36,7 +55,7 @@
   .radioRow4{
     display:flex;
     justify-content: space-between;
-    height: 25vh;
+    height: 24vh;
   }
   
   .radioRow4 input[type="radio"] {
@@ -65,7 +84,7 @@
   .radioRow3{
     display:flex;
     justify-content: space-between;
-    height: 25vh;
+    height: 24vh;
   }
   
   .radioRow3 input[type="radio"] {
@@ -94,7 +113,7 @@
   .radioRow2{
     display:flex;
     justify-content: space-between;
-    height: 25vh;
+    height: 24vh;
   }
   
   .radioRow2 input[type="radio"] {
@@ -122,7 +141,7 @@
   .radioRow1{
     display:flex;
     justify-content: space-between;
-    height: 25vh;
+    height: 24vh;
   }
   
   .radioRow1 input[type="radio"] {
