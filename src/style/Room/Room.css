@@ -91,6 +91,8 @@ progress {
     font-size: 20px;
     background-color: slategray;
     font-family: 'Silkscreen', cursive;
+    align-items: center;
+    
 }
 
 .vs-img {
@@ -102,6 +104,8 @@ progress {
     width: 15%;
 
 }
+
+
 
 
 

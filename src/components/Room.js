@@ -19,7 +19,7 @@ const Room = () =>{
         const copyPlayer1 = {...playerOne}
         copyPlayer1.name = "Ash"
         npcOneCopy.attackValue = 15
-        npcOneCopy.healthPoints -= playerOne.weapon.attackPoints + Math.round(Math.random()) * 2 -6
+        npcOneCopy.healthPoints -= playerOne.weapon.attackPoints + Math.round(Math.random()) * 2 -1
         setNarratorMessage(`${playerOne.name} attacks ${npcOneCopy.name} with ${playerOne.weapon.attackPoints}`)
         setNPCOne(npcOneCopy)
 
@@ -45,8 +45,7 @@ const Room = () =>{
 
     const attackPlayer = () => {
         const npcOneCopy = {...NPCOne}
-        const copyPlayer1 = {...playerOne}
-        playerOne.healthPoints -= npcOneCopy.attackValue + Math.round(Math.random()) * 2 -6
+        playerOne.healthPoints -= npcOneCopy.attackValue + Math.round(Math.random()) * 2 -1
         setNarratorMessage(`${npcOneCopy.name} attacks ${playerOne.name}`)
     }
 
@@ -76,15 +75,15 @@ const Room = () =>{
             .then((data) => {
             setPlayerOne(data[0]);
             })   
-       }, [])
+        }, [])
 
         if(!NPCOne){
             return "Loading..."
         }
 
-       if(!playerOne){
-        return "Loading..."
-       }
+        if(!playerOne){
+            return "Loading..."
+        }
 
     return(
         <div className='room-container'>
@@ -109,7 +108,9 @@ const Room = () =>{
                 <div className='inventory-box'>
                     inventory here
                 </div>
+                
                 <div className='text-box'>
+                    
                     
                     <Narrator 
                     message={
