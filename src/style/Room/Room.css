@@ -20,10 +20,18 @@
     background-size: contain;
 }
 
+.footer {
+    display: flex;
+    border: solid black 2px;
+    height: 50vh;
+    flex-direction: row;
+    background-color: firebrick;
+}
+
 progress {
     border-radius: 7px; 
     width: 16em;
-    height: 1.8em;
+    height: 40%;
     box-shadow: 2px 2px 4px rgba( 0, 0, 0, 0.2 );
   }
   progress::-webkit-progress-bar {
@@ -38,7 +46,7 @@ progress {
 .enemy-box {
     border: solid black 2 px;
     width: 50%;
-    background-image: url('/src/images/chicken.gif');
+    background-image: url('/src/images/dragon.gif');
     background-repeat: no-repeat;
     background-position: 50% 50%;
     color: azure;
@@ -55,13 +63,6 @@ progress {
     font-size: 30px;
 }
 
-.footer {
-    display: flex;
-    border: solid black 2px;
-    height: 50vh;
-    flex-direction: row;
-}
-
 .reward-box {
     display: flex;
     width: 20%;
@@ -72,8 +73,13 @@ progress {
 }
 
 .inventory-box {
-    width: 20vw;
+    display: flex;
+    flex-wrap: wrap;
+    align-items:flex-start;
+    width: 20%;
+    height: 49.5vh;
     border: 2px solid black;
+/* for testing, change back to firebrick: */
     background-color: firebrick;
 }
 

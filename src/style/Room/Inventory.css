@@ -1,77 +1,29 @@
-/* the box in which the treasure popup is */
-.inventory{
-    background-image: url('/src/images/bag.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 50vh;
-    position: relative;
-    display: flex;
-    cursor: pointer;
-}
-
-/* The treasure popup, appears on top */
-.inventory .contents{
-    visibility: hidden;
-    width: 100%;
-    height: 50vh;
-    background-image: url('/src/images/bag_open.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    display: flex;
-    position: absolute;
-    z-index: 1;
-}
-
-.inventory.contents .bluePotion{
-    z-index:2;
-    background-image: url('/src/images/bluePotion.png');
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
-.inventory.contents .redPotion{
-    z-index:2;
-    background-image: url('/src/images/redPotion.png');
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
-.inventory.contents .greenPotion{
-    z-index:2;
-    background-image: url('/src/images/greenPotion.png');
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
-.inventory.contents .yellowPotion{
-    z-index:2;
-    background-image: url('/src/images/yellowPotion.png');
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
-.inventory .contents:hover{
-    background-color: aliceblue;
+.redPotion:hover, .yellowPotion:hover, .bluePotion:hover, .greenPotion:hover{
+    background-color: white;
     opacity: 50%;
 }
 
-/* Toggle this class - hide and show the popup */
-.inventory .show{
-    visibility: visible;
-    -webkit-animation: fadeIn 1s;
-    animation: fadeIn 1s;
+.redPotion, .yellowPotion, .bluePotion, .greenPotion{
+    background-color: rgba(255, 0, 0, 0.0);
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 7vh;
+    width: 7vw;
+    border-width: 0px;
 }
 
-/* Add animation (fade in the popup) */
-@-webkit-keyframes fadeIn {
-    from {opacity: 0;} 
-    to {opacity: 1;}
-  }
-  
-@keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity:1 ;}
-  }
+.redPotion{
+    background-image: url('/src/images/redPotion.png');
+}
+
+.yellowPotion{
+    background-image: url('/src/images/yellowPotion.png');
+}
+
+.bluePotion{
+    background-image: url('/src/images/bluePotion.png');
+}
+
+.greenPotion{
+    background-image: url('/src/images/greenPotion.png');
+}
