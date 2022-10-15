@@ -14,24 +14,15 @@ const Room = () =>{
      navigate('/map')
     }
 
-    // const attackModifier = () => {
-    //    return Math.round(Math.random()) * 2 - 1
-    // }
-
     const attackEnemy = () => {
         const npcOneCopy = {...NPCOne}
         const copyPlayer1 = {...playerOne}
         copyPlayer1.name = "Ash"
         npcOneCopy.attackValue = 15
-        npcOneCopy.healthPoints -= playerOne.weapon.attackPoints + Math.round(Math.random()) * 2 -6
+        npcOneCopy.healthPoints -= playerOne.weapon.attackPoints + Math.round(Math.random()) * 2 -1
         setNarratorMessage(`${playerOne.name} attacks ${npcOneCopy.name} with ${playerOne.weapon.attackPoints}`)
         setNPCOne(npcOneCopy)
 
-        // useEffect(() => {
-        
-       
-        //     setNarratorMessage(`${playerOne.name} attacked ${NPCOne.name} for ${playerOne.weapon.attackPoints} damage`)
-        // })
 
         // update backend, we just use attack button for ease
 
@@ -54,8 +45,7 @@ const Room = () =>{
 
     const attackPlayer = () => {
         const npcOneCopy = {...NPCOne}
-        const copyPlayer1 = {...playerOne}
-        playerOne.healthPoints -= npcOneCopy.attackValue + Math.round(Math.random()) * 2 -6
+        playerOne.healthPoints -= npcOneCopy.attackValue + Math.round(Math.random()) * 2 -1
         setNarratorMessage(`${npcOneCopy.name} attacks ${playerOne.name}`)
     }
 
@@ -85,21 +75,23 @@ const Room = () =>{
             .then((data) => {
             setPlayerOne(data[0]);
             })   
-       }, [])
+        }, [])
 
         if(!NPCOne){
             return "Loading..."
         }
 
-       if(!playerOne){
-        return "Loading..."
-       }
+        if(!playerOne){
+            return "Loading..."
+        }
 
     return(
         <div className='room-container'>
             <header className='header'>
             <progress className='health-bar' id="playerHealth" value={playerOne.healthPoints} max={playerOne.startHealthPoints}></progress>
-            <div>{playerOne.name} VS {NPCOne.name}</div>
+            <div className='char-name'>{playerOne.name}</div>
+            <img className='vs-img' src={require(`../images/vs-41949.png`)} alt='oopsie'/>
+            <div className='char-name'>{NPCOne.name}</div>
             <progress className='health-bar' id="enemyHealth" value={NPCOne.healthPoints} max={NPCOne.startHealthPoints}></progress>
             </header>
 
@@ -116,7 +108,9 @@ const Room = () =>{
                 <div className='inventory-box'>
                     <Inventory/>
                 </div>
+                
                 <div className='text-box'>
+                    
                     
                     <Narrator 
                     message={
@@ -124,8 +118,8 @@ const Room = () =>{
                     }/>
                    
                     <div>
-                    <button className="back-to-map" onClick={handleClick}>Back To The Map!</button>
                     <button className='attack' onClick={attackFunction}>Attack!</button>
+                    <button className="back-to-map" onClick={handleClick}>Run Away!</button>
                     </div>
                 </div>
                 <div className='reward-box'>

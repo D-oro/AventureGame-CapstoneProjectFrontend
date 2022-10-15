@@ -9,6 +9,9 @@
     height: 10vh;
     align-items: center;
     background-color: slategray;
+    font-family: 'Silkscreen', cursive;
+    font-size: 20px;
+    color: azure;
 }
 
 .main {
@@ -18,6 +21,8 @@
     flex-direction: row;
     background-image: url('/src/images/castle-walls.png');
     background-size: contain;
+    
+    
 }
 
 .footer {
@@ -29,6 +34,7 @@
 }
 
 progress {
+    border: solid rgb(25, 30, 178) 2px;
     border-radius: 7px; 
     width: 16em;
     height: 40%;
@@ -39,7 +45,7 @@ progress {
     border-radius: 7px;
   }
   progress::-webkit-progress-value {
-    background-color: rgb(13, 255, 0);
+    background-image: linear-gradient(to right, yellow, green, green);
     border-radius: 7px;
   }
 
@@ -51,6 +57,7 @@ progress {
     background-position: 50% 50%;
     color: azure;
     font-size: 30px;
+    font-family: 'Silkscreen', cursive;
 }
 
 .player-box {
@@ -61,6 +68,7 @@ progress {
     background-position: 50% 30%;
     color: azure;
     font-size: 30px;
+    font-family: 'Silkscreen', cursive;
 }
 
 .reward-box {
@@ -88,5 +96,22 @@ progress {
     border: 2px solid black;
     font-size: 20px;
     background-color: slategray;
+    font-family: 'Silkscreen', cursive;
+    align-items: center;
+    
 }
+
+.vs-img {
+    width: 10%;
+    height: 75%;
+}
+
+.char-name {
+    width: 15%;
+
+}
+
+
+
+
 
