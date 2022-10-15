@@ -16,31 +16,9 @@ const Room = () =>{
 
     const attackEnemy = () => {
         const npcOneCopy = {...NPCOne}
-        const copyPlayer1 = {...playerOne}
-        copyPlayer1.name = "Ash"
-        npcOneCopy.attackValue = 15
         npcOneCopy.healthPoints -= playerOne.weapon.attackPoints + Math.round(Math.random()) * 2 -1
         setNarratorMessage(`${playerOne.name} attacks ${npcOneCopy.name} with ${playerOne.weapon.attackPoints}`)
         setNPCOne(npcOneCopy)
-
-
-        // update backend, we just use attack button for ease
-
-        // const copyPlayer1 = {...playerOne}
-        // copyPlayer1.name = "Ash"
-        
-        // copyPlayer1.weapon.attackPoints += 5
-        // const request = new Request()
-        // request.put("/api/players", copyPlayer1)
-        // .then((res) => {
-        //    return res.json()
-        // })
-        // .then((data) =>{
-        //     console.log(data)
-        // })
-
-        // // and to keep the frontend in sync with the backend
-        // setPlayerOne(copyPlayer1)
     }
 
     const attackPlayer = () => {
@@ -49,9 +27,20 @@ const Room = () =>{
         setNarratorMessage(`${npcOneCopy.name} attacks ${playerOne.name}`)
     }
 
+    const btn = document.getElementById('attack') 
+    function disableButton() {
+        btn.disabled = true;
+        setTimeout(() => {
+            btn.disabled = false;
+        }, 4000)
+    }
+
+    
+
     const attackFunction = () => {
 
         attackEnemy();
+        disableButton();
         setTimeout(() => {
             attackPlayer();
         }, 3500)
@@ -118,7 +107,7 @@ const Room = () =>{
                     }/>
                    
                     <div>
-                    <button className='attack' onClick={attackFunction}>Attack!</button>
+                    <button className='attack' id='attack' onClick={attackFunction}>Attack!</button>
                     <button className="back-to-map" onClick={handleClick}>Run Away!</button>
                     </div>
                 </div>
@@ -134,3 +123,28 @@ const Room = () =>{
 }
 
 export default Room;
+
+
+
+
+
+
+
+
+// update backend, we just use attack button for ease
+
+        // const copyPlayer1 = {...playerOne}
+        // copyPlayer1.name = "Ash"
+        
+        // copyPlayer1.weapon.attackPoints += 5
+        // const request = new Request()
+        // request.put("/api/players", copyPlayer1)
+        // .then((res) => {
+        //    return res.json()
+        // })
+        // .then((data) =>{
+        //     console.log(data)
+        // })
+
+        // // and to keep the frontend in sync with the backend
+        // setPlayerOne(copyPlayer1)
