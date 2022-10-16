@@ -82,10 +82,10 @@ function Map (){
     <div className="App">
       <header className="App-header">
 
-{/* first row from the top */}
+{/* Level 4 */}
         <div className="radioRow4">
 
-{/* Gate */}
+          {/* Gate */}
           <button className="gate" onClick={clickDoor}></button>
 
           <input type="radio" id="Left4" name="Row4" value="Left4"></input>
@@ -97,48 +97,61 @@ function Map (){
           <input type="radio" id="MidRight4" name="Row4" value="MidRight4"></input>
           <label for="MidRight4">MidRight4</label>
 
+          <input type="radio" id="MidMidRight4" name="Row4" value="MidMidRight4"></input>
+          <label for="MidMidRight4">MidMidRight4</label>
+
+          <input type="radio" id="MidRightRight4" name="Row4" value="MidRightRight4"></input>
+          <label for="MidRightRight4">MidRightRight4</label>
+
           <input type="radio" id="Right4" name="Row4" value="Right4"></input>
           <label for="Right4">Right4</label>
         </div>
 
-{/* Floor */}
-        <div className="floor"></div>
+          {/* Floor */}
+          <div className="floor"></div>
 
-{/* second row from the top */}
+{/* Level 3*/}
         <div className="radioRow3">
           <input type="radio" id="Left3" name="Row3" value="Left3"></input>
           <label for="Left3">Left3</label>
 
-{/* Door*/}
+          {/* Door*/}
           <button className="door" onClick={clickDoor}></button>
 
           <input type="radio" id="MidLeft3" name="Row3" value="MidLeft3"></input>
           <label for="MidLeft3">MidLeft3</label>
 
-{/* Door*/}
+          {/* Door*/}
           <button className="door" onClick={clickDoor}></button>
 
           <input type="radio" id="MidRight3" name="Row3" value="MidRight3"></input>
           <label for="MidRight3">MidRight3</label>
 
+          <input type="radio" id="MidMidRight3" name="Row3" value="MidMidRight3"></input>
+          <label for="MidMidRight3">MidMidRight3</label>
+
+          <input type="radio" id="MidRightRight3" name="Row3" value="MidRightRight3"></input>
+          <label for="MidRightRight3">MidRightRight3</label>
+
           <input type="radio" id="Right3" name="Row3" value="Right3"></input>
           <label for="Right3">Right3</label>
 
-{/* Ladder */}
+          {/* Ladder */}
           <button className="ladder" onClick={useLadder3}></button>
         </div>
-{/* Floor */}
-        <div className="floor"></div>
 
-{/* third row from the top */}
+          {/* Floor */}
+          <div className="floor"></div>
+
+{/* Level 2 */}
         <div className="radioRow2">
-{/* Door*/}
+          {/* Door*/}
           <button className="door" onClick={clickDoor}></button>
 
           <input type="radio" id="Left2" name="Row2" value="Left2"></input>
           <label for="Left2">Left2</label>
 
-          {/* Button, looks like a ladder */}
+          {/* Ladder */}
           <button className="ladder" onClick={useLadder2}></button>
 
           <input type="radio" id="MidLeft2" name="Row2" value="MidLeft2"></input>
@@ -147,14 +160,20 @@ function Map (){
           <input type="radio" id="MidRight2" name="Row2" value="MidRight2"></input>
           <label for="MidRight2">MidRight2</label>
 
+          <input type="radio" id="MidMidRight2" name="Row2" value="MidMidRight2"></input>
+          <label for="MidMidRight2">MidMidRight2</label>
+
+          <input type="radio" id="MidRightRight2" name="Row2" value="MidRightRight2"></input>
+          <label for="MidRightRight2">MidRightRight2</label>
+
           <input type="radio" id="Right2" name="Row2" value="Right2"></input>
           <label for="Right2">Right2</label>
         </div>
 
-{/* Floor */}
-        <div className="floor"></div>
+          {/* Floor */}
+          <div className="floor"></div>
 
-{/* fourth row from the top */}
+{/* Level 1 */}
         <div className="radioRow1">
 
           <button className="sign" onClick={startGame}></button>
@@ -165,21 +184,27 @@ function Map (){
           <input type="radio" id="MidLeft1" name="Row1" value="MidLeft1"></input>
           <label for="MidLeft1">MidLeft1</label>
 
-{/* Ladder */}
+          {/* Ladder */}
           <button className="ladder" onClick={useLadder1}></button>
 
           <input type="radio" id="MidRight1" name="Row1" value="MidRight1"></input>
           <label for="MidRight1">MidRight1</label>
 
+          <input type="radio" id="MidMidRight1" name="Row1" value="MidMidRight1"></input>
+          <label for="MidMidRight1">MidMidRight1</label>
+
+          <input type="radio" id="MidRightRight1" name="Row1" value="MidRightRight1"></input>
+          <label for="MidRightRight1">MidRightRight1</label>
+
           <input type="radio" id="Right1" name="Row1" value="Right1"></input>
           <label for="Right1">Right1</label>
 
-{/* Door */}
+          {/* Door */}
           <button className="door" onClick={clickDoor}></button>
         </div>
 
-{/* Floor */}
-        <div className="floor"></div>
+          {/* Floor */}
+          <div className="floor"></div>
 
       </header>
     </div>

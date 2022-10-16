@@ -1,167 +1,174 @@
 .App{
-    background-image: url('/src/images/brick-map.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-  }
+  background-image: url('/src/images/brick-map.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 
-  .sign{
-    background-image: url('/src/images/sign.png');
-    background-repeat: no-repeat;
-    width: 7%;
-    background-color: rgba(255, 0, 0, 0.0);
-    background-position: bottom;
-    border-width: 0px;
-  }
+.sign{
+  background-image: url('/src/images/sign.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 7%;
+  background-color: rgba(255, 0, 0, 0.0);
+  background-position: bottom;
+  border-width: 0px;
+}
 
-  /* door */
-  .door{
-    background-image: url('/src/images/door.png');
-    background-color: rgba(255, 0, 0, 0.0);
-    background-repeat:no-repeat;
-    background-position: bottom;
-    border-width: 0px;
-    width: 8%;
-    margin-bottom: 0%;
-  }
+/* door */
+.door{
+  background-image: url('/src/images/door.png');
+  background-size: contain;
+  background-color: rgba(255, 0, 0, 0.0);
+  background-repeat:no-repeat;
+  background-position: bottom;
+  border-width: 0px;
+  width: 8%;
+  margin-bottom: 0%;
+}
 
-  .floor{
-    background-image: url('/src/images/floor.png');
-    height: 1vh;
-    width: 100vw;
-  }
-  
-  /* rope ladder */
+.floor{
+  background-image: url('/src/images/floor.png');
+  height: 1vh;
+  width: 100vw;
+}
+
+/* rope ladder */
 .ladder{
-    background-image: url("http://localhost:3000/images/rope_ladder.png");
-    background-color: rgba(255, 0, 0, 0.0);
-    background-repeat:no-repeat;
-    background-position: 0% 0%;
-    border-width: 0px;
-    width: 5%; 
-  }
-  
-  /* gate */
+  background-image: url("http://localhost:3000/images/rope_ladder.png");
+  background-size: contain;
+  background-color: rgba(255, 0, 0, 0.0);
+  background-repeat:no-repeat;
+  background-position: 0% 0%;
+  border-width: 0px;
+  width: 5%; 
+  padding: 0%;
+}
+
+/* gate */
 
 .gate{
-    background-image: url('/src/images/gate.png');
-    background-repeat:no-repeat;
-    background-color: rgba(255, 0, 0, 0.0);
-    border-width: 0px;
-    width: 23%;
-    margin-left: 10px;
-    flex-shrink:1;
-  }
-  
-  /* fourth block */
-  .radioRow4{
-    display:flex;
-    justify-content: space-between;
-    height: 24vh;
-  }
-  
-  .radioRow4 input[type="radio"] {
-    opacity: 0;
-    position: fixed;
-    width: 0;
-  }
-  
-  .radioRow4 label {
-    /* change width to 25% at the end */
-    width: 20%;
-    /* delete background-colour at the end, just makes it easier to work with */
-    /* background-color: azure; */
-  }
-  
-  .radioRow4 input[type="radio"]:checked + label {
-    display: flex;
-    align-items: flex-end;
-    background-image: url("http://localhost:3000/images/player1.png");
-    background-repeat:no-repeat;
-    background-position: 0% 100%;
-  }
-  
-  
-  /* third block */
-  .radioRow3{
-    display:flex;
-    justify-content: space-between;
-    height: 24vh;
-  }
-  
-  .radioRow3 input[type="radio"] {
-    opacity: 0;
-    position: fixed;
-    width: 0;
-  }
-  
-  .radioRow3 label {
-    /* change width to 25% at the end */
-    width: 20%;
-    /* delete background-colour at the end, just makes it easier to work with */
-    /* background-color: azure; */
-  }
-  
-  .radioRow3 input[type="radio"]:checked + label {
-    display: flex;
-    align-items: flex-end;
-    background-image: url("http://localhost:3000/images/player1.png");
-    background-repeat:no-repeat;
-    background-position: 50% 100%;
-  }
-  
-  
-  /* second block */
-  .radioRow2{
-    display:flex;
-    justify-content: space-between;
-    height: 24vh;
-  }
-  
-  .radioRow2 input[type="radio"] {
-    opacity: 0;
-    position: fixed;
-    width: 0;
-  }
-  
-  .radioRow2 label {
-    /* change width to 25% at the end */
-    width: 20%;
-    /* delete background-colour at the end, just makes it easier to work with */
-    /* background-color: azure; */
-  }
-  
-  .radioRow2 input[type="radio"]:checked + label {
-    display: flex;
-    align-items: flex-end;
-    background-image: url("http://localhost:3000/images/player1.png");
-    background-repeat:no-repeat;
-    background-position: 0% 100%;
-  }
-  
-  /* first block */
-  .radioRow1{
-    display:flex;
-    justify-content: space-between;
-    height: 24vh;
-  }
-  
-  .radioRow1 input[type="radio"] {
-    opacity: 0;
-    position: fixed;
-    width: 0;
-  }
-  
-  .radioRow1 label {
-    /* change width to 25% at the end */
-    width: 20%;
-    /* delete background-colour at the end, just makes it easier to work with */
-    /* background-color: azure; */
-  }
-  
-  .radioRow1 input[type="radio"]:checked + label {
-    display: flex;
-    align-items: flex-end;
-    background-image: url("http://localhost:3000/images/player1.png");
-    background-repeat:no-repeat;
-    background-position: 100% 100%;
-  }
+  background-image: url('/src/images/gate.png');
+  background-size: contain;
+  background-position: 50% 100%;
+  background-repeat:no-repeat;
+  background-color: rgba(255, 0, 0, 0.0);
+  border-width: 0px;
+  width: 23%;
+  margin-left: 10px;
+  margin-bottom: 0%;
+  padding: 0%;
+}
+
+/* fourth block */
+.radioRow4{
+  display:flex;
+  justify-content: space-between;
+  height: 24vh;
+}
+
+.radioRow4 input[type="radio"] {
+  opacity: 0;
+  position: fixed;
+  width: 0;
+}
+
+.radioRow4 label {
+  /* change width to 25% at the end */
+  width: 16%;
+  /* delete background-colour at the end, just makes it easier to work with */
+  /* background-color: azure; */
+}
+
+.radioRow4 input[type="radio"]:checked + label {
+  display: flex;
+  align-items: flex-end;
+  background-image: url("http://localhost:3000/images/player1.png");
+  background-repeat:no-repeat;
+  background-position: 50% 100%;
+}
+
+
+/* third block */
+.radioRow3{
+  display:flex;
+  justify-content: space-between;
+  height: 24vh;
+}
+
+.radioRow3 input[type="radio"] {
+  opacity: 0;
+  position: fixed;
+  width: 0;
+}
+
+.radioRow3 label {
+  /* change width to 25% at the end */
+  width: 16%;
+  /* delete background-colour at the end, just makes it easier to work with */
+  /* background-color: azure; */
+}
+
+.radioRow3 input[type="radio"]:checked + label {
+  display: flex;
+  align-items: flex-end;
+  background-image: url("http://localhost:3000/images/player1.png");
+  background-repeat:no-repeat;
+  background-position: 50% 100%;
+}
+
+
+/* second block */
+.radioRow2{
+  display:flex;
+  justify-content: space-between;
+  height: 24vh;
+}
+
+.radioRow2 input[type="radio"] {
+  opacity: 0;
+  position: fixed;
+  width: 0;
+}
+
+.radioRow2 label {
+  /* change width to 25% at the end */
+  width: 16%;
+  /* delete background-colour at the end, just makes it easier to work with */
+  /* background-color: azure; */
+}
+
+.radioRow2 input[type="radio"]:checked + label {
+  display: flex;
+  align-items: flex-end;
+  background-image: url("http://localhost:3000/images/player1.png");
+  background-repeat:no-repeat;
+  background-position: 50% 100%;
+}
+
+/* first block */
+.radioRow1{
+  display:flex;
+  justify-content: space-between;
+  height: 24vh;
+}
+
+.radioRow1 input[type="radio"] {
+  opacity: 0;
+  position: fixed;
+  width: 0;
+}
+
+.radioRow1 label {
+  /* change width to 25% at the end */
+  width: 16%;
+  /* delete background-colour at the end, just makes it easier to work with */
+  /* background-color: azure; */
+}
+
+.radioRow1 input[type="radio"]:checked + label {
+  display: flex;
+  align-items: flex-end;
+  background-image: url("http://localhost:3000/images/player1.png");
+  background-repeat:no-repeat;
+  background-position: 50% 100%;
+}
