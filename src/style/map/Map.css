@@ -45,7 +45,6 @@
 }
 
 /* gate */
-
 .gate{
   background-image: url('/src/images/gate.png');
   background-size: contain;
@@ -59,7 +58,7 @@
   padding: 0%;
 }
 
-/* fourth block */
+/* Level 4 */
 .radioRow4{
   display:flex;
   justify-content: space-between;
@@ -73,10 +72,7 @@
 }
 
 .radioRow4 label {
-  /* change width to 25% at the end */
   width: 16%;
-  /* delete background-colour at the end, just makes it easier to work with */
-  /* background-color: azure; */
 }
 
 .radioRow4 input[type="radio"]:checked + label {
@@ -87,8 +83,7 @@
   background-position: 50% 100%;
 }
 
-
-/* third block */
+/* Level 3 */
 .radioRow3{
   display:flex;
   justify-content: space-between;
@@ -102,10 +97,7 @@
 }
 
 .radioRow3 label {
-  /* change width to 25% at the end */
   width: 16%;
-  /* delete background-colour at the end, just makes it easier to work with */
-  /* background-color: azure; */
 }
 
 .radioRow3 input[type="radio"]:checked + label {
@@ -116,8 +108,7 @@
   background-position: 50% 100%;
 }
 
-
-/* second block */
+/* Level 2 */
 .radioRow2{
   display:flex;
   justify-content: space-between;
@@ -131,10 +122,7 @@
 }
 
 .radioRow2 label {
-  /* change width to 25% at the end */
   width: 16%;
-  /* delete background-colour at the end, just makes it easier to work with */
-  /* background-color: azure; */
 }
 
 .radioRow2 input[type="radio"]:checked + label {
@@ -145,7 +133,7 @@
   background-position: 50% 100%;
 }
 
-/* first block */
+/* Level 1 */
 .radioRow1{
   display:flex;
   justify-content: space-between;
@@ -159,10 +147,7 @@
 }
 
 .radioRow1 label {
-  /* change width to 25% at the end */
   width: 16%;
-  /* delete background-colour at the end, just makes it easier to work with */
-  /* background-color: azure; */
 }
 
 .radioRow1 input[type="radio"]:checked + label {
