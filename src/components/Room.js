@@ -14,24 +14,47 @@ const Room = () =>{
      navigate('/map')
     }
 
+    useEffect(() => {
+        const npcOneCopy = {...NPCOne}
+        const playerOneCopy = {...playerOne}
+        if(npcOneCopy.healthPoints <= 0){
+            setTimeout(() => {
+                setNarratorMessage(`you win`)
+            }, 5000)
+            
+            
+               
+            
+        }else if(playerOneCopy.healthPoints <= 0){
+            setTimeout(() => {
+                setNarratorMessage(`you lose`)
+            }, 5000)
+            
+        } 
+    })
+
+    
+
     const attackEnemy = () => {
         const npcOneCopy = {...NPCOne}
-        const modifiers = Array(-5, -4, -3, -2, -1, 0, 1, 2);
+        const modifiers = [-5, -4, -3, -2, -1, 0, 1, 2];
         const modifier = modifiers[Math.floor(Math.random()*modifiers.length)];
         const modifiedAttackValue = playerOne.weapon.attackPoints + modifier;
-        const playerAccuracy = Math.floor(Math.random()* 4 + 1);
+        const playerAccuracy = Math.floor(Math.random()* 4 + 1);  
         if(playerAccuracy > 1){
         npcOneCopy.healthPoints -=  modifiedAttackValue
         setNarratorMessage(`${playerOne.name} attacks ${npcOneCopy.name} for ${modifiedAttackValue} damage`)
-        setNPCOne(npcOneCopy);
-    }else{
-        setNarratorMessage(`${npcOneCopy.name} dodges ${playerOne.name}'s attack.`)
-    }
+        setNPCOne(npcOneCopy)
+        }else{
+            setNarratorMessage(`${npcOneCopy.name} dodges ${playerOne.name}'s attack.`)
+        }
+       
+    
     }
 
     const attackPlayer = () => {
         const npcOneCopy = {...NPCOne}
-        const modifiers = Array(-5, -4, -3, -2, -1, 0, 1, 2);
+        const modifiers = [-5, -4, -3, -2, -1, 0, 1, 2];
         const modifier = modifiers[Math.floor(Math.random()*modifiers.length)];
         const modifiedAttackValue = npcOneCopy.attackValue + modifier;
         const enemyAccuracy = Math.floor(Math.random()* 4 + 1);
@@ -52,12 +75,19 @@ const Room = () =>{
     }
 
     const attackFunction = () => {
+    if(NPCOne.healthPoints > 0 && playerOne.healthPoints > 0){
     attackEnemy();
+    }else{
+        return;
+    }if(playerOne.healthPoints > 0 && NPCOne.healthPoints > 0){
     disableButton();
         setTimeout(() => {
             attackPlayer();
         }, 3500);
+    }else{
+        return;
     }
+    }   
 
     const [NPCOne, setNPCOne] = useState(null);
     const [playerOne, setPlayerOne] = useState(null);
