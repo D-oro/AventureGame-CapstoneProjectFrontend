@@ -19,9 +19,14 @@ const Room = () =>{
         const modifiers = Array(-5, -4, -3, -2, -1, 0, 1, 2);
         const modifier = modifiers[Math.floor(Math.random()*modifiers.length)];
         const modifiedAttackValue = playerOne.weapon.attackPoints + modifier;
+        const playerAccuracy = Math.floor(Math.random()* 4 + 1);
+        if(playerAccuracy > 1){
         npcOneCopy.healthPoints -=  modifiedAttackValue
         setNarratorMessage(`${playerOne.name} attacks ${npcOneCopy.name} for ${modifiedAttackValue} damage`)
-        setNPCOne(npcOneCopy)
+        setNPCOne(npcOneCopy);
+    }else{
+        setNarratorMessage(`${npcOneCopy.name} dodges ${playerOne.name}'s attack.`)
+    }
     }
 
     const attackPlayer = () => {
@@ -29,8 +34,13 @@ const Room = () =>{
         const modifiers = Array(-5, -4, -3, -2, -1, 0, 1, 2);
         const modifier = modifiers[Math.floor(Math.random()*modifiers.length)];
         const modifiedAttackValue = npcOneCopy.attackValue + modifier;
+        const enemyAccuracy = Math.floor(Math.random()* 4 + 1);
+        if(enemyAccuracy > 1){
         playerOne.healthPoints -=  modifiedAttackValue
-        setNarratorMessage(`${npcOneCopy.name} attacks ${playerOne.name} for ${modifiedAttackValue} damage`)
+        setNarratorMessage(`${npcOneCopy.name} attacks ${playerOne.name} for ${modifiedAttackValue} damage`);
+        }else{
+            setNarratorMessage(`${playerOne.name} dodges ${npcOneCopy.name}'s attack`)
+        }
     }
 
     const btn = document.getElementById('attack') 
@@ -38,7 +48,7 @@ const Room = () =>{
         btn.disabled = true;
         setTimeout(() => {
             btn.disabled = false;
-        }, 4000)
+        }, 5000)
     }
 
     const attackFunction = () => {
@@ -46,7 +56,7 @@ const Room = () =>{
     disableButton();
         setTimeout(() => {
             attackPlayer();
-        }, 3500)
+        }, 3500);
     }
 
     const [NPCOne, setNPCOne] = useState(null);
