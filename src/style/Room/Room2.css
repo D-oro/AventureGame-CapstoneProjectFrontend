@@ -52,7 +52,7 @@ progress {
 .enemy-box {
     border: solid black 2 px;
     width: 50%;
-    background-image: url('/src/images/spider.gif');
+    background-image: url('/src/images/horror.gif');
     background-repeat: no-repeat;
     background-position: 50% 50%;
     color: azure;
@@ -110,8 +110,3 @@ progress {
     width: 15%;
 
 }
-
-
-
-
-

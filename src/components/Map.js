@@ -70,8 +70,24 @@ function Map (){
 
     const navigate = useNavigate()
 
-    const clickDoor = () => {
+    const clickDoor1 = () => {
       navigate('/room')
+    }
+
+    const clickDoor2 = () => {
+      navigate('/room2')
+    }
+
+    const clickDoor3 = () => {
+      navigate('/room3')
+    }
+
+    const clickDoor4 = () => {
+      navigate('/room4')
+    }
+
+    const clickDoor5 = () => {
+      navigate('/room5')
     }
 
     const startGame = () => {
@@ -86,7 +102,7 @@ function Map (){
         <div className="radioRow4">
 
 {/* Gate */}
-          <button className="gate" onClick={clickDoor}></button>
+          <button className="gate" onClick={clickDoor5}></button>
 
           <input type="radio" id="Left4" name="Row4" value="Left4"></input>
           <label for="Left4">Left4</label>
@@ -110,13 +126,13 @@ function Map (){
           <label for="Left3">Left3</label>
 
 {/* Door*/}
-          <button className="door" onClick={clickDoor}></button>
+          <button className="door" onClick={clickDoor4}></button>
 
           <input type="radio" id="MidLeft3" name="Row3" value="MidLeft3"></input>
           <label for="MidLeft3">MidLeft3</label>
 
 {/* Door*/}
-          <button className="door" onClick={clickDoor}></button>
+          <button className="door" onClick={clickDoor3}></button>
 
           <input type="radio" id="MidRight3" name="Row3" value="MidRight3"></input>
           <label for="MidRight3">MidRight3</label>
@@ -133,7 +149,7 @@ function Map (){
 {/* third row from the top */}
         <div className="radioRow2">
 {/* Door*/}
-          <button className="door" onClick={clickDoor}></button>
+          <button className="door" onClick={clickDoor2}></button>
 
           <input type="radio" id="Left2" name="Row2" value="Left2"></input>
           <label for="Left2">Left2</label>
@@ -175,7 +191,7 @@ function Map (){
           <label for="Right1">Right1</label>
 
 {/* Door */}
-          <button className="door" onClick={clickDoor}></button>
+          <button className="door" onClick={clickDoor1}></button>
         </div>
 
 {/* Floor */}
