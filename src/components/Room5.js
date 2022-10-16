@@ -1,12 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import { useNavigate } from 'react-router';
-import '../style/Room/Room2.css'
+import '../style/Room/Room5.css'
 import Request from '../helpers/request';
 import Narrator from './Narrator';
 import Treasure from './Treasure';
 import Inventory from './Inventory';
 
-const Room2 = () =>{
+const Room5 = () =>{
 
     const navigate = useNavigate()
 
@@ -15,22 +15,22 @@ const Room2 = () =>{
     }
 
     const attackEnemy = () => {
-        const npcTwoCopy = {...NPCTwo}
+        const npcFiveCopy = {...NPCFive}
         const modifiers = Array(-5, -4, -3, -2, -1, 0, 1, 2);
         const modifier = modifiers[Math.floor(Math.random()*modifiers.length)];
         const modifiedAttackValue = playerOne.weapon.attackPoints + modifier;
-        npcTwoCopy.healthPoints -=  modifiedAttackValue
-        setNarratorMessage(`${playerOne.name} attacks ${npcTwoCopy.name} for ${modifiedAttackValue} damage`)
-        setNPCTwo(npcTwoCopy)
+        npcFiveCopy.healthPoints -=  modifiedAttackValue
+        setNarratorMessage(`${playerOne.name} attacks ${npcFiveCopy.name} for ${modifiedAttackValue} damage`)
+        setNPCFive(npcFiveCopy)
     }
 
     const attackPlayer = () => {
-        const npcTwoCopy = {...NPCTwo}
+        const npcFiveCopy = {...NPCFive}
         const modifiers = Array(-5, -4, -3, -2, -1, 0, 1, 2);
         const modifier = modifiers[Math.floor(Math.random()*modifiers.length)];
-        const modifiedAttackValue = npcTwoCopy.attackValue + modifier;
+        const modifiedAttackValue = npcFiveCopy.attackValue + modifier;
         playerOne.healthPoints -=  modifiedAttackValue
-        setNarratorMessage(`${npcTwoCopy.name} attacks ${playerOne.name} for ${modifiedAttackValue} damage`)
+        setNarratorMessage(`${npcFiveCopy.name} attacks ${playerOne.name} for ${modifiedAttackValue} damage`)
     }
 
     const btn = document.getElementById('attack') 
@@ -49,7 +49,7 @@ const Room2 = () =>{
         }, 3500)
     }
 
-    const [NPCTwo, setNPCTwo] = useState(null);
+    const [NPCFive, setNPCFive] = useState(null);
     const [playerOne, setPlayerOne] = useState(null);
     const [narratorMessage, setNarratorMessage] = useState('');
 
@@ -57,7 +57,7 @@ const Room2 = () =>{
             const request = new Request()
             request.get("/api/npcs")
             .then((data) => {
-            setNPCTwo(data[1]);
+            setNPCFive(data[4]);
             })
         }, [])
 
@@ -69,7 +69,7 @@ const Room2 = () =>{
             })   
         }, [])
 
-        if(!NPCTwo){
+        if(!NPCFive){
             return "Loading..."
         }
 
@@ -78,30 +78,30 @@ const Room2 = () =>{
         }
 
     return(
-        <div className='room-container2'>
-            <header className='header2'>
-            <progress className='health-bar2' id="playerHealth" value={playerOne.healthPoints} max={playerOne.startHealthPoints}></progress>
-            <div className='char-name2'>{playerOne.name}</div>
-            <img className='vs-img2' src={require(`../images/vs-41949.png`)} alt='oopsie'/>
-            <div className='char-name2'>{NPCTwo.name}</div>
-            <progress className='health-bar2' id="enemyHealth" value={NPCTwo.healthPoints} max={NPCTwo.startHealthPoints}></progress>
+        <div className='room-container5'>
+            <header className='header5'>
+            <progress className='health-bar5' id="playerHealth" value={playerOne.healthPoints} max={playerOne.startHealthPoints}></progress>
+            <div className='char-name5'>{playerOne.name}</div>
+            <img className='vs-img5' src={require(`../images/vs-41949.png`)} alt='oopsie'/>
+            <div className='char-name5'>{NPCFive.name}</div>
+            <progress className='health-bar5' id="enemyHealth" value={NPCFive.healthPoints} max={NPCFive.startHealthPoints}></progress>
             </header>
 
-            <main className='main2'>
-               <div className='player-box2'>
+            <main className='main5'>
+               <div className='player-box5'>
                     {playerOne.name}
                </div>
-               <div className='enemy-box2'>
-                    {NPCTwo.name}
+               <div className='enemy-box5'>
+                    {NPCFive.name}
                </div>
             </main>
 
-            <footer className='footer2'>
-                <div className='inventory-box2'>
+            <footer className='footer5'>
+                <div className='inventory-box5'>
                     <Inventory/>
                 </div>
                 
-                <div className='text-box2'>
+                <div className='text-box5'>
                     
                     
                     <Narrator 
@@ -114,9 +114,9 @@ const Room2 = () =>{
                     <button className="back-to-map" onClick={handleClick}>Run Away!</button>
                     </div>
                 </div>
-                <div className='reward-box2'>
-                    <div className='reward-box-content2'>
-                        Defeat {NPCTwo.name} to receive a reward!
+                <div className='reward-box5'>
+                    <div className='reward-box-content3'>
+                        Defeat {NPCFive.name} to receive a reward!
                         <Treasure/>
                     </div>
                 </div>
@@ -125,7 +125,7 @@ const Room2 = () =>{
     )
 }
 
-export default Room2;
+export default Room5;
 
 
 

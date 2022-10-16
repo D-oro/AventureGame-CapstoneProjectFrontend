@@ -1,8 +1,8 @@
-.room-container {
+.room-container2 {
     text-align: center;
 }
 
-.header {
+.header2 {
     display: flex;
     justify-content: space-evenly;
     border: solid black 2px;
@@ -14,18 +14,16 @@
     color: azure;
 }
 
-.main {
+.main2 {
     display: flex;
     height: 40vh;
     border: solid black 2px;
     flex-direction: row;
     background-image: url('/src/images/castle-walls.png');
     background-size: contain;
-    
-    
 }
 
-.footer {
+.footer2 {
     display: flex;
     border: solid black 2px;
     height: 50vh;
@@ -49,7 +47,7 @@ progress {
     border-radius: 7px;
   }
 
-.enemy-box {
+.enemy-box2 {
     border: solid black 2 px;
     width: 50%;
     background-image: url('/src/images/horror.gif');
@@ -60,10 +58,10 @@ progress {
     font-family: 'Silkscreen', cursive;
 }
 
-.player-box {
+.player-box2 {
     border: solid black 2 px;
     width: 50%;
-    background-image: url('/src/images/warrior.gif');
+    background-image: url('/src/images/sword.gif');
     background-repeat: no-repeat;
     background-position: 50% 30%;
     color: azure;
@@ -71,7 +69,7 @@ progress {
     font-family: 'Silkscreen', cursive;
 }
 
-.reward-box {
+.reward-box2 {
     display: flex;
     width: 20%;
     border: 2px solid black;
@@ -80,33 +78,30 @@ progress {
     background-color: firebrick;
 }
 
-.inventory-box {
+.inventory-box2 {
     display: flex;
     flex-wrap: wrap;
     align-items:flex-start;
     width: 20%;
     height: 49.5vh;
     border: 2px solid black;
-/* for testing, change back to firebrick: */
     background-color: firebrick;
 }
 
-.text-box {
+.text-box2 {
     width: 60%;
     border: 2px solid black;
     font-size: 20px;
     background-color: slategray;
     font-family: 'Silkscreen', cursive;
-    align-items: center;
-    
+    align-items: center;   
 }
 
-.vs-img {
+.vs-img2 {
     width: 10%;
     height: 75%;
 }
 
-.char-name {
+.char-name2 {
     width: 15%;
-
 }

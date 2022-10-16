@@ -78,30 +78,30 @@ const Room3 = () =>{
         }
 
     return(
-        <div className='room-container'>
-            <header className='header'>
-            <progress className='health-bar' id="playerHealth" value={playerOne.healthPoints} max={playerOne.startHealthPoints}></progress>
-            <div className='char-name'>{playerOne.name}</div>
-            <img className='vs-img' src={require(`../images/vs-41949.png`)} alt='oopsie'/>
-            <div className='char-name'>{NPCThree.name}</div>
-            <progress className='health-bar' id="enemyHealth" value={NPCThree.healthPoints} max={NPCThree.startHealthPoints}></progress>
+        <div className='room-container3'>
+            <header className='header3'>
+            <progress className='health-bar3' id="playerHealth" value={playerOne.healthPoints} max={playerOne.startHealthPoints}></progress>
+            <div className='char-name3'>{playerOne.name}</div>
+            <img className='vs-img3' src={require(`../images/vs-41949.png`)} alt='oopsie'/>
+            <div className='char-name3'>{NPCThree.name}</div>
+            <progress className='health-bar3' id="enemyHealth" value={NPCThree.healthPoints} max={NPCThree.startHealthPoints}></progress>
             </header>
 
-            <main className='main'>
-               <div className='player-box'>
+            <main className='main3'>
+               <div className='player-box3'>
                     {playerOne.name}
                </div>
-               <div className='enemy-box'>
+               <div className='enemy-box3'>
                     {NPCThree.name}
                </div>
             </main>
 
-            <footer className='footer'>
-                <div className='inventory-box'>
+            <footer className='footer3'>
+                <div className='inventory-box3'>
                     <Inventory/>
                 </div>
                 
-                <div className='text-box'>
+                <div className='text-box3'>
                     
                     
                     <Narrator 
@@ -114,8 +114,8 @@ const Room3 = () =>{
                     <button className="back-to-map" onClick={handleClick}>Run Away!</button>
                     </div>
                 </div>
-                <div className='reward-box'>
-                    <div className='reward-box-content'>
+                <div className='reward-box3'>
+                    <div className='reward-box-content3'>
                         Defeat {NPCThree.name} to receive a reward!
                         <Treasure/>
                     </div>
