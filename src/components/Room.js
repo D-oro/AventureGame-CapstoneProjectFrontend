@@ -37,7 +37,7 @@ const Room = () => {
         const playerOneCopy = { ...playerOne }
         if (npcOneCopy.healthPoints <= 0) {
             setTimeout(() => {
-                setNarratorMessage(`you have killed ${NPCOne.name} well fought ${playerOne.name}`)
+                setNarratorMessage(`you have killed ${NPCOne.name} well fought ${playerOne.name}! Claim you're reward.`)
             }, 3000)
 
         } else if (playerOneCopy.healthPoints <= 0) {
@@ -52,6 +52,10 @@ const Room = () => {
 
     const handleClick = () => {
         navigate('/map')
+    }
+
+    const handleClickGameOver = () => {
+        navigate('/')
     }
 
     const updateHealth = (healthAmount) => {
@@ -147,24 +151,27 @@ const Room = () => {
                 <div className='inventory-box'>
                     <Inventory updateHealth={updateHealth}/>
                 </div>
-
+                
                 <div className='text-box'>
-
+                    <div className='narrator-box'>
                     <Narrator
                         message={
-                            narratorMessage || `Prepare for battle ${playerOne.name}`
+                            narratorMessage || `Prepare for battle ${playerOne.name}!`
                         } />
-
-                    <div>
+                    </div>
+                    <div className='button-bar'>
                         <button className='attack' id='attack' onClick={attackFunction}>Attack!</button>
-                        <button className="back-to-map" onClick={handleClick}>Run Away!</button>
+                    </div>
+                    <div>
+                        { NPCOne.healthPoints <= 0 ? <button className="back-to-map" onClick={handleClick}>Leave Room!</button> : <></>}
+                        { playerOne.healthPoints <= 0 ? <button className='back-to-home' onClick={handleClickGameOver}>Return To Home</button> : <></>}
                     </div>
                 </div>
                 <div className='reward-box'>
                     <div className='reward-box-content'>
                         Defeat {NPCOne.name} to receive a reward!
                         { NPCOne.healthPoints <= 0 ? <Treasure /> : <></>}
-                    </div>
+                </div>
                 </div>
             </footer>
         </div>
