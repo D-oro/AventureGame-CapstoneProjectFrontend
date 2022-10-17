@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router';
 import '../style/Room/Room.css'
 import Request from '../helpers/request';
@@ -6,28 +6,29 @@ import Narrator from './Narrator';
 import Treasure from './Treasure';
 import Inventory from './Inventory';
 
-const Room = () =>{
+const Room = () => {
 
     const navigate = useNavigate()
 
-    const handleClick = () =>{
-     navigate('/map')
+    const handleClick = () => {
+        navigate('/map')
     }
 
     useEffect(() => {
-        const npcOneCopy = {...NPCOne}
-        const playerOneCopy = {...playerOne}
-        if(npcOneCopy.healthPoints <= 0){
+        const npcOneCopy = { ...NPCOne }
+        const playerOneCopy = { ...playerOne }
+        if (npcOneCopy.healthPoints <= 0) {
             setTimeout(() => {
                 setNarratorMessage(`you win`)
+                enableTreasure()
             }, 5000)
-            
-        }else if(playerOneCopy.healthPoints <= 0){
+
+        } else if (playerOneCopy.healthPoints <= 0) {
             setTimeout(() => {
                 setNarratorMessage(`you lose`)
             }, 5000)
-            
-        } 
+
+        }
     })
 
     const updateHealth = (healthAmount) => {
@@ -37,35 +38,35 @@ const Room = () =>{
     }
 
     const attackEnemy = () => {
-        const npcOneCopy = {...NPCOne}
+        const npcOneCopy = { ...NPCOne }
         const modifiers = [-5, -4, -3, -2, -1, 0, 1, 2];
-        const modifier = modifiers[Math.floor(Math.random()*modifiers.length)];
+        const modifier = modifiers[Math.floor(Math.random() * modifiers.length)];
         const modifiedAttackValue = playerOne.weapon.attackPoints + modifier;
-        const playerAccuracy = Math.floor(Math.random()* 4 + 1);  
-        if(playerAccuracy > 1){
-        npcOneCopy.healthPoints -=  modifiedAttackValue
-        setNarratorMessage(`${playerOne.name} attacks ${npcOneCopy.name} for ${modifiedAttackValue} damage`)
-        setNPCOne(npcOneCopy)
-        }else{
+        const playerAccuracy = Math.floor(Math.random() * 4 + 1);
+        if (playerAccuracy > 1) {
+            npcOneCopy.healthPoints -= modifiedAttackValue
+            setNarratorMessage(`${playerOne.name} attacks ${npcOneCopy.name} for ${modifiedAttackValue} damage`)
+            setNPCOne(npcOneCopy)
+        } else {
             setNarratorMessage(`${npcOneCopy.name} dodges ${playerOne.name}'s attack.`)
         }
     }
 
     const attackPlayer = () => {
-        const npcOneCopy = {...NPCOne}
+        const npcOneCopy = { ...NPCOne }
         const modifiers = [-5, -4, -3, -2, -1, 0, 1, 2];
-        const modifier = modifiers[Math.floor(Math.random()*modifiers.length)];
+        const modifier = modifiers[Math.floor(Math.random() * modifiers.length)];
         const modifiedAttackValue = npcOneCopy.attackValue + modifier;
-        const enemyAccuracy = Math.floor(Math.random()* 4 + 1);
-        if(enemyAccuracy > 1){
-        playerOne.healthPoints -=  modifiedAttackValue
-        setNarratorMessage(`${npcOneCopy.name} attacks ${playerOne.name} for ${modifiedAttackValue} damage`);
-        }else{
+        const enemyAccuracy = Math.floor(Math.random() * 4 + 1);
+        if (enemyAccuracy > 1) {
+            playerOne.healthPoints -= modifiedAttackValue
+            setNarratorMessage(`${npcOneCopy.name} attacks ${playerOne.name} for ${modifiedAttackValue} damage`);
+        } else {
             setNarratorMessage(`${playerOne.name} dodges ${npcOneCopy.name}'s attack`)
         }
     }
 
-    const btn = document.getElementById('attack') 
+    const btn = document.getElementById('attack')
     function disableButton() {
         btn.disabled = true;
         setTimeout(() => {
@@ -73,80 +74,89 @@ const Room = () =>{
         }, 5000)
     }
 
-    const attackFunction = () => {
-    if(NPCOne.healthPoints > 0 && playerOne.healthPoints > 0){
-    attackEnemy();
-    }else{
-        return;
-    }if(playerOne.healthPoints > 0 && NPCOne.healthPoints > 0){
-    disableButton();
-        setTimeout(() => {
-            attackPlayer();
-        }, 3500);
-    }else{
-        return;
+    const btnTreasure = document.getElementById('treasure')
+    function enableTreasure() {
+        btnTreasure.disabled = false;
     }
-    }   
+
+    const attackFunction = () => {
+        if (NPCOne.healthPoints > 0 && playerOne.healthPoints > 0) {
+            attackEnemy();
+        } else {
+            return;
+        }
+        disableButton();
+        setTimeout(() => {
+            if (playerOneRef.current.healthPoints > 0 && NPCOneRef.current.healthPoints > 0) {
+                attackPlayer();
+            }
+        }, 3500);
+    }
+
 
     const [NPCOne, setNPCOne] = useState(null);
     const [playerOne, setPlayerOne] = useState(null);
     const [narratorMessage, setNarratorMessage] = useState('');
+    const NPCOneRef = useRef(NPCOne)
+    const playerOneRef = useRef(playerOne)
+    NPCOneRef.current = NPCOne
+    playerOneRef.current = playerOne
 
-        useEffect(() => {
-            const request = new Request()
-            request.get("/api/npcs")
+    useEffect(() => {
+        const request = new Request()
+        request.get("/api/npcs")
             .then((data) => {
-            setNPCOne(data[0]);
+                setNPCOne(data[0]);
             })
-        }, [])
+    }, [])
 
-        useEffect(() => {
-            const request = new Request()
-            request.get("/api/players")
+    useEffect(() => {
+        const request = new Request()
+        request.get("/api/players")
             .then((data) => {
-            setPlayerOne(data[0]);
-            })   
-        }, [])
+                setPlayerOne(data[0]);
+            })
+    }, [])
 
-        if(!NPCOne){
-            return "Loading..."
-        }
+    if (!NPCOne) {
+        return "Loading..."
+    }
 
-        if(!playerOne){
-            return "Loading..."
-        }
+    if (!playerOne) {
+        return "Loading..."
+    }
 
-    return(
+    return (
         <div className='room-container'>
             <header className='header'>
-            <progress className='health-bar' id="playerHealth" value={playerOne.healthPoints} max={playerOne.startHealthPoints}></progress>
-            <div className='char-name'>{playerOne.name}</div>
-            <img className='vs-img' src={require(`../images/vs-41949.png`)} alt='oopsie'/>
-            <div className='char-name'>{NPCOne.name}</div>
-            <progress className='health-bar' id="enemyHealth" value={NPCOne.healthPoints} max={NPCOne.startHealthPoints}></progress>
+                <progress className='health-bar' id="playerHealth" value={playerOne.healthPoints} max={playerOne.startHealthPoints}></progress>
+                <div className='char-name'>{playerOne.name}</div>
+                <img className='vs-img' src={require(`../images/vs-41949.png`)} alt='oopsie' />
+                <div className='char-name'>{NPCOne.name}</div>
+                <progress className='health-bar' id="enemyHealth" value={NPCOne.healthPoints} max={NPCOne.startHealthPoints}></progress>
             </header>
 
             <main className='main'>
-               <div className='player-box'>
+                <div className='player-box'>
                     {playerOne.name}
-               </div>
-               <div className='enemy-box'>
+                </div>
+                <div className='enemy-box'>
                     {NPCOne.name}
-               </div>
+                </div>
             </main>
 
             <footer className='footer'>
                 <div className='inventory-box'>
                     <Inventory updateHealth={updateHealth}/>
                 </div>
-                
+
                 <div className='text-box'>
-                    
-                    <Narrator 
-                    message={
-                        narratorMessage || `Prepare for battle ${playerOne.name}`
-                    }/>
-                   
+
+                    <Narrator
+                        message={
+                            narratorMessage || `Prepare for battle ${playerOne.name}`
+                        } />
+
                     <div>
                         <button className='attack' id='attack' onClick={attackFunction}>Attack!</button>
                         <button className="back-to-map" onClick={handleClick}>Run Away!</button>
@@ -155,7 +165,7 @@ const Room = () =>{
                 <div className='reward-box'>
                     <div className='reward-box-content'>
                         Defeat {NPCOne.name} to receive a reward!
-                        <Treasure/>
+                        <Treasure />
                     </div>
                 </div>
             </footer>
