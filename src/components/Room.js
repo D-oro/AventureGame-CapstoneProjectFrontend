@@ -31,6 +31,12 @@ const Room = () => {
         }
     })
 
+    const updateHealth = (healthAmount) => {
+        const copyPlayerOne = {...playerOne}
+        copyPlayerOne.healthPoints += healthAmount
+        setPlayerOne(copyPlayerOne)
+    }
+
     const attackEnemy = () => {
         const npcOneCopy = { ...NPCOne }
         const modifiers = [-5, -4, -3, -2, -1, 0, 1, 2];
@@ -141,7 +147,7 @@ const Room = () => {
 
             <footer className='footer'>
                 <div className='inventory-box'>
-                    <Inventory />
+                    <Inventory updateHealth={updateHealth}/>
                 </div>
 
                 <div className='text-box'>

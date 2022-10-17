@@ -2,9 +2,9 @@ import React, {useState, useEffect} from 'react';
 import Request from '../helpers/request';
 import '../style/Room/Inventory.css'
 
-const Inventory = () =>{
+const Inventory = ({updateHealth}) =>{
 
-        const checkPotionNames = () => {
+        const showInventory = () => {
 
             const allPotionsNames = potions.map((potion) => {
                 return (potion.name)
@@ -25,7 +25,35 @@ const Inventory = () =>{
              if (allPotionsNames.includes("Green Potion")){
                 document.getElementById("greenPotion").hidden = false;
              }
-    }
+        }
+
+        const redClick = () =>{
+            document.getElementById("redPotion").hidden = true;
+            updateHealth(5)
+            const request = new Request()
+            request.delete(`/api/potions/${1}`)
+        }
+
+        const yellowClick = () =>{
+            document.getElementById("yellowPotion").hidden = true;
+            updateHealth(30)
+            const request = new Request()
+            request.delete(`/api/potions/${2}`)
+        }
+
+        const blueClick = () =>{
+            document.getElementById("bluePotion").hidden = true;
+            updateHealth(40)
+            const request = new Request()
+            request.delete(`/api/potions/${3}`)
+        }
+
+        const greenClick = () =>{
+            document.getElementById("greenPotion").hidden = true;
+            updateHealth(50)
+            const request = new Request()
+            request.delete(`/api/potions/${4}`)
+        }
 
     const [potions, setPotions] = useState(null);
 
@@ -44,12 +72,12 @@ const Inventory = () =>{
     return (
         <div>
             <h3>
-                <button className="Inventory" onClick={checkPotionNames}>Show inventory!</button>
+                <button className="Inventory" onClick={showInventory}>Show inventory!</button>
             </h3>
-                    <button className="redPotion" id="redPotion" hidden></button>
-                    <button className="bluePotion" id="bluePotion" hidden></button>
-                    <button className="greenPotion" id="greenPotion" hidden></button>
-                    <button className="yellowPotion" id="yellowPotion" hidden></button>
+                    <button className="redPotion" id="redPotion" onClick={redClick} hidden></button>
+                    <button className="yellowPotion" id="yellowPotion" onClick={yellowClick} hidden></button>
+                    <button className="bluePotion" id="bluePotion" onClick={blueClick} hidden ></button>
+                    <button className="greenPotion" id="greenPotion" onClick={greenClick} hidden ></button>
         </div>
     )
 }

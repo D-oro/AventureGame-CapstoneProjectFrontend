@@ -27,7 +27,6 @@ class Request {
             body: JSON.stringify(payload)
         })
     }
-
 }
 
 export default Request;
