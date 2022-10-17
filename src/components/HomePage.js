@@ -15,19 +15,19 @@ const HomePage = () =>{
 
 return(
     <div className="home-page">
-        <header>
-        <Narrator 
-        message={
-            narratorMessage || `Welcome! This is a super cool game! Made by Aimee, Doro and Johnny`
-        }/>
 
+        <header className="header-text">
+            <Narrator 
+            message={
+                narratorMessage || `Welcome! This is a super cool game! Made by Aimee, Doro and Johnny`
+            }/>
         </header>
 
         <main>
             <button className="start-game" onClick={handleClick}>To the game!</button>
         </main>
 
-        <footer>
+        <footer className="footer-text">
             so cool!
         </footer>
     </div>

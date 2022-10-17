@@ -4,7 +4,7 @@ import '../style/Room/Room.css'
 import Request from '../helpers/request';
 import Narrator from './Narrator';
 import Treasure from './Treasure';
-
+import Inventory from './Inventory';
 
 const Room = () =>{
 
@@ -14,48 +14,80 @@ const Room = () =>{
      navigate('/map')
     }
 
+    useEffect(() => {
+        const npcOneCopy = {...NPCOne}
+        const playerOneCopy = {...playerOne}
+        if(npcOneCopy.healthPoints <= 0){
+            setTimeout(() => {
+                setNarratorMessage(`you win`)
+            }, 5000)
+            
+            
+               
+            
+        }else if(playerOneCopy.healthPoints <= 0){
+            setTimeout(() => {
+                setNarratorMessage(`you lose`)
+            }, 5000)
+            
+        } 
+    })
+
+    
+
     const attackEnemy = () => {
         const npcOneCopy = {...NPCOne}
-        const copyPlayer1 = {...playerOne}
-        copyPlayer1.name = "Ash"
-        npcOneCopy.attackValue = 15
-        npcOneCopy.healthPoints -= playerOne.weapon.attackPoints + Math.round(Math.random()) * 2 -1
-        setNarratorMessage(`${playerOne.name} attacks ${npcOneCopy.name} with ${playerOne.weapon.attackPoints}`)
+        const modifiers = [-5, -4, -3, -2, -1, 0, 1, 2];
+        const modifier = modifiers[Math.floor(Math.random()*modifiers.length)];
+        const modifiedAttackValue = playerOne.weapon.attackPoints + modifier;
+        const playerAccuracy = Math.floor(Math.random()* 4 + 1);  
+        if(playerAccuracy > 1){
+        npcOneCopy.healthPoints -=  modifiedAttackValue
+        setNarratorMessage(`${playerOne.name} attacks ${npcOneCopy.name} for ${modifiedAttackValue} damage`)
         setNPCOne(npcOneCopy)
-
-
-        // update backend, we just use attack button for ease
-
-        // const copyPlayer1 = {...playerOne}
-        // copyPlayer1.name = "Ash"
-        
-        // copyPlayer1.weapon.attackPoints += 5
-        // const request = new Request()
-        // request.put("/api/players", copyPlayer1)
-        // .then((res) => {
-        //    return res.json()
-        // })
-        // .then((data) =>{
-        //     console.log(data)
-        // })
-
-        // // and to keep the frontend in sync with the backend
-        // setPlayerOne(copyPlayer1)
+        }else{
+            setNarratorMessage(`${npcOneCopy.name} dodges ${playerOne.name}'s attack.`)
+        }
+       
+    
     }
 
     const attackPlayer = () => {
         const npcOneCopy = {...NPCOne}
-        playerOne.healthPoints -= npcOneCopy.attackValue + Math.round(Math.random()) * 2 -1
-        setNarratorMessage(`${npcOneCopy.name} attacks ${playerOne.name}`)
+        const modifiers = [-5, -4, -3, -2, -1, 0, 1, 2];
+        const modifier = modifiers[Math.floor(Math.random()*modifiers.length)];
+        const modifiedAttackValue = npcOneCopy.attackValue + modifier;
+        const enemyAccuracy = Math.floor(Math.random()* 4 + 1);
+        if(enemyAccuracy > 1){
+        playerOne.healthPoints -=  modifiedAttackValue
+        setNarratorMessage(`${npcOneCopy.name} attacks ${playerOne.name} for ${modifiedAttackValue} damage`);
+        }else{
+            setNarratorMessage(`${playerOne.name} dodges ${npcOneCopy.name}'s attack`)
+        }
+    }
+
+    const btn = document.getElementById('attack') 
+    function disableButton() {
+        btn.disabled = true;
+        setTimeout(() => {
+            btn.disabled = false;
+        }, 5000)
     }
 
     const attackFunction = () => {
-
-        attackEnemy();
+    if(NPCOne.healthPoints > 0 && playerOne.healthPoints > 0){
+    attackEnemy();
+    }else{
+        return;
+    }if(playerOne.healthPoints > 0 && NPCOne.healthPoints > 0){
+    disableButton();
         setTimeout(() => {
             attackPlayer();
-        }, 3500)
+        }, 3500);
+    }else{
+        return;
     }
+    }   
 
     const [NPCOne, setNPCOne] = useState(null);
     const [playerOne, setPlayerOne] = useState(null);
@@ -106,7 +138,7 @@ const Room = () =>{
 
             <footer className='footer'>
                 <div className='inventory-box'>
-                    inventory here
+                    <Inventory/>
                 </div>
                 
                 <div className='text-box'>
@@ -118,7 +150,7 @@ const Room = () =>{
                     }/>
                    
                     <div>
-                    <button className='attack' onClick={attackFunction}>Attack!</button>
+                    <button className='attack' id='attack' onClick={attackFunction}>Attack!</button>
                     <button className="back-to-map" onClick={handleClick}>Run Away!</button>
                     </div>
                 </div>
@@ -134,3 +166,28 @@ const Room = () =>{
 }
 
 export default Room;
+
+
+
+
+
+
+
+
+// update backend, we just use attack button for ease
+
+        // const copyPlayer1 = {...playerOne}
+        // copyPlayer1.name = "Ash"
+        
+        // copyPlayer1.weapon.attackPoints += 5
+        // const request = new Request()
+        // request.put("/api/players", copyPlayer1)
+        // .then((res) => {
+        //    return res.json()
+        // })
+        // .then((data) =>{
+        //     console.log(data)
+        // })
+
+        // // and to keep the frontend in sync with the backend
+        // setPlayerOne(copyPlayer1)

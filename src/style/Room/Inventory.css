@@ -1,0 +1,29 @@
+.redPotion:hover, .yellowPotion:hover, .bluePotion:hover, .greenPotion:hover{
+    background-color: white;
+    opacity: 50%;
+}
+
+.redPotion, .yellowPotion, .bluePotion, .greenPotion{
+    background-color: rgba(255, 0, 0, 0.0);
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 7vh;
+    width: 7vw;
+    border-width: 0px;
+}
+
+.redPotion{
+    background-image: url('/src/images/redPotion.png');
+}
+
+.yellowPotion{
+    background-image: url('/src/images/yellowPotion.png');
+}
+
+.bluePotion{
+    background-image: url('/src/images/bluePotion.png');
+}
+
+.greenPotion{
+    background-image: url('/src/images/greenPotion.png');
+}
