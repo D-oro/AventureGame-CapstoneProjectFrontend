@@ -8,6 +8,30 @@ import Inventory from './Inventory';
 
 const Room = () => {
 
+    const [NPCOne, setNPCOne] = useState(null);
+    const [playerOne, setPlayerOne] = useState(null);
+    const [narratorMessage, setNarratorMessage] = useState('');
+    const NPCOneRef = useRef(NPCOne)
+    const playerOneRef = useRef(playerOne)
+    NPCOneRef.current = NPCOne
+    playerOneRef.current = playerOne
+
+    useEffect(() => {
+        const request = new Request()
+        request.get("/api/npcs")
+            .then((data) => {
+                setNPCOne(data[0]);
+            })
+    }, [])
+
+    useEffect(() => {
+        const request = new Request()
+        request.get("/api/players")
+            .then((data) => {
+                setPlayerOne(data[0]);
+            })
+    }, [])
+
     const navigate = useNavigate()
 
     const handleClick = () => {
@@ -94,29 +118,7 @@ const Room = () => {
     }
 
 
-    const [NPCOne, setNPCOne] = useState(null);
-    const [playerOne, setPlayerOne] = useState(null);
-    const [narratorMessage, setNarratorMessage] = useState('');
-    const NPCOneRef = useRef(NPCOne)
-    const playerOneRef = useRef(playerOne)
-    NPCOneRef.current = NPCOne
-    playerOneRef.current = playerOne
 
-    useEffect(() => {
-        const request = new Request()
-        request.get("/api/npcs")
-            .then((data) => {
-                setNPCOne(data[0]);
-            })
-    }, [])
-
-    useEffect(() => {
-        const request = new Request()
-        request.get("/api/players")
-            .then((data) => {
-                setPlayerOne(data[0]);
-            })
-    }, [])
 
     if (!NPCOne) {
         return "Loading..."
