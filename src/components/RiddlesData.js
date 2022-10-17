@@ -100,8 +100,8 @@ function RiddlesData(){
 
                     <button value={riddlesOne.correctAnswer} onClick={onCorrectAnswerClick} >{riddlesOne.correctAnswer}</button>
                     <button value={riddlesOne.wrongAnswerOne} onClick={onCorrectAnswerClick} >{riddlesOne.wrongAnswerOne}</button>
-                    <button >{riddlesOne.wrongAnswerTwo}</button>
-                    <button >{riddlesOne.wrongAnswerThree}</button>
+                    <button value={riddlesOne.wrongAnswerTwo} onClick={onCorrectAnswerClick}>{riddlesOne.wrongAnswerTwo}</button>
+                    <button value={riddlesOne.wrongAnswerThree} onClick={onCorrectAnswerClick}>{riddlesOne.wrongAnswerThree}</button>
                    
                     <div>
                     <div>
