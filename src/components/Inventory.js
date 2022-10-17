@@ -29,7 +29,7 @@ const Inventory = ({updateHealth}) =>{
 
         const redClick = () =>{
             document.getElementById("redPotion").hidden = true;
-            updateHealth(20)
+            updateHealth(5)
             const request = new Request()
             request.delete(`/api/potions/${1}`)
         }
