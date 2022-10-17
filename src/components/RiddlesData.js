@@ -23,15 +23,15 @@ function RiddlesData(){
         })
     }, [])
 
-
-
-
     const onCorrectAnswerClick = (event) => {
         let correctAnswer = riddlesOne.correctAnswer;
         if(event.target.value === correctAnswer){
             setResult("Correct!");
+            playerOne.gold += 100
+            console.log(playerOne)
         }else{
             setResult("You lose!");
+            playerOne.healthPoints -= 25
         }
     }
 
@@ -98,8 +98,8 @@ function RiddlesData(){
                         narratorMessage || `${riddlesOne.question}`
                     }/>
 
-                    <button value={riddlesOne.correctAnswer} onClick={onCorrectAnswerClick} >{riddlesOne.correctAnswer}</button>
-                    <button value={riddlesOne.wrongAnswerOne} onClick={onCorrectAnswerClick} >{riddlesOne.wrongAnswerOne}</button>
+                    <button value={riddlesOne.correctAnswer} onClick={onCorrectAnswerClick}>{riddlesOne.correctAnswer}</button>
+                    <button value={riddlesOne.wrongAnswerOne} onClick={onCorrectAnswerClick}>{riddlesOne.wrongAnswerOne}</button>
                     <button value={riddlesOne.wrongAnswerTwo} onClick={onCorrectAnswerClick}>{riddlesOne.wrongAnswerTwo}</button>
                     <button value={riddlesOne.wrongAnswerThree} onClick={onCorrectAnswerClick}>{riddlesOne.wrongAnswerThree}</button>
                    
