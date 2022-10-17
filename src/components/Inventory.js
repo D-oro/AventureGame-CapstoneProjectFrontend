@@ -4,31 +4,47 @@ import '../style/Room/Inventory.css'
 
 const Inventory = () =>{
 
-    const showInventory = () =>{
-        const copyPlayerOne = {...playerOne}
-        if (copyPlayerOne.potions[0] != null){
-            document.getElementById("redPotion").hidden = false;
-        }
+        const checkPotionNames = () => {
+
+            const allPotionsNames = potions.map((potion) => {
+                return (potion.name)
+            })
+
+             if (allPotionsNames.includes("Love Potion")){
+                document.getElementById("redPotion").hidden = false;
+             }
+
+             if (allPotionsNames.includes("Yellow Potion")){
+                document.getElementById("yellowPotion").hidden = false;
+             }
+
+             if (allPotionsNames.includes("Blue Potion")){
+                document.getElementById("bluePotion").hidden = false;
+             }
+
+             if (allPotionsNames.includes("Green Potion")){
+                document.getElementById("greenPotion").hidden = false;
+             }
     }
 
-    const [playerOne, setPlayerOne] = useState(null);
+    const [potions, setPotions] = useState(null);
 
     useEffect(() => {
         const request = new Request()
-        request.get("/api/players")
+        request.get("/api/potions")
         .then((data) => {
-        setPlayerOne(data[0]);
+        setPotions(data);
         })   
     }, [])
 
-    if(!playerOne){
+    if(!potions){
         return "Loading..."
        }
 
     return (
         <div>
             <h3>
-                <button className="Inventory" onClick={showInventory}>Show inventory!</button>
+                <button className="Inventory" onClick={checkPotionNames}>Show inventory!</button>
             </h3>
                     <button className="redPotion" id="redPotion" hidden></button>
                     <button className="bluePotion" id="bluePotion" hidden></button>
@@ -38,4 +54,4 @@ const Inventory = () =>{
     )
 }
 
-export default Inventory
+export default Inventory;

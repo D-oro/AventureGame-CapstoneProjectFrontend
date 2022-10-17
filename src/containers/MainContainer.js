@@ -18,7 +18,6 @@ const MainContainer = () => {
                     <Route path="/Room" element={<Room/>} />
                     <Route path="/Riddles" element={<RiddlesData/>} />
                     <Route path="*" element={<ErrorPage />} />
-                    <Route path="/Riddles" element={<RiddlesData/>}/>
                 </Routes>
             </Router>
         </div>
