@@ -41,7 +41,7 @@ const Treasure = () =>{
 
     return(
         <div>   
-            <div className="treasure" onClick={openTreasure}>
+            <div id='treasure' className="treasure" onClick={openTreasure} >
                 <span className="treasuretext" id="treasure-popup"></span>
             </div>
         </div>
