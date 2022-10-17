@@ -4,6 +4,7 @@ import Map from "../components/Map";
 import Room from "../components/Room";
 import ErrorPage from '../components/ErrorPage';
 import HomePage from '../components/HomePage';
+import RiddlesData from '../components/RiddlesData';
 
 
 const MainContainer = () => {
@@ -16,6 +17,7 @@ const MainContainer = () => {
                     <Route path="/Map" element={<Map/>} />
                     <Route path="/Room" element={<Room/>} />
                     <Route path="*" element={<ErrorPage />} />
+                    <Route path="/Riddles" element={<RiddlesData/>}/>
                 </Routes>
             </Router>
         </div>
