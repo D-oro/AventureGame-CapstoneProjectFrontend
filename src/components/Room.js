@@ -32,28 +32,27 @@ const Room = () => {
             })
     }, [])
 
-    const navigate = useNavigate()
-
-    const handleClick = () => {
-        navigate('/map')
-    }
-
     useEffect(() => {
         const npcOneCopy = { ...NPCOne }
         const playerOneCopy = { ...playerOne }
         if (npcOneCopy.healthPoints <= 0) {
             setTimeout(() => {
-                setNarratorMessage(`you win`)
-                enableTreasure()
-            }, 5000)
+                setNarratorMessage(`you have killed ${NPCOne.name} well fought ${playerOne.name}`)
+            }, 3000)
 
         } else if (playerOneCopy.healthPoints <= 0) {
             setTimeout(() => {
-                setNarratorMessage(`you lose`)
-            }, 5000)
+                setNarratorMessage(`you have been defeated Game Over!`)
+            }, 3000)
 
         }
     })
+
+    const navigate = useNavigate()
+
+    const handleClick = () => {
+        navigate('/map')
+    }
 
     const updateHealth = (healthAmount) => {
         const copyPlayerOne = {...playerOne}
@@ -98,10 +97,7 @@ const Room = () => {
         }, 5000)
     }
 
-    const btnTreasure = document.getElementById('treasure')
-    function enableTreasure() {
-        btnTreasure.disabled = false;
-    }
+  
 
     const attackFunction = () => {
         if (NPCOne.healthPoints > 0 && playerOne.healthPoints > 0) {
@@ -167,7 +163,7 @@ const Room = () => {
                 <div className='reward-box'>
                     <div className='reward-box-content'>
                         Defeat {NPCOne.name} to receive a reward!
-                        <Treasure />
+                        { NPCOne.healthPoints <= 0 ? <Treasure /> : <></>}
                     </div>
                 </div>
             </footer>
