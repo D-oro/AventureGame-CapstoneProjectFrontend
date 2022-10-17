@@ -32,12 +32,6 @@ const Room = () => {
             })
     }, [])
 
-    const navigate = useNavigate()
-
-    const handleClick = () => {
-        navigate('/map')
-    }
-
     useEffect(() => {
         const npcOneCopy = { ...NPCOne }
         const playerOneCopy = { ...playerOne }
@@ -54,6 +48,12 @@ const Room = () => {
 
         }
     })
+
+    const navigate = useNavigate()
+
+    const handleClick = () => {
+        navigate('/map')
+    }
 
     const updateHealth = (healthAmount) => {
         const copyPlayerOne = {...playerOne}
@@ -167,7 +167,7 @@ const Room = () => {
                 <div className='reward-box'>
                     <div className='reward-box-content'>
                         Defeat {NPCOne.name} to receive a reward!
-                        <Treasure />
+                        { NPCOne.healthPoints <= 0 ? <Treasure /> : <></>}
                     </div>
                 </div>
             </footer>

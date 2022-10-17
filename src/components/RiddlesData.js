@@ -11,6 +11,26 @@ function RiddlesData(){
     const [result, setResult] = useState('');
     const navigate = useNavigate()
 
+    const [NPCOne, setNPCOne] = useState(null);
+    const [playerOne, setPlayerOne] = useState(null);
+    const [narratorMessage, setNarratorMessage] = useState('');
+
+        useEffect(() => {
+            const request = new Request()
+            request.get("/api/npcs")
+            .then((data) => {
+            setNPCOne(data[0]);
+            })
+        }, [])
+
+        useEffect(() => {
+            const request = new Request()
+            request.get("/api/players")
+            .then((data) => {
+            setPlayerOne(data[0]);
+            })   
+        }, [])
+
     useEffect(() => {
         const riddleQuestions = [1,2,3,4];
         const randomRiddle = riddleQuestions[Math.floor(Math.random()*riddleQuestions.length)];
@@ -39,26 +59,6 @@ function RiddlesData(){
         navigate('/map')
        }
 
-    const [NPCOne, setNPCOne] = useState(null);
-    const [playerOne, setPlayerOne] = useState(null);
-    const [narratorMessage, setNarratorMessage] = useState('');
-
-        useEffect(() => {
-            const request = new Request()
-            request.get("/api/npcs")
-            .then((data) => {
-            setNPCOne(data[0]);
-            })
-        }, [])
-
-        useEffect(() => {
-            const request = new Request()
-            request.get("/api/players")
-            .then((data) => {
-            setPlayerOne(data[0]);
-            })   
-        }, [])
-
         if(!NPCOne){
             return "Loading..."
         }
@@ -81,7 +81,7 @@ function RiddlesData(){
                     {playerOne.name}
                </div>
                <div className='enemy-box'>
-                Answer my question to recieve a treasure! Get it wrong and you will die!
+                Answer my question to recieve a treasure! Get it wrong and you will be sorry!
                </div>
             </main>
 
@@ -97,24 +97,23 @@ function RiddlesData(){
                     message={
                         narratorMessage || `${riddlesOne.question}`
                     }/>
+                     <div>
+                     {result}
+                    </div>
 
                     <button value={riddlesOne.correctAnswer} onClick={onCorrectAnswerClick}>{riddlesOne.correctAnswer}</button>
                     <button value={riddlesOne.wrongAnswerOne} onClick={onCorrectAnswerClick}>{riddlesOne.wrongAnswerOne}</button>
                     <button value={riddlesOne.wrongAnswerTwo} onClick={onCorrectAnswerClick}>{riddlesOne.wrongAnswerTwo}</button>
                     <button value={riddlesOne.wrongAnswerThree} onClick={onCorrectAnswerClick}>{riddlesOne.wrongAnswerThree}</button>
-                   
+                    
                     <div>
-                    <div>
-                    <p>{result}</p>
-                    </div>
-                   
-                    <button className="back-to-map" onClick={handleClick}>Run Away!</button>
+                        <button className="back-to-map" onClick={handleClick}>Run Away!</button>
                     </div>
                 </div>
                 <div className='reward-box'>
                     <div className='reward-box-content'>
                         Correctly answer the question to get a reward!
-                        <Treasure/>
+                        { riddlesOne.correctAnswer ? <Treasure/> : <></>}
                     </div>
                 </div>
             </footer>
