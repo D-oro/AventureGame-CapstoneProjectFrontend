@@ -37,14 +37,13 @@ const Room = () => {
         const playerOneCopy = { ...playerOne }
         if (npcOneCopy.healthPoints <= 0) {
             setTimeout(() => {
-                setNarratorMessage(`you win`)
-                enableTreasure()
-            }, 5000)
+                setNarratorMessage(`you have killed ${NPCOne.name} well fought ${playerOne.name}`)
+            }, 3000)
 
         } else if (playerOneCopy.healthPoints <= 0) {
             setTimeout(() => {
-                setNarratorMessage(`you lose`)
-            }, 5000)
+                setNarratorMessage(`you have been defeated Game Over!`)
+            }, 3000)
 
         }
     })
@@ -98,10 +97,7 @@ const Room = () => {
         }, 5000)
     }
 
-    const btnTreasure = document.getElementById('treasure')
-    function enableTreasure() {
-        btnTreasure.disabled = false;
-    }
+  
 
     const attackFunction = () => {
         if (NPCOne.healthPoints > 0 && playerOne.healthPoints > 0) {
