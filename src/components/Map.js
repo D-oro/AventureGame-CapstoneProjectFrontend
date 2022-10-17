@@ -6,76 +6,145 @@ import '../style/map/Map.css'
 
 function Map (){
 
+  const enableLevel4 = () =>{
+    document.getElementById("Right4").disabled = false;
+    document.getElementById("MidRightRight4").disabled = false;
+    document.getElementById("MidMidRight4").disabled = false;
+    document.getElementById("MidRight4").disabled = false;
+    document.getElementById("MidLeft4").disabled = false;
+    document.getElementById("Left4").disabled = false;
+  }
+
+  const enableLevel3 = () =>{
+    document.getElementById("Right3").disabled = false;
+    document.getElementById("MidRightRight3").disabled = false;
+    document.getElementById("MidMidRight3").disabled = false;
+    document.getElementById("MidRight3").disabled = false;
+    document.getElementById("MidLeft3").disabled = false;
+    document.getElementById("Left3").disabled = false;
+  }
+
+  const enableLevel2 = () =>{
+    document.getElementById("Right2").disabled = false;
+    document.getElementById("MidRightRight2").disabled = false;
+    document.getElementById("MidMidRight2").disabled = false;
+    document.getElementById("MidRight2").disabled = false;
+    document.getElementById("MidLeft2").disabled = false;
+    document.getElementById("Left2").disabled = false;
+  }
+
+  const enableLevel1 = () =>{
+    document.getElementById("Right1").disabled = false;
+    document.getElementById("MidRightRight1").disabled = false;
+    document.getElementById("MidMidRight1").disabled = false;
+    document.getElementById("MidRight1").disabled = false;
+    document.getElementById("MidLeft1").disabled = false;
+    document.getElementById("Left1").disabled = false;
+  }
+
+  const disableLevel4 = () =>{
+    document.getElementById("Right4").disabled = true;
+    document.getElementById("MidRightRight4").disabled = true;
+    document.getElementById("MidMidRight4").disabled = true;
+    document.getElementById("MidRight4").disabled = true;
+    document.getElementById("MidLeft4").disabled = true;
+    document.getElementById("Left4").disabled = true;
+  }
+
+  const disableLevel3 = () =>{
+    document.getElementById("Right3").disabled = true;
+    document.getElementById("MidRightRight3").disabled = true;
+    document.getElementById("MidMidRight3").disabled = true;
+    document.getElementById("MidRight3").disabled = true;
+    document.getElementById("MidLeft3").disabled = true;
+    document.getElementById("Left3").disabled = true;
+  }
+
+  const disableLevel2 = () =>{
+    document.getElementById("Right2").disabled = true;
+    document.getElementById("MidRightRight2").disabled = true;
+    document.getElementById("MidMidRight2").disabled = true;
+    document.getElementById("MidRight2").disabled = true;
+    document.getElementById("MidLeft2").disabled = true;
+    document.getElementById("Left2").disabled = true;
+  }
+
+  const disableLevel1 = () =>{
+    document.getElementById("Right1").disabled = true;
+    document.getElementById("MidRightRight1").disabled = true;
+    document.getElementById("MidMidRight1").disabled = true;
+    document.getElementById("MidRight1").disabled = true;
+    document.getElementById("MidLeft1").disabled = true;
+    document.getElementById("Left1").disabled = true;
+  }
+
 //Ladder in third row  
     const useLadder3 = () => {
+      enableLevel4();
       if(document.getElementById("Right3").checked == true){
           document.getElementById("Right4").checked = true;
           document.getElementById("Right3").checked = false;
 
-          document.getElementById("Right3").disabled = true;
-          document.getElementById("MidRight3").disabled = true;
-          document.getElementById("MidLeft3").disabled = true;
-          document.getElementById("Left3").disabled = true;
+          disableLevel3()
           }
       else{window.alert("I can only go up")}
     }
 
   // Ladder in second row
     const useLadder2 = () => {
+      enableLevel3();
       if(document.getElementById("MidLeft2").checked == true){
           document.getElementById("MidLeft3").checked = true;
           document.getElementById("MidLeft2").checked = false;
 
-          document.getElementById("Right2").disabled = true;
-          document.getElementById("MidRight2").disabled = true;
-          document.getElementById("MidLeft2").disabled = true;
-          document.getElementById("Left2").disabled = true;
+          disableLevel2()
           }
       if(document.getElementById("Left2").checked == true){
           window.alert("I can only go up")
           document.getElementById("Left2").checked = false;
           document.getElementById("MidLeft3").checked = true;
 
-          document.getElementById("Right2").disabled = true;
-          document.getElementById("MidRight2").disabled = true;
-          document.getElementById("MidLeft2").disabled = true;
-          document.getElementById("Left2").disabled = true;
+          disableLevel2()
         } 
       else{window.alert("I can only go up")}
     }
 
 // Ladder in first row
     const useLadder1 = () => {
+      enableLevel2();
       if(document.getElementById("MidLeft1").checked == true){
           document.getElementById("MidLeft2").checked = true;
           document.getElementById("MidLeft1").checked = false;
 
-          document.getElementById("Right1").disabled = true;
-          document.getElementById("MidRight1").disabled = true;
-          document.getElementById("MidLeft1").disabled = true;
-          document.getElementById("Left1").disabled = true;
+          disableLevel1()
           }
       if(document.getElementById("MidRight1").checked == true){
           window.alert("I can only go up")
           document.getElementById("MidLeft2").checked = true;
           document.getElementById("MidRight1").checked = false;
 
-          document.getElementById("Right1").disabled = true;
-          document.getElementById("MidRight1").disabled = true;
-          document.getElementById("MidLeft1").disabled = true;
-          document.getElementById("Left1").disabled = true;
+          disableLevel1()
         } 
       else{window.alert("I can only go up")}
     }
 
     const navigate = useNavigate()
 
+    const clickDoor1 = () => {
+      enableLevel2();
+      navigate('/room')
+    }
+
     const clickDoor = () => {
       navigate('/room')
     }
 
     const startGame = () => {
+      enableLevel1();
       document.getElementById("Left1").checked = true;
+      disableLevel2();
+      disableLevel3();
+      disableLevel4();
     }
 
   return (
@@ -200,7 +269,7 @@ function Map (){
           <label for="Right1">Right1</label>
 
           {/* Door */}
-          <button className="door" onClick={clickDoor}></button>
+          <button className="door" onClick={clickDoor1}></button>
         </div>
 
           {/* Floor */}
