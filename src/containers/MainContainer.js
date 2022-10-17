@@ -16,6 +16,7 @@ const MainContainer = () => {
                     <Route path="/" element={<HomePage/>} />
                     <Route path="/Map" element={<Map/>} />
                     <Route path="/Room" element={<Room/>} />
+                    <Route path="/Riddles" element={<RiddlesData/>} />
                     <Route path="*" element={<ErrorPage />} />
                     <Route path="/Riddles" element={<RiddlesData/>}/>
                 </Routes>

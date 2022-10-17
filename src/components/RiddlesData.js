@@ -19,6 +19,7 @@ function RiddlesData(){
 
 
 
+
     const onCorrectAnswerClick = (event) => {
         let correctAnswer = riddlesOne.correctAnswer;
         if(event.target.value === correctAnswer){
@@ -30,9 +31,11 @@ function RiddlesData(){
   
 
 
+
     return(
         
         <div>
+
         <div> {riddlesOne.question}</div>
         <div>
             <button value={riddlesOne.correctAnswer} onClick={onCorrectAnswerClick} >{riddlesOne.correctAnswer}</button>
@@ -43,9 +46,11 @@ function RiddlesData(){
         <div>
             <p>{result}</p>
         </div>
+
         </div>
     
     )
 }
 
-export default RiddlesData;
+
+export default RiddlesData
