@@ -68,7 +68,7 @@ const Room = () => {
         }, 5000)
     }
 
-    const btnTreasure = document.getElementById('treasure-popup')
+    const btnTreasure = document.getElementById('treasure')
     function enableTreasure() {
         btnTreasure.disabled = false;
     }
