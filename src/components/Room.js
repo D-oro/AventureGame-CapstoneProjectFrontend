@@ -22,9 +22,6 @@ const Room = () =>{
                 setNarratorMessage(`you win`)
             }, 5000)
             
-            
-               
-            
         }else if(playerOneCopy.healthPoints <= 0){
             setTimeout(() => {
                 setNarratorMessage(`you lose`)
@@ -32,8 +29,6 @@ const Room = () =>{
             
         } 
     })
-
-    
 
     const attackEnemy = () => {
         const npcOneCopy = {...NPCOne}
@@ -48,8 +43,6 @@ const Room = () =>{
         }else{
             setNarratorMessage(`${npcOneCopy.name} dodges ${playerOne.name}'s attack.`)
         }
-       
-    
     }
 
     const attackPlayer = () => {
@@ -143,15 +136,14 @@ const Room = () =>{
                 
                 <div className='text-box'>
                     
-                    
                     <Narrator 
                     message={
                         narratorMessage || `Prepare for battle ${playerOne.name}`
                     }/>
                    
                     <div>
-                    <button className='attack' id='attack' onClick={attackFunction}>Attack!</button>
-                    <button className="back-to-map" onClick={handleClick}>Run Away!</button>
+                        <button className='attack' id='attack' onClick={attackFunction}>Attack!</button>
+                        <button className="back-to-map" onClick={handleClick}>Run Away!</button>
                     </div>
                 </div>
                 <div className='reward-box'>
@@ -166,28 +158,3 @@ const Room = () =>{
 }
 
 export default Room;
-
-
-
-
-
-
-
-
-// update backend, we just use attack button for ease
-
-        // const copyPlayer1 = {...playerOne}
-        // copyPlayer1.name = "Ash"
-        
-        // copyPlayer1.weapon.attackPoints += 5
-        // const request = new Request()
-        // request.put("/api/players", copyPlayer1)
-        // .then((res) => {
-        //    return res.json()
-        // })
-        // .then((data) =>{
-        //     console.log(data)
-        // })
-
-        // // and to keep the frontend in sync with the backend
-        // setPlayerOne(copyPlayer1)
