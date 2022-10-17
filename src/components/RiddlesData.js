@@ -12,7 +12,9 @@ function RiddlesData(){
     const navigate = useNavigate()
 
     useEffect(() => {
-        const riddleid = 1
+        const riddleQuestions = [1,2,3,4];
+        const randomRiddle = riddleQuestions[Math.floor(Math.random()*riddleQuestions.length)];
+        const riddleid = randomRiddle
         const request = new Request()
         request.get(`/api/riddles/${riddleid}`)
         .then((data) => {
