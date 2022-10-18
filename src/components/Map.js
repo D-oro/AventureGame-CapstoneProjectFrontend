@@ -189,7 +189,8 @@ function Map (){
 
   return (
     <div className="App">
-      <header className="App-header">
+        <header className="towertop"></header>
+        <main className="brick-map">
 
 {/* Level 4 */}
         <div className="radioRow4">
@@ -314,8 +315,7 @@ function Map (){
 
           {/* Floor */}
           <div className="floor"></div>
-
-      </header>
+          </main>
     </div>
   );
 }
