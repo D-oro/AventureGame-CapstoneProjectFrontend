@@ -285,7 +285,7 @@ function Map (){
 {/* Level 1 */}
         <div className="radioRow1">
 
-          <button className="sign" onClick={startGame}></button>
+          <button className="summon" onClick={startGame}>summon player</button>
 
           <input type="radio" id="Left1" name="Row1" value="Left1" disabled></input>
           <label for="Left1">Left1</label>
