@@ -133,7 +133,21 @@ progress {
     cursor: pointer;
 }
 
+.block {
+    background-image: radial-gradient(yellow, firebrick);
+    font-family: 'Silkscreen', cursive;
+    font-size: 18px;
+    cursor: pointer;
+}
+
 .back-to-map {
+    background-image: radial-gradient(yellow, firebrick);
+    font-family: 'Silkscreen', cursive;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.back-to-home {
     background-image: radial-gradient(yellow, firebrick);
     font-family: 'Silkscreen', cursive;
     font-size: 30px;
