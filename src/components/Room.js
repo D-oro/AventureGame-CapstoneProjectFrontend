@@ -5,9 +5,15 @@ import Request from '../helpers/request';
 import Narrator from './Narrator';
 import Treasure from './Treasure';
 import Inventory from './Inventory';
+import swing1 from '../sounds/swing.wav';
+import monster1 from '../sounds/monster-12.wav'
+import monsterDeath from "../sounds/MagicDeath.wav"
+import boss1 from "../sounds/boss1.wav"
+
+
 
 const Room = () => {
-
+    
     const [NPCOne, setNPCOne] = useState(null);
     const [playerOne, setPlayerOne] = useState(null);
     const [narratorMessage, setNarratorMessage] = useState('');
@@ -36,6 +42,7 @@ const Room = () => {
         const npcOneCopy = { ...NPCOne }
         const playerOneCopy = { ...playerOne }
         if (npcOneCopy.healthPoints <= 0) {
+            monsterDeathSound.play();
             setTimeout(() => {
                 setNarratorMessage(`you have killed ${NPCOne.name} well fought ${playerOne.name}! Claim your reward.`)
             }, 3000)
@@ -47,6 +54,31 @@ const Room = () => {
 
         }
     })
+
+
+    const attackSound = new Audio(
+        swing1
+    );
+
+    const monsterSound = new Audio(
+        monster1
+    )
+
+    const monsterDeathSound = new Audio(
+        monsterDeath
+    )
+    
+    const music = new Audio(
+        boss1
+    );
+
+    const handleMusic = () => {
+       music.paused ? music.play() : music.pause();
+    }
+
+    
+   
+    
 
     const navigate = useNavigate()
 
@@ -124,6 +156,7 @@ const Room = () => {
     const attackFunction = () => {
         if (NPCOne.healthPoints > 0 && playerOne.healthPoints > 0) {
             attackEnemy();
+            attackSound.play();
         } else {
             return;
         }
@@ -132,6 +165,7 @@ const Room = () => {
         setTimeout(() => {
             if (playerOneRef.current.healthPoints > 0 && NPCOneRef.current.healthPoints > 0) {
                 attackPlayer();
+                monsterSound.play();
             }
         }, 3500);
     }
@@ -177,6 +211,7 @@ const Room = () => {
     return (
         <div className='room-container'>
             <header className='header'>
+                <button onClick={handleMusic}>?</button>
                 <progress className='health-bar' id="playerHealth" value={playerOne.healthPoints} max={playerOne.startHealthPoints}></progress>
                 <div className='char-name'>{playerOne.name}</div>
                 <img className='vs-img' src={require(`../images/vs-41949.png`)} alt='oopsie' />
