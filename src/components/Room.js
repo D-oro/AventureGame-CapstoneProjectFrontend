@@ -37,7 +37,7 @@ const Room = () => {
         const playerOneCopy = { ...playerOne }
         if (npcOneCopy.healthPoints <= 0) {
             setTimeout(() => {
-                setNarratorMessage(`you have killed ${NPCOne.name} well fought ${playerOne.name}! Claim you're reward.`)
+                setNarratorMessage(`you have killed ${NPCOne.name} well fought ${playerOne.name}! Claim your reward.`)
             }, 3000)
 
         } else if (playerOneCopy.healthPoints <= 0) {
