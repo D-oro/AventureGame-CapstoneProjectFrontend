@@ -49,10 +49,9 @@ progress {
     border-radius: 7px;
   }
 
-.enemy-box {
+.enemy-box-riddle {
     border: solid black 2 px;
     width: 50%;
-    background-image: url('/src/images/dragon.gif');
     background-repeat: no-repeat;
     background-position: 50% 50%;
     color: azure;
@@ -60,7 +59,7 @@ progress {
     font-family: 'Silkscreen', cursive;
 }
 
-.player-box {
+.player-box-riddle {
     border: solid black 2 px;
     width: 50%;
     background-image: url('/src/images/warrior.gif');
@@ -116,6 +115,11 @@ progress {
     font-family: 'Silkscreen', cursive;
     font-size: 18px;
     cursor: pointer;
+}
+
+.riddler {
+    height: 50%;
+
 }
 
 
