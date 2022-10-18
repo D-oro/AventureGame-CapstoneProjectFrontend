@@ -111,6 +111,15 @@ progress {
 
 }
 
+.riddle-button {
+    background-image: radial-gradient(yellow, firebrick);
+    font-family: 'Silkscreen', cursive;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+
+
 
 
 
