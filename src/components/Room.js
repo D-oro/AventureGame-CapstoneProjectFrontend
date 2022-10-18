@@ -57,14 +57,10 @@ const Room = () => {
         copyPlayerOne.healthPoints = copyPlayerOne.startHealthPoints
         const request = new Request()
         request.put("/api/players", copyPlayerOne)
-        .then((res) => {
-            return res.json()
+        .then(() => {
+            setPlayerOne(copyPlayerOne)
+            navigate('/map')
         })
-        .then((data) =>{
-            console.log(data)
-        })
-        setPlayerOne(copyPlayerOne)
-        navigate('/map')
     }
 
     const handleClickGameOver = () => {
