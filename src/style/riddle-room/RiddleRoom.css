@@ -117,8 +117,8 @@ progress {
 }
 
 .vs-img {
-    width: 10%;
-    height: 75%;
+    width: 8vw;
+    height: 8vh;
 }
 
 .char-name {
@@ -134,15 +134,15 @@ progress {
 }
 
 .riddler {
-    height: 50%;
+    height: 20vh;
 
 }
 
 .spikes {
-    height: 18%;
-    margin-top: 30%;
-    width: 20%;
-    margin-left: 40%;
+    height: 18vh;
+    margin-top: 12vh;
+    width: 8vw;
+    margin-left: 20vw;
 }
 
 
