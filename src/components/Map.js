@@ -1,11 +1,10 @@
+import Request from '../helpers/request';
 import {useEffect, useState} from 'react';
 import { useNavigate } from 'react-router';
 import React from 'react';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import {Link} from 'react-router-dom';
 import '../style/map/Map.css'
-
-
 
 function Map (){
 
@@ -143,12 +142,50 @@ function Map (){
     }
 
     const startGame = () => {
+      if (playerOne.level === 1){
       enableLevel1();
       document.getElementById("Left1").checked = true;
       disableLevel2();
       disableLevel3();
       disableLevel4();
-    }
+      }
+      if (playerOne.level === 2){
+      enableLevel2();
+      document.getElementById("Left2").checked = true;
+      disableLevel1();
+      disableLevel3();
+      disableLevel4();
+      }
+      if (playerOne.level === 3){
+      enableLevel3();
+      document.getElementById("Left3").checked = true;
+      disableLevel1();
+      disableLevel2();
+      disableLevel4();
+      }
+      if (playerOne.level === 4){
+      enableLevel4();
+      document.getElementById("Right4").checked = true;
+      disableLevel1();
+      disableLevel2();
+      disableLevel4();
+      }
+      else (console.log(playerOne.level))
+  }
+
+    const [playerOne, setPlayerOne] = useState(null);
+
+    useEffect(() => {
+        const request = new Request()
+        request.get("/api/players")
+        .then((data) => {
+        setPlayerOne(data[0]);
+        })   
+    }, [])
+
+    if(!playerOne){
+        return "Loading..."
+       }
 
   return (
     <div className="App">
