@@ -60,12 +60,34 @@ progress {
     font-family: 'Silkscreen', cursive;
 }
 
+.enemy-box-alt {
+    border: solid black 2 px;
+    width: 50%;
+    background-image: url('/src/images/bloodsplats_0007.png');
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    color: azure;
+    font-size: 30px;
+    font-family: 'Silkscreen', cursive;
+}
+
 .player-box {
     border: solid black 2 px;
     width: 50%;
     background-image: url('/src/images/warrior.gif');
     background-repeat: no-repeat;
     background-position: 50% 30%;
+    color: azure;
+    font-size: 30px;
+    font-family: 'Silkscreen', cursive;
+}
+
+.player-box-alt {
+    border: solid black 2 px;
+    width: 50%;
+    background-image: url('/src/images/bloodsplats_0007.png');
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
     color: azure;
     font-size: 30px;
     font-family: 'Silkscreen', cursive;

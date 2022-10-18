@@ -188,12 +188,8 @@ const Room = () => {
             </header>
 
             <main className='main'>
-                <div className='player-box'>
-                    {playerOne.name}
-                </div>
-                <div className='enemy-box'>
-                    {NPCOne.name}
-                </div>
+               { playerOne.healthPoints <= 0 ? <div className='player-box-alt'>{playerOne.name} is dead!</div>:<div className='player-box'>{playerOne.name}</div>}
+                { NPCOne.healthPoints <= 0 ? <div className='enemy-box-alt'>{NPCOne.name} is dead!</div>: <div className='enemy-box'>{NPCOne.name}</div>}
             </main>
 
             <footer className='footer'>
