@@ -6,25 +6,10 @@ import '../style/Room/Treasure.css'
 
 const Treasure = () =>{
 
-    const openTreasure = () => {
-        const treasure = document.getElementById("treasure-popup");
-        treasure.classList.toggle("show")
-
-        const copyPlayerOne = {...playerOne}
-        copyPlayerOne.gold += 100
-        const request = new Request()
-        request.put("/api/players", copyPlayerOne)
-        .then((res) => {
-            return res.json()
-        })
-        .then((data) =>{
-            console.log(data)
-        })
-
-        setPlayerOne(copyPlayerOne)
-    }
+   
 
     const [playerOne, setPlayerOne] = useState(null);
+    
 
         useEffect(() => {
             const request = new Request()
@@ -33,6 +18,26 @@ const Treasure = () =>{
             setPlayerOne(data[0]);
             })   
         }, [])
+
+        const openTreasure = () => {
+        
+            const treasure = document.getElementById("treasure-popup");
+            treasure.classList.toggle("show")
+            const copyPlayerOne = {...playerOne}
+            const request = new Request()
+            copyPlayerOne.gold += 100
+            
+            
+            request.put("/api/players", copyPlayerOne)
+            .then((res) => {
+                return res.json()
+            })
+            .then((data) =>{
+                console.log(data)
+            })
+    
+            setPlayerOne(copyPlayerOne)
+        }
 
         if(!playerOne){
             return "Loading..."

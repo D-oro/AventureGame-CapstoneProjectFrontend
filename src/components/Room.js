@@ -7,8 +7,9 @@ import Treasure from './Treasure';
 import Inventory from './Inventory';
 import swing1 from '../sounds/swing.wav';
 import monster1 from '../sounds/monster-12.wav'
-import monsterDeath from "../sounds/MagicDeath.wav"
-import boss1 from "../sounds/boss1.wav"
+import monsterDeath from "../sounds/shade12.wav"
+import block from "../sounds/sword_clash.9.ogg"
+import MusicPlayer from './MusicPlayer';
 
 
 
@@ -62,24 +63,18 @@ const Room = () => {
 
     const monsterSound = new Audio(
         monster1
-    )
+    );
 
     const monsterDeathSound = new Audio(
         monsterDeath
-    )
-    
-    const music = new Audio(
-        boss1
     );
 
-    const handleMusic = () => {
-       music.paused ? music.play() : music.pause();
-    }
+    const blockSound = new Audio(
+        block
+    );
 
     
    
-    
-
     const navigate = useNavigate()
 
     const handleClick = () => {
@@ -116,8 +111,10 @@ const Room = () => {
             npcOneCopy.healthPoints -= modifiedAttackValue
             setNarratorMessage(`${playerOne.name} attacks ${npcOneCopy.name} for ${modifiedAttackValue} damage`)
             setNPCOne(npcOneCopy)
+            attackSound.play();
         } else {
             setNarratorMessage(`${npcOneCopy.name} dodges ${playerOne.name}'s attack.`)
+            blockSound.play();
         }
     }
 
@@ -130,8 +127,10 @@ const Room = () => {
         if (enemyAccuracy > 1) {
             playerOne.healthPoints -= modifiedAttackValue
             setNarratorMessage(`${npcOneCopy.name} attacks ${playerOne.name} for ${modifiedAttackValue} damage`);
+            monsterSound.play();
         } else {
             setNarratorMessage(`${playerOne.name} dodges ${npcOneCopy.name}'s attack`)
+            blockSound.play();
         }
     }
 
@@ -156,7 +155,7 @@ const Room = () => {
     const attackFunction = () => {
         if (NPCOne.healthPoints > 0 && playerOne.healthPoints > 0) {
             attackEnemy();
-            attackSound.play();
+           
         } else {
             return;
         }
@@ -165,7 +164,7 @@ const Room = () => {
         setTimeout(() => {
             if (playerOneRef.current.healthPoints > 0 && NPCOneRef.current.healthPoints > 0) {
                 attackPlayer();
-                monsterSound.play();
+               
             }
         }, 3500);
     }
@@ -195,8 +194,10 @@ const Room = () => {
         if (enemyAccuracy > 2.5) {
             playerOne.healthPoints -= modifiedAttackValue
             setNarratorMessage(`${npcOneCopy.name} gets through ${playerOne.name}'s block and hits for ${modifiedAttackValue} damage`);
+            monsterSound.play()
         } else {
             setNarratorMessage(`${playerOne.name} fully blocks ${npcOneCopy.name}'s attack`)
+            blockSound.play()
         }
     }
 
@@ -211,7 +212,6 @@ const Room = () => {
     return (
         <div className='room-container'>
             <header className='header'>
-                <button onClick={handleMusic}>?</button>
                 <progress className='health-bar' id="playerHealth" value={playerOne.healthPoints} max={playerOne.startHealthPoints}></progress>
                 <div className='char-name'>{playerOne.name}</div>
                 <img className='vs-img' src={require(`../images/vs-41949.png`)} alt='oopsie' />
@@ -228,6 +228,7 @@ const Room = () => {
                 <div className='inventory-box'>
                     <div className='gold'>GOLD : {playerOne.gold}</div>
                     <Inventory updateHealth={updateHealth}/>
+                    <MusicPlayer />
                 </div>
                 
                 <div className='text-box'>
