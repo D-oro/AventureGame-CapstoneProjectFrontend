@@ -95,9 +95,9 @@ function RiddlesData(){
             </header>
 
             <main className='main'>
-               <div className='player-box-riddle'>
-                    {playerOne.name}
-               </div>
+               
+               { playerOne.healthPoints <= 0 ? <div className='player-box-riddle-alt'>{playerOne.name} is dead!</div>:<div className='player-box-riddle'>{playerOne.name}</div>}
+             
                <div className='enemy-box-riddle'>
                 Risky business... Answer my question to recieve a treasure! Get it wrong and true horror awaits!
                 <img className='riddler' src={require(`../images/Old_man.png`)} alt='oopsie' />

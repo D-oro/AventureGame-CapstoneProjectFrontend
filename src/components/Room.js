@@ -54,7 +54,7 @@ const Room = () => {
 
         const copyPlayerOne = {...playerOne}
         copyPlayerOne.level +=1
-        copyPlayerOne.healthPoints = 150
+        copyPlayerOne.healthPoints = copyPlayerOne.startHealthPoints
         const request = new Request()
         request.put("/api/players", copyPlayerOne)
         .then((res) => {

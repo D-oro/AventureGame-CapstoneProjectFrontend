@@ -70,6 +70,17 @@ progress {
     font-family: 'Silkscreen', cursive;
 }
 
+.player-box-riddle-alt {
+    border: solid black 2 px;
+    width: 50%;
+    background-image: url('/src/images/bloodsplats_0007.png');
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    color: azure;
+    font-size: 30px;
+    font-family: 'Silkscreen', cursive;
+}
+
 .reward-box {
     display: flex;
     width: 20%;
