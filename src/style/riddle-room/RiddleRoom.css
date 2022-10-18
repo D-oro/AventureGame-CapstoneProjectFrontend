@@ -79,6 +79,8 @@ progress {
     color: azure;
     font-size: 30px;
     font-family: 'Silkscreen', cursive;
+    display: flex;
+    flex-direction: column;
 }
 
 .reward-box {
@@ -131,6 +133,13 @@ progress {
 .riddler {
     height: 50%;
 
+}
+
+.spikes {
+    height: 18%;
+    margin-top: 30%;
+    width: 20%;
+    margin-left: 40%;
 }
 
 
