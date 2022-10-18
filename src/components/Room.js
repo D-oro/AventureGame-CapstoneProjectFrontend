@@ -74,6 +74,7 @@ const Room = () => {
     const updateHealth = (healthAmount) => {
         const copyPlayerOne = {...playerOne}
         copyPlayerOne.healthPoints += healthAmount
+        copyPlayerOne.startHealthPoints += healthAmount
         setPlayerOne(copyPlayerOne)
     }
 
