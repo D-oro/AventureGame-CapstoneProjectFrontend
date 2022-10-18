@@ -46,11 +46,11 @@ function RiddlesData(){
     const onCorrectAnswerClick = (event) => {
         let correctAnswer = riddlesOne.correctAnswer;
         if(event.target.value === correctAnswer){
-            setResult("Correct!");
+            setResult(setNarratorMessage(`Correct! You are a smart one, aren't you!`));
             playerOne.gold += 100
             console.log(playerOne)
         }else{
-            setResult("You lose!");
+            setResult(setNarratorMessage(`You lose! spikes come out the walls and damage you`));
             playerOne.healthPoints -= 25
         }
     }
@@ -71,7 +71,7 @@ function RiddlesData(){
         <div className='room-container'>
             <header className='header'>
             <progress className='health-bar' id="playerHealth" value={playerOne.healthPoints} max={playerOne.startHealthPoints}></progress>
-            <div className='char-name'>{playerOne.name}</div>
+            <div className='char-name'>Riddle Time!</div>
             
             <div className='char-name'>{NPCOne.name}</div>
             </header>
@@ -92,19 +92,21 @@ function RiddlesData(){
                 
                 <div className='text-box'>
                     
-                    
+                <div className='narrator-box'>
                     <Narrator 
                     message={
                         narratorMessage || `${riddlesOne.question}`
                     }/>
+
                      <div>
                      {result}
                     </div>
+                   </div> 
 
-                    <button value={riddlesOne.correctAnswer} onClick={onCorrectAnswerClick}>{riddlesOne.correctAnswer}</button>
-                    <button value={riddlesOne.wrongAnswerOne} onClick={onCorrectAnswerClick}>{riddlesOne.wrongAnswerOne}</button>
-                    <button value={riddlesOne.wrongAnswerTwo} onClick={onCorrectAnswerClick}>{riddlesOne.wrongAnswerTwo}</button>
-                    <button value={riddlesOne.wrongAnswerThree} onClick={onCorrectAnswerClick}>{riddlesOne.wrongAnswerThree}</button>
+                    <button className='riddle-button' value={riddlesOne.correctAnswer} onClick={onCorrectAnswerClick}>{riddlesOne.correctAnswer}</button>
+                    <button className='riddle-button' value={riddlesOne.wrongAnswerOne} onClick={onCorrectAnswerClick}>{riddlesOne.wrongAnswerOne}</button>
+                    <button className='riddle-button' value={riddlesOne.wrongAnswerTwo} onClick={onCorrectAnswerClick}>{riddlesOne.wrongAnswerTwo}</button>
+                    <button className='riddle-button' value={riddlesOne.wrongAnswerThree} onClick={onCorrectAnswerClick}>{riddlesOne.wrongAnswerThree}</button>
                     
                     <div>
                         <button className="back-to-map" onClick={handleClick}>Run Away!</button>
