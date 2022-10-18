@@ -38,22 +38,35 @@ function RiddlesData(){
         const request = new Request()
         request.get(`/api/riddles/${riddleid}`)
         .then((data) => {
-            console.log(data)
+            // console.log(data)
             setRiddlesOne(data);
         })
     }, [])
 
-    const onCorrectAnswerClick = (event) => {
+    const onAnswerClick = (event) => {
         let correctAnswer = riddlesOne.correctAnswer;
         if(event.target.value === correctAnswer){
-            setResult(setNarratorMessage(`Correct! You are a smart one, aren't you!`));
+            setNarratorMessage(`Correct! You are a smart one, aren't you!`)
+            setResult('won');
             playerOne.gold += 100
-            console.log(playerOne)
-        }else{
-            setResult(setNarratorMessage(`You lose! spikes come out the walls and damage you`));
+            // console.log(playerOne)
+        }
+        else{
+            setNarratorMessage(`You lose! spikes come out the walls and damage you`)
+            setResult('lost');
             playerOne.healthPoints -= 25
         }
     }
+
+    const answerKeys = ["correctAnswer", "wrongAnswerOne", "wrongAnswerTwo", "wrongAnswerThree"]
+        .map(value => ({value, sort:Math.random()}))
+        .sort((a , b) => a.sort - b.sort)
+        .map(({value}) => value)
+        // console.log(answerKeys);
+    const answerButtons = riddlesOne ? answerKeys.map((key, index) => {
+        console.log(key)
+        return <button key={index} className='riddle-button' value={riddlesOne[key]} onClick={onAnswerClick}>{riddlesOne[key]}</button>
+    }) : null;
 
     const handleClick = () =>{
         navigate('/map')
@@ -102,12 +115,7 @@ function RiddlesData(){
                      {result}
                     </div>
                    </div> 
-
-                    <button className='riddle-button' value={riddlesOne.correctAnswer} onClick={onCorrectAnswerClick}>{riddlesOne.correctAnswer}</button>
-                    <button className='riddle-button' value={riddlesOne.wrongAnswerOne} onClick={onCorrectAnswerClick}>{riddlesOne.wrongAnswerOne}</button>
-                    <button className='riddle-button' value={riddlesOne.wrongAnswerTwo} onClick={onCorrectAnswerClick}>{riddlesOne.wrongAnswerTwo}</button>
-                    <button className='riddle-button' value={riddlesOne.wrongAnswerThree} onClick={onCorrectAnswerClick}>{riddlesOne.wrongAnswerThree}</button>
-                    
+                    {answerButtons}                    
                     <div>
                         <button className="back-to-map" onClick={handleClick}>Run Away!</button>
                     </div>
@@ -115,7 +123,7 @@ function RiddlesData(){
                 <div className='reward-box'>
                     <div className='reward-box-content'>
                         Correctly answer the question to get a reward!
-                        { riddlesOne.correctAnswer ? <Treasure/> : <></>}
+                        { result ? <Treasure/> : <></>}
                     </div>
                 </div>
             </footer>
