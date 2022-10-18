@@ -93,11 +93,19 @@ const Room = () => {
         }
     }
 
-    const btn = document.getElementById('attack')
-    function disableButton() {
-        btn.disabled = true;
+    const btnAtk = document.getElementById('attack')
+    function disableButtonAttack() {
+        btnAtk.disabled = true;
         setTimeout(() => {
-            btn.disabled = false;
+            btnAtk.disabled = false;
+        }, 5000)
+    }
+
+    const btnBlk = document.getElementById('block')
+    function disableButtonBlock() {
+        btnBlk.disabled = true;
+        setTimeout(() => {
+            btnBlk.disabled = false;
         }, 5000)
     }
 
@@ -109,12 +117,43 @@ const Room = () => {
         } else {
             return;
         }
-        disableButton();
+        disableButtonAttack();
+        disableButtonBlock();
         setTimeout(() => {
             if (playerOneRef.current.healthPoints > 0 && NPCOneRef.current.healthPoints > 0) {
                 attackPlayer();
             }
         }, 3500);
+    }
+
+    const blockFunction = () => {
+        if (NPCOne.healthPoints > 0 && playerOne.healthPoints > 0) {
+            setNarratorMessage(`${playerOne.name} attempts to block the next attack!`);
+        } else {
+            return;
+        }
+        disableButtonAttack();
+        disableButtonBlock();
+        setTimeout(() => {
+            if (playerOneRef.current.healthPoints > 0 && NPCOneRef.current.healthPoints > 0) {
+                blockEnemy();
+            }
+        }, 3500);
+
+    }
+
+    const blockEnemy = () => {
+        const npcOneCopy = { ...NPCOne }
+        const modifiers = [-5, -4, -3, -2, -1, 0, 1, 2];
+        const modifier = modifiers[Math.floor(Math.random() * modifiers.length)];
+        const modifiedAttackValue = Math.round(npcOneCopy.attackValue + modifier) / 2;
+        const enemyAccuracy = Math.floor(Math.random() * 4 + 1);
+        if (enemyAccuracy > 2.5) {
+            playerOne.healthPoints -= modifiedAttackValue
+            setNarratorMessage(`${npcOneCopy.name} gets through ${playerOne.name}'s block and hits for ${modifiedAttackValue} damage`);
+        } else {
+            setNarratorMessage(`${playerOne.name} fully blocks ${npcOneCopy.name}'s attack`)
+        }
     }
 
 
@@ -161,7 +200,9 @@ const Room = () => {
                     </div>
                     <div className='button-bar'>
                         <button className='attack' id='attack' onClick={attackFunction}>Attack!</button>
+                        <button className='block' id='block' onClick={blockFunction}>Block!</button>
                     </div>
+                    <></>
                     <div>
                         { NPCOne.healthPoints <= 0 ? <button className="back-to-map" onClick={handleClick}>Leave Room!</button> : <></>}
                         { playerOne.healthPoints <= 0 ? <button className='back-to-home' onClick={handleClickGameOver}>Return To Home</button> : <></>}
