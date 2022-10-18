@@ -27,3 +27,10 @@
 .greenPotion{
     background-image: url('/src/images/greenPotion.png');
 }
+
+.Inventory {
+    background-image: radial-gradient(yellow, firebrick);
+    font-family: 'Silkscreen', cursive;
+    font-size: 18px;
+    cursor: pointer;
+}

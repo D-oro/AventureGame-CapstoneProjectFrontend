@@ -100,7 +100,9 @@ function RiddlesData(){
              
                <div className='enemy-box-riddle'>
                 Risky business... Answer my question to recieve a treasure! Get it wrong and true horror awaits!
+                <>
                 <img className='riddler' src={require(`../images/Old_man.png`)} alt='oopsie' />
+                </>
                </div>
             </main>
 
