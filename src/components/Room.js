@@ -51,6 +51,19 @@ const Room = () => {
     const navigate = useNavigate()
 
     const handleClick = () => {
+
+        const copyPlayerOne = {...playerOne}
+        copyPlayerOne.level +=1
+        copyPlayerOne.healthPoints = 150
+        const request = new Request()
+        request.put("/api/players", copyPlayerOne)
+        .then((res) => {
+            return res.json()
+        })
+        .then((data) =>{
+            console.log(data)
+        })
+        setPlayerOne(copyPlayerOne)
         navigate('/map')
     }
 
@@ -155,9 +168,6 @@ const Room = () => {
             setNarratorMessage(`${playerOne.name} fully blocks ${npcOneCopy.name}'s attack`)
         }
     }
-
-
-
 
     if (!NPCOne) {
         return "Loading..."
