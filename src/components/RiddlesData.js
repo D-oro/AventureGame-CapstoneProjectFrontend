@@ -48,13 +48,13 @@ function RiddlesData(){
         if(event.target.value === correctAnswer){
             setNarratorMessage(`Correct! You are a smart one, aren't you!`)
             setResult('won');
-            playerOne.gold += 100
             // console.log(playerOne)
         }
         else{
-            setNarratorMessage(`You lose! spikes come out the walls and damage you`)
+            setNarratorMessage(`You lose! spikes come out the ground and impale you... GAME OVER!`)
             setResult('lost');
-            playerOne.healthPoints -= 25
+            playerOne.healthPoints -= playerOne.startHealthPoints
+
         }
     }
 
@@ -67,6 +67,11 @@ function RiddlesData(){
         console.log(key)
         return <button key={index} className='riddle-button' value={riddlesOne[key]} onClick={onAnswerClick}>{riddlesOne[key]}</button>
     }) : null;
+
+    const handleClickGameOver = () => {
+        navigate('/')
+    }
+
 
     const handleClick = () =>{
         navigate('/map')
@@ -94,7 +99,7 @@ function RiddlesData(){
                     {playerOne.name}
                </div>
                <div className='enemy-box'>
-                Answer my question to recieve a treasure! Get it wrong and you will be sorry!
+                Risky business... Answer my question to recieve a treasure! Get it wrong and true horror awaits!
                </div>
             </main>
 
@@ -117,13 +122,15 @@ function RiddlesData(){
                    </div> 
                     {answerButtons}                    
                     <div>
-                        <button className="back-to-map" onClick={handleClick}>Run Away!</button>
+                        { result === 'won' ? <button className="back-to-map" onClick={handleClick}>Leave Room!</button> : <></>}
+                        { result === 'lost' ? <button className='back-to-home' onClick={handleClickGameOver}>Return To Home</button> : <></>}
+
                     </div>
                 </div>
                 <div className='reward-box'>
                     <div className='reward-box-content'>
                         Correctly answer the question to get a reward!
-                        { result ? <Treasure/> : <></>}
+                        {  result === 'won' ? <Treasure/> : <></>}
                     </div>
                 </div>
             </footer>
