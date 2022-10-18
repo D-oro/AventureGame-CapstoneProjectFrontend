@@ -65,7 +65,7 @@ function RiddlesData(){
         // console.log(answerKeys);
     const answerButtons = riddlesOne ? answerKeys.map((key, index) => {
         console.log(key)
-        return <button key={index} className='riddle-button' value={riddlesOne[key]} onClick={onAnswerClick}>{riddlesOne[key]}</button>
+        return <button key={index} className='riddle-button' id='riddle-button' value={riddlesOne[key]} onClick={onAnswerClick}>{riddlesOne[key]}</button>
     }) : null;
 
     const handleClickGameOver = () => {
@@ -91,15 +91,16 @@ function RiddlesData(){
             <progress className='health-bar' id="playerHealth" value={playerOne.healthPoints} max={playerOne.startHealthPoints}></progress>
             <div className='char-name'>Riddle Time!</div>
             
-            <div className='char-name'>{NPCOne.name}</div>
+            <div className='char-name'>The Riddler</div>
             </header>
 
             <main className='main'>
-               <div className='player-box'>
+               <div className='player-box-riddle'>
                     {playerOne.name}
                </div>
-               <div className='enemy-box'>
+               <div className='enemy-box-riddle'>
                 Risky business... Answer my question to recieve a treasure! Get it wrong and true horror awaits!
+                <img className='riddler' src={require(`../images/Old_man.png`)} alt='oopsie' />
                </div>
             </main>
 
@@ -116,11 +117,9 @@ function RiddlesData(){
                         narratorMessage || `${riddlesOne.question}`
                     }/>
 
-                     <div>
-                     {result}
-                    </div>
+                    
                    </div> 
-                    {answerButtons}                    
+                 { playerOne.healthPoints <= 0 || result === 'won' ? <></> : [answerButtons] }                    
                     <div>
                         { result === 'won' ? <button className="back-to-map" onClick={handleClick}>Leave Room!</button> : <></>}
                         { result === 'lost' ? <button className='back-to-home' onClick={handleClickGameOver}>Return To Home</button> : <></>}
