@@ -11,8 +11,7 @@ const Treasure = () =>{
         treasure.classList.toggle("show")
 
         const copyPlayerOne = {...playerOne}
-        copyPlayerOne.weapon.name = "Axe"
-        copyPlayerOne.weapon.attackPoints = 25
+        copyPlayerOne.gold += 100
         const request = new Request()
         request.put("/api/players", copyPlayerOne)
         .then((res) => {

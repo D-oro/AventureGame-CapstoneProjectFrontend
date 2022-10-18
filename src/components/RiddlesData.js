@@ -108,7 +108,10 @@ function RiddlesData(){
 
             <footer className='footer'>
                 <div className='inventory-box'>
+                    <div className='gold'>GOLD : {playerOne.gold}</div>
                     <Inventory/>
+
+                
                 </div>
                 
                 <div className='text-box'>
