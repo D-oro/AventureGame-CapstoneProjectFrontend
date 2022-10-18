@@ -113,7 +113,7 @@ progress {
     flex-wrap: wrap;
     justify-content: center;
     width: 20%;
-    height: 49.5%;
+    height: 49.5vh;
     border: 2px solid black;
 /* for testing, change back to firebrick: */
     background-color: firebrick;

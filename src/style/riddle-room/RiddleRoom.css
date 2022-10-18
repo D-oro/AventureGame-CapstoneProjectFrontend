@@ -95,12 +95,15 @@ progress {
 .inventory-box {
     display: flex;
     flex-wrap: wrap;
-    align-items:flex-start;
+    justify-content: center;
     width: 20%;
     height: 49.5vh;
     border: 2px solid black;
 /* for testing, change back to firebrick: */
     background-color: firebrick;
+    background-image: url('/src/images/scroll_2.png');
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 .text-box {
