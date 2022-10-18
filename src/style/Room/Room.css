@@ -110,8 +110,9 @@ progress {
 
 .inventory-box {
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
     width: 20vw;
     height: 49.5vh;
     border: 2px solid black;
@@ -178,6 +179,12 @@ progress {
     font-size: 30px;
     cursor: pointer;
 }
+
+.gold {
+    font-family: 'Silkscreen', cursive;
+    font-size: 18px;
+}
+
 
 
 
