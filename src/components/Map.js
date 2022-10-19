@@ -132,12 +132,23 @@ function Map (){
 
     const navigate = useNavigate()
 
-    const clickDoor1 = () => {
-      enableLevel2();
-      navigate('/room')
+    const goToFinalBoss = () => {
+      navigate('/finalboss')
     }
 
-    const clickDoor = () => {
+    const goToRoom3 = () => {
+      navigate('/room3')
+    }
+
+    const goToRoom2 = () => {
+      navigate('/room2')
+    }
+
+    const goToRiddles = () => {
+      navigate('/riddles')
+    }
+
+    const goToRoom = () => {
       navigate('/room')
     }
 
@@ -196,7 +207,7 @@ function Map (){
         <div className="radioRow4">
 
           {/* Gate */}
-          <button className="gate" onClick={clickDoor}></button>
+          <button className="gate" onClick={goToFinalBoss}></button>
 
           <input type="radio" id="Left4" name="Row4" value="Left4" disabled></input>
           <label for="Left4">Left4</label>
@@ -226,13 +237,13 @@ function Map (){
           <label for="Left3">Left3</label>
 
           {/* Door*/}
-          <button className="door" onClick={clickDoor}></button>
+          <button className="door" onClick={goToRoom3}></button>
 
           <input type="radio" id="MidLeft3" name="Row3" value="MidLeft3" disabled></input>
           <label for="MidLeft3">MidLeft3</label>
 
           {/* Door*/}
-          <button className="door" onClick={clickDoor}></button>
+          <button className="door" onClick={goToRoom2}></button>
 
           <input type="radio" id="MidRight3" name="Row3" value="MidRight3" disabled></input>
           <label for="MidRight3">MidRight3</label>
@@ -256,7 +267,7 @@ function Map (){
 {/* Level 2 */}
         <div className="radioRow2">
           {/* Door*/}
-          <button className="door" onClick={clickDoor}></button>
+          <button className="door" onClick={goToRiddles}></button>
 
           <input type="radio" id="Left2" name="Row2" value="Left2" disabled></input>
           <label for="Left2">Left2</label>
@@ -310,7 +321,7 @@ function Map (){
           <label for="Right1">Right1</label>
 
           {/* Door */}
-          <button className="door" onClick={clickDoor1}></button>
+          <button className="door" onClick={goToRoom}></button>
         </div>
 
           {/* Floor */}
