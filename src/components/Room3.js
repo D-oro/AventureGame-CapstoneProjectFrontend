@@ -6,7 +6,7 @@ import Narrator from './Narrator';
 import Treasure from './Treasure';
 import Inventory from './Inventory';
 import swing1 from '../sounds/swing.wav';
-import monster1 from '../sounds/monster-12.wav'
+import monster1 from '../sounds/bite-small.wav'
 import monsterDeath from "../sounds/shade12.wav"
 import block from "../sounds/sword_clash.9.ogg"
 import MusicPlayer from './MusicPlayer';
