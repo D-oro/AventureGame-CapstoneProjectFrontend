@@ -2,15 +2,12 @@ import React, {useState, useEffect} from 'react';
 import Request from '../helpers/request';
 import '../style/Room/Treasure.css'
 
-// button, updates weapon on backend
+// button, updates gold on backend and in state
 
-const Treasure = () =>{
-
-   
+const Treasure = ({updateGold}) =>{
 
     const [playerOne, setPlayerOne] = useState(null);
     
-
         useEffect(() => {
             const request = new Request()
             request.get("/api/players")
@@ -24,19 +21,19 @@ const Treasure = () =>{
             const treasure = document.getElementById("treasure-popup");
             treasure.classList.toggle("show")
             const copyPlayerOne = {...playerOne}
-            const request = new Request()
-            copyPlayerOne.gold += 100
-            
-            
-            request.put("/api/players", copyPlayerOne)
+            updateGold(100)
+            .then(() => {
+                setPlayerOne(copyPlayerOne)})
+            .then(() => {
+                const copyPlayerOne = {...playerOne}
+                const request = new Request()
+                request.put("/api/players", copyPlayerOne)})
             .then((res) => {
-                return res.json()
-            })
-            .then((data) =>{
-                console.log(data)
-            })
-    
-            setPlayerOne(copyPlayerOne)
+                    return res.json()
+                })
+                .then((data) =>{
+                    console.log(data)
+                })
         }
 
         if(!playerOne){

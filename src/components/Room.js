@@ -11,8 +11,6 @@ import monsterDeath from "../sounds/shade12.wav"
 import block from "../sounds/sword_clash.9.ogg"
 import MusicPlayer from './MusicPlayer';
 
-
-
 const Room = () => {
     
     const [NPCOne, setNPCOne] = useState(null);
@@ -52,7 +50,6 @@ const Room = () => {
             setTimeout(() => {
                 setNarratorMessage(`you have been defeated Game Over!`)
             }, 3000)
-
         }
     })
 
@@ -96,6 +93,12 @@ const Room = () => {
         const copyPlayerOne = {...playerOne}
         copyPlayerOne.healthPoints += healthAmount
         copyPlayerOne.startHealthPoints += healthAmount
+        setPlayerOne(copyPlayerOne)
+    }
+
+    const updateGold = (goldAmount) => {
+        const copyPlayerOne = {...playerOne}
+        copyPlayerOne.gold += goldAmount
         setPlayerOne(copyPlayerOne)
     }
 
@@ -245,7 +248,7 @@ const Room = () => {
                 <div className='reward-box'>
                     <div className='reward-box-content'>
                         Defeat {NPCOne.name} to receive a reward!
-                        { NPCOne.healthPoints <= 0 ? <Treasure /> : <></>}
+                        { NPCOne.healthPoints <= 0 ? <Treasure updateGold={updateGold}/> : <></>}
                 </div>
                 </div>
             </footer>
