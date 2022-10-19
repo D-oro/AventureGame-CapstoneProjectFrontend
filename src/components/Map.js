@@ -150,20 +150,29 @@ function Map (){
       disableLevel4();
       }
       if (playerOne.level === 2){
+      enableLevel1();  
       enableLevel2();
       document.getElementById("Right1").checked = true;
       disableLevel3();
       disableLevel4();
       }
       if (playerOne.level === 3){
+      enableLevel1();  
+      enableLevel2();
       enableLevel3();
       document.getElementById("Left2").checked = true;
       disableLevel4();
       }
       if (playerOne.level === 4){
+      enableLevel1();  
+      enableLevel2();
+      enableLevel3();  
       document.getElementById("Left3").checked = true;
       }
       if (playerOne.level === 5){
+      enableLevel1();  
+      enableLevel2();
+      enableLevel3();  
       enableLevel4();
       document.getElementById("MidLeft3").checked = true;
         }
