@@ -77,6 +77,12 @@ function RiddlesData(){
         navigate('/')
     }
 
+    const updateGold = (goldAmount) => {
+        const copyPlayerOne = {...playerOne}
+        copyPlayerOne.gold += goldAmount
+        setPlayerOne(copyPlayerOne)
+    }
+
     const handleClick = () =>{
         const copyPlayerOne = {...playerOne}
         copyPlayerOne.level +=1
@@ -145,7 +151,7 @@ function RiddlesData(){
                 <div className='reward-box'>
                     <div className='reward-box-content'>
                         Correctly answer the question to get a reward!
-                        {  result === 'won' ? <Treasure/> : <></>}
+                        {  result === 'won' ? <Treasure updateGold={updateGold}/> : <></>}
                     </div>
                 </div>
             </footer>
