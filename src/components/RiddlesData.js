@@ -54,7 +54,6 @@ function RiddlesData(){
             setNarratorMessage(`You lose! spikes come out the ground and impale you... GAME OVER!`)
             setResult('lost');
             playerOne.healthPoints -= playerOne.startHealthPoints
-
         }
     }
 
@@ -72,10 +71,16 @@ function RiddlesData(){
         navigate('/')
     }
 
-
     const handleClick = () =>{
-        navigate('/map')
-       }
+        const copyPlayerOne = {...playerOne}
+        copyPlayerOne.level +=1
+        const request = new Request()
+        request.put("/api/players", copyPlayerOne)
+        .then(() => {
+            setPlayerOne(copyPlayerOne)
+            navigate('/map')
+       })
+    }
 
         if(!NPCOne){
             return "Loading..."
@@ -142,13 +147,4 @@ function RiddlesData(){
     )
 }
 
-
-
-
-
-
-
-export default RiddlesData
-
-
-
+export default RiddlesData;

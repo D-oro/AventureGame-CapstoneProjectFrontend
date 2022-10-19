@@ -56,7 +56,6 @@ const Room = () => {
         }
     })
 
-
     const attackSound = new Audio(
         swing1
     );
@@ -73,7 +72,6 @@ const Room = () => {
         block
     );
 
-    
    
     const navigate = useNavigate()
 
@@ -150,8 +148,6 @@ const Room = () => {
         }, 5000)
     }
 
-  
-
     const attackFunction = () => {
         if (NPCOne.healthPoints > 0 && playerOne.healthPoints > 0) {
             attackEnemy();
@@ -164,7 +160,6 @@ const Room = () => {
         setTimeout(() => {
             if (playerOneRef.current.healthPoints > 0 && NPCOneRef.current.healthPoints > 0) {
                 attackPlayer();
-               
             }
         }, 3500);
     }
@@ -182,7 +177,6 @@ const Room = () => {
                 blockEnemy();
             }
         }, 3500);
-
     }
 
     const blockEnemy = () => {
