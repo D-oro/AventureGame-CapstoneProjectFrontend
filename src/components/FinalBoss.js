@@ -1,19 +1,19 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router';
-import '../style/Room/Room.css'
+import '../style/Room/FinalBoss.css';
 import Request from '../helpers/request';
 import Narrator from './Narrator';
 import Treasure from './Treasure';
 import Inventory from './Inventory';
 import swing1 from '../sounds/swing.wav';
-import monster1 from '../sounds/monster-12.wav'
+import cluck from '../sounds/ChickenSoundEffect.mp3'
 import monsterDeath from "../sounds/shade12.wav"
 import block from "../sounds/sword_clash.9.ogg"
 import MusicPlayer from './MusicPlayer';
 
 
 
-const Room = () => {
+const FinalBoss = () => {
     
     const [NPCOne, setNPCOne] = useState(null);
     const [playerOne, setPlayerOne] = useState(null);
@@ -28,7 +28,7 @@ const Room = () => {
         const request = new Request()
         request.get("/api/npcs")
             .then((data) => {
-                setNPCOne(data[0]);
+                setNPCOne(data[3]);
             })
     }, [])
 
@@ -63,7 +63,7 @@ const Room = () => {
     );
 
     const monsterSound = new Audio(
-        monster1
+        cluck
     );
 
     const monsterDeathSound = new Audio(
@@ -222,7 +222,7 @@ const Room = () => {
 
             <main className='main'>
                { playerOne.healthPoints <= 0 ? <div className='player-box-alt'> {playerOne.name} is dead!</div>:<div className='player-box'>{playerOne.name}</div>}
-                { NPCOne.healthPoints <= 0 ? <div className='enemy-box-alt'>{NPCOne.name} is dead!</div>: <div className='enemy-box'>{NPCOne.name}</div>}
+                { NPCOne.healthPoints <= 0 ? <div className='enemy-box-alt-boss'>{NPCOne.name} is dead!</div>: <div className='enemy-box-boss'>{NPCOne.name}</div>}
             </main>
 
             <footer className='footer'>
@@ -260,4 +260,4 @@ const Room = () => {
     )
 }
 
-export default Room;
+export default FinalBoss;

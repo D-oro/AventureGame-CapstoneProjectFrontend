@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router';
-import '../style/Room/Room.css'
+import '../style/Room/Room3.css'
 import Request from '../helpers/request';
 import Narrator from './Narrator';
 import Treasure from './Treasure';
@@ -13,7 +13,7 @@ import MusicPlayer from './MusicPlayer';
 
 
 
-const Room = () => {
+const Room3 = () => {
     
     const [NPCOne, setNPCOne] = useState(null);
     const [playerOne, setPlayerOne] = useState(null);
@@ -28,7 +28,7 @@ const Room = () => {
         const request = new Request()
         request.get("/api/npcs")
             .then((data) => {
-                setNPCOne(data[0]);
+                setNPCOne(data[2]);
             })
     }, [])
 
@@ -222,7 +222,7 @@ const Room = () => {
 
             <main className='main'>
                { playerOne.healthPoints <= 0 ? <div className='player-box-alt'> {playerOne.name} is dead!</div>:<div className='player-box'>{playerOne.name}</div>}
-                { NPCOne.healthPoints <= 0 ? <div className='enemy-box-alt'>{NPCOne.name} is dead!</div>: <div className='enemy-box'>{NPCOne.name}</div>}
+                { NPCOne.healthPoints <= 0 ? <div className='enemy-box-alt-3'>{NPCOne.name} is dead!</div>: <div className='enemy-box-3'>{NPCOne.name}</div>}
             </main>
 
             <footer className='footer'>
@@ -260,4 +260,4 @@ const Room = () => {
     )
 }
 
-export default Room;
+export default Room3;
