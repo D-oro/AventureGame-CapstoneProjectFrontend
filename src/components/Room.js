@@ -5,15 +5,21 @@ import Request from '../helpers/request';
 import Narrator from './Narrator';
 import Treasure from './Treasure';
 import Inventory from './Inventory';
+import swing1 from '../sounds/swing.wav';
+import monster1 from '../sounds/monster-12.wav'
+import monsterDeath from "../sounds/shade12.wav"
+import block from "../sounds/sword_clash.9.ogg"
+import MusicPlayer from './MusicPlayer';
 
 const Room = () => {
-
+    
     const [NPCOne, setNPCOne] = useState(null);
     const [playerOne, setPlayerOne] = useState(null);
     const [narratorMessage, setNarratorMessage] = useState('');
     const NPCOneRef = useRef(NPCOne)
     const playerOneRef = useRef(playerOne)
     NPCOneRef.current = NPCOne
+    
     playerOneRef.current = playerOne
 
     useEffect(() => {
@@ -36,6 +42,7 @@ const Room = () => {
         const npcOneCopy = { ...NPCOne }
         const playerOneCopy = { ...playerOne }
         if (npcOneCopy.healthPoints <= 0) {
+            monsterDeathSound.play();
             setTimeout(() => {
                 setNarratorMessage(`you have killed ${NPCOne.name} well fought ${playerOne.name}! Claim your reward.`)
             }, 3000)
@@ -44,27 +51,39 @@ const Room = () => {
             setTimeout(() => {
                 setNarratorMessage(`you have been defeated Game Over!`)
             }, 3000)
-
         }
     })
 
+    const attackSound = new Audio(
+        swing1
+    );
+
+    const monsterSound = new Audio(
+        monster1
+    );
+
+    const monsterDeathSound = new Audio(
+        monsterDeath
+    );
+
+    const blockSound = new Audio(
+        block
+    );
+
+   
     const navigate = useNavigate()
 
     const handleClick = () => {
 
         const copyPlayerOne = {...playerOne}
         copyPlayerOne.level +=1
-        copyPlayerOne.healthPoints = 150
+        copyPlayerOne.healthPoints = copyPlayerOne.startHealthPoints
         const request = new Request()
         request.put("/api/players", copyPlayerOne)
-        .then((res) => {
-            return res.json()
+        .then(() => {
+            setPlayerOne(copyPlayerOne)
+            navigate('/map')
         })
-        .then((data) =>{
-            console.log(data)
-        })
-        setPlayerOne(copyPlayerOne)
-        navigate('/map')
     }
 
     const handleClickGameOver = () => {
@@ -74,6 +93,13 @@ const Room = () => {
     const updateHealth = (healthAmount) => {
         const copyPlayerOne = {...playerOne}
         copyPlayerOne.healthPoints += healthAmount
+        copyPlayerOne.startHealthPoints += healthAmount
+        setPlayerOne(copyPlayerOne)
+    }
+
+    const updateGold = (goldAmount) => {
+        const copyPlayerOne = {...playerOne}
+        copyPlayerOne.gold += goldAmount
         setPlayerOne(copyPlayerOne)
     }
 
@@ -87,8 +113,10 @@ const Room = () => {
             npcOneCopy.healthPoints -= modifiedAttackValue
             setNarratorMessage(`${playerOne.name} attacks ${npcOneCopy.name} for ${modifiedAttackValue} damage`)
             setNPCOne(npcOneCopy)
+            attackSound.play();
         } else {
             setNarratorMessage(`${npcOneCopy.name} dodges ${playerOne.name}'s attack.`)
+            blockSound.play();
         }
     }
 
@@ -101,8 +129,10 @@ const Room = () => {
         if (enemyAccuracy > 1) {
             playerOne.healthPoints -= modifiedAttackValue
             setNarratorMessage(`${npcOneCopy.name} attacks ${playerOne.name} for ${modifiedAttackValue} damage`);
+            monsterSound.play();
         } else {
             setNarratorMessage(`${playerOne.name} dodges ${npcOneCopy.name}'s attack`)
+            blockSound.play();
         }
     }
 
@@ -122,11 +152,10 @@ const Room = () => {
         }, 5000)
     }
 
-  
-
     const attackFunction = () => {
         if (NPCOne.healthPoints > 0 && playerOne.healthPoints > 0) {
             attackEnemy();
+           
         } else {
             return;
         }
@@ -152,7 +181,6 @@ const Room = () => {
                 blockEnemy();
             }
         }, 3500);
-
     }
 
     const blockEnemy = () => {
@@ -164,8 +192,10 @@ const Room = () => {
         if (enemyAccuracy > 2.5) {
             playerOne.healthPoints -= modifiedAttackValue
             setNarratorMessage(`${npcOneCopy.name} gets through ${playerOne.name}'s block and hits for ${modifiedAttackValue} damage`);
+            monsterSound.play()
         } else {
             setNarratorMessage(`${playerOne.name} fully blocks ${npcOneCopy.name}'s attack`)
+            blockSound.play()
         }
     }
 
@@ -188,13 +218,15 @@ const Room = () => {
             </header>
 
             <main className='main'>
-               { playerOne.healthPoints <= 0 ? <div className='player-box-alt'>{playerOne.name} is dead!</div>:<div className='player-box'>{playerOne.name}</div>}
+               { playerOne.healthPoints <= 0 ? <div className='player-box-alt'> {playerOne.name} is dead!</div>:<div className='player-box'>{playerOne.name}</div>}
                 { NPCOne.healthPoints <= 0 ? <div className='enemy-box-alt'>{NPCOne.name} is dead!</div>: <div className='enemy-box'>{NPCOne.name}</div>}
             </main>
 
             <footer className='footer'>
                 <div className='inventory-box'>
+                    <div className='gold'>GOLD : {playerOne.gold}</div>
                     <Inventory updateHealth={updateHealth}/>
+                    <MusicPlayer />
                 </div>
                 
                 <div className='text-box'>
@@ -217,7 +249,7 @@ const Room = () => {
                 <div className='reward-box'>
                     <div className='reward-box-content'>
                         Defeat {NPCOne.name} to receive a reward!
-                        { NPCOne.healthPoints <= 0 ? <Treasure /> : <></>}
+                        { NPCOne.healthPoints <= 0 ? <Treasure updateGold={updateGold}/> : <></>}
                 </div>
                 </div>
             </footer>

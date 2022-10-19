@@ -1,0 +1,12 @@
+.button-music {
+    background-color: transparent;
+    border: none;
+}
+
+.music {
+    transform: scaleX(-1);
+    background-color: transparent;
+    max-height: 55px;
+    max-width: 55px;
+    cursor: pointer;
+}

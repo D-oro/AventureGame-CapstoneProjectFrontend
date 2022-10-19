@@ -132,12 +132,23 @@ function Map (){
 
     const navigate = useNavigate()
 
-    const clickDoor1 = () => {
-      enableLevel2();
-      navigate('/room')
+    const goToFinalBoss = () => {
+      navigate('/finalboss')
     }
 
-    const clickDoor = () => {
+    const goToRoom3 = () => {
+      navigate('/room3')
+    }
+
+    const goToRoom2 = () => {
+      navigate('/room2')
+    }
+
+    const goToRiddles = () => {
+      navigate('/riddles')
+    }
+
+    const goToRoom = () => {
       navigate('/room')
     }
 
@@ -150,26 +161,32 @@ function Map (){
       disableLevel4();
       }
       if (playerOne.level === 2){
+      enableLevel1();  
       enableLevel2();
-      document.getElementById("Left2").checked = true;
-      disableLevel1();
+      document.getElementById("Right1").checked = true;
       disableLevel3();
       disableLevel4();
       }
       if (playerOne.level === 3){
+      enableLevel1();  
+      enableLevel2();
       enableLevel3();
-      document.getElementById("Left3").checked = true;
-      disableLevel1();
-      disableLevel2();
+      document.getElementById("Left2").checked = true;
       disableLevel4();
       }
       if (playerOne.level === 4){
-      enableLevel4();
-      document.getElementById("Right4").checked = true;
-      disableLevel1();
-      disableLevel2();
-      disableLevel4();
+      enableLevel1();  
+      enableLevel2();
+      enableLevel3();  
+      document.getElementById("Left3").checked = true;
       }
+      if (playerOne.level === 5){
+      enableLevel1();  
+      enableLevel2();
+      enableLevel3();  
+      enableLevel4();
+      document.getElementById("MidLeft3").checked = true;
+        }
       else (console.log(playerOne.level))
   }
 
@@ -189,13 +206,14 @@ function Map (){
 
   return (
     <div className="App">
-      <header className="App-header">
+        <header className="towertop"></header>
+        <main className="brick-map">
 
 {/* Level 4 */}
         <div className="radioRow4">
 
           {/* Gate */}
-          <button className="gate" onClick={clickDoor}></button>
+          <button className="gate" onClick={goToFinalBoss}></button>
 
           <input type="radio" id="Left4" name="Row4" value="Left4" disabled></input>
           <label for="Left4">Left4</label>
@@ -225,13 +243,13 @@ function Map (){
           <label for="Left3">Left3</label>
 
           {/* Door*/}
-          <button className="door" onClick={clickDoor}></button>
+          <button className="door" onClick={goToRoom3}></button>
 
           <input type="radio" id="MidLeft3" name="Row3" value="MidLeft3" disabled></input>
           <label for="MidLeft3">MidLeft3</label>
 
           {/* Door*/}
-          <button className="door" onClick={clickDoor}></button>
+          <button className="door" onClick={goToRoom2}></button>
 
           <input type="radio" id="MidRight3" name="Row3" value="MidRight3" disabled></input>
           <label for="MidRight3">MidRight3</label>
@@ -255,7 +273,7 @@ function Map (){
 {/* Level 2 */}
         <div className="radioRow2">
           {/* Door*/}
-          <button className="door" onClick={clickDoor}></button>
+          <button className="door" onClick={goToRiddles}></button>
 
           <input type="radio" id="Left2" name="Row2" value="Left2" disabled></input>
           <label for="Left2">Left2</label>
@@ -285,7 +303,7 @@ function Map (){
 {/* Level 1 */}
         <div className="radioRow1">
 
-          <button className="sign" onClick={startGame}></button>
+          <button className="summon" onClick={startGame}>summon player</button>
 
           <input type="radio" id="Left1" name="Row1" value="Left1" disabled></input>
           <label for="Left1">Left1</label>
@@ -309,13 +327,12 @@ function Map (){
           <label for="Right1">Right1</label>
 
           {/* Door */}
-          <button className="door" onClick={clickDoor1}></button>
+          <button className="door" onClick={goToRoom}></button>
         </div>
 
           {/* Floor */}
           <div className="floor"></div>
-
-      </header>
+          </main>
     </div>
   );
 }

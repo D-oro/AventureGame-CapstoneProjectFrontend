@@ -49,10 +49,9 @@ progress {
     border-radius: 7px;
   }
 
-.enemy-box {
+.enemy-box-riddle {
     border: solid black 2 px;
     width: 50%;
-    background-image: url('/src/images/dragon.gif');
     background-repeat: no-repeat;
     background-position: 50% 50%;
     color: azure;
@@ -60,7 +59,7 @@ progress {
     font-family: 'Silkscreen', cursive;
 }
 
-.player-box {
+.player-box-riddle {
     border: solid black 2 px;
     width: 50%;
     background-image: url('/src/images/warrior.gif');
@@ -69,6 +68,19 @@ progress {
     color: azure;
     font-size: 30px;
     font-family: 'Silkscreen', cursive;
+}
+
+.player-box-riddle-alt {
+    border: solid black 2 px;
+    width: 50%;
+    background-image: url('/src/images/bloodsplats_0007.png');
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    color: azure;
+    font-size: 30px;
+    font-family: 'Silkscreen', cursive;
+    display: flex;
+    flex-direction: column;
 }
 
 .reward-box {
@@ -83,12 +95,15 @@ progress {
 .inventory-box {
     display: flex;
     flex-wrap: wrap;
-    align-items:flex-start;
+    justify-content: flex-start;
     width: 20%;
     height: 49.5vh;
     border: 2px solid black;
 /* for testing, change back to firebrick: */
     background-color: firebrick;
+    background-image: url('/src/images/scroll_2.png');
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 .text-box {
@@ -102,8 +117,8 @@ progress {
 }
 
 .vs-img {
-    width: 10%;
-    height: 75%;
+    width: 8vw;
+    height: 8vh;
 }
 
 .char-name {
@@ -116,6 +131,23 @@ progress {
     font-family: 'Silkscreen', cursive;
     font-size: 18px;
     cursor: pointer;
+}
+
+.riddler {
+    height: 20vh;
+
+}
+
+.spikes {
+    height: 18vh;
+    margin-top: 12vh;
+    width: 8vw;
+    margin-left: 20vw;
+}
+
+.gold {
+    font-family: 'Silkscreen', cursive;
+    font-size: 18px;
 }
 
 

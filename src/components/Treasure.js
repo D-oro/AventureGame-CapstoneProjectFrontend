@@ -2,31 +2,12 @@ import React, {useState, useEffect} from 'react';
 import Request from '../helpers/request';
 import '../style/Room/Treasure.css'
 
-// button, updates weapon on backend
+// button, updates gold on backend and in state
 
-const Treasure = () =>{
-
-    const openTreasure = () => {
-        const treasure = document.getElementById("treasure-popup");
-        treasure.classList.toggle("show")
-
-        const copyPlayerOne = {...playerOne}
-        copyPlayerOne.weapon.name = "Axe"
-        copyPlayerOne.weapon.attackPoints = 25
-        const request = new Request()
-        request.put("/api/players", copyPlayerOne)
-        .then((res) => {
-            return res.json()
-        })
-        .then((data) =>{
-            console.log(data)
-        })
-
-        setPlayerOne(copyPlayerOne)
-    }
+const Treasure = ({updateGold}) =>{
 
     const [playerOne, setPlayerOne] = useState(null);
-
+    
         useEffect(() => {
             const request = new Request()
             request.get("/api/players")
@@ -34,6 +15,26 @@ const Treasure = () =>{
             setPlayerOne(data[0]);
             })   
         }, [])
+
+        const openTreasure = () => {
+        
+            const treasure = document.getElementById("treasure-popup");
+            treasure.classList.toggle("show")
+            const copyPlayerOne = {...playerOne}
+            updateGold(100)
+            .then(() => {
+                setPlayerOne(copyPlayerOne)})
+            .then(() => {
+                const copyPlayerOne = {...playerOne}
+                const request = new Request()
+                request.put("/api/players", copyPlayerOne)})
+            .then((res) => {
+                    return res.json()
+                })
+                .then((data) =>{
+                    console.log(data)
+                })
+        }
 
         if(!playerOne){
             return "Loading..."

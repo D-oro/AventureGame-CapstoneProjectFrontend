@@ -6,68 +6,104 @@ const Inventory = ({updateHealth}) =>{
 
         const showInventory = () => {
 
-            const allPotionsNames = potions.map((potion) => {
-                return (potion.name)
-            })
-
-             if (allPotionsNames.includes("Love Potion")){
+             if (playerOne.redPotion.healingPoints !=0 ){
                 document.getElementById("redPotion").hidden = false;
              }
 
-             if (allPotionsNames.includes("Yellow Potion")){
+             if (playerOne.yellowPotion.healingPoints !=0 ){
                 document.getElementById("yellowPotion").hidden = false;
              }
 
-             if (allPotionsNames.includes("Blue Potion")){
+             if (playerOne.bluePotion.healingPoints !=0 ){
                 document.getElementById("bluePotion").hidden = false;
              }
 
-             if (allPotionsNames.includes("Green Potion")){
+             if (playerOne.greenPotion.healingPoints !=0 ){
                 document.getElementById("greenPotion").hidden = false;
              }
         }
 
         const redClick = () =>{
             document.getElementById("redPotion").hidden = true;
-            updateHealth(5)
+            updateHealth(playerOne.redPotion.healingPoints)
+
+            const copyPlayerOne = {...playerOne}
+            copyPlayerOne.redPotion.healingPoints = 0
             const request = new Request()
-            request.delete(`/api/potions/${1}`)
+            request.put("/api/players", copyPlayerOne)
+            .then((res) => {
+                return res.json()
+            })
+            .then((data) =>{
+                console.log(data)
+            })
+            setPlayerOne(copyPlayerOne)
         }
 
         const yellowClick = () =>{
             document.getElementById("yellowPotion").hidden = true;
-            updateHealth(30)
+            updateHealth(playerOne.yellowPotion.healingPoints)
+
+            const copyPlayerOne = {...playerOne}
+            copyPlayerOne.yellowPotion.healingPoints = 0
             const request = new Request()
-            request.delete(`/api/potions/${2}`)
+            request.put("/api/players", copyPlayerOne)
+            .then((res) => {
+                return res.json()
+            })
+            .then((data) =>{
+                console.log(data)
+            })
+            setPlayerOne(copyPlayerOne)
         }
 
         const blueClick = () =>{
             document.getElementById("bluePotion").hidden = true;
-            updateHealth(40)
+            updateHealth(playerOne.bluePotion.healingPoints)
+
+            const copyPlayerOne = {...playerOne}
+            copyPlayerOne.bluePotion.healingPoints = 0
             const request = new Request()
-            request.delete(`/api/potions/${3}`)
+            request.put("/api/players", copyPlayerOne)
+            .then((res) => {
+                return res.json()
+            })
+            .then((data) =>{
+                console.log(data)
+            })
+            setPlayerOne(copyPlayerOne)
         }
 
         const greenClick = () =>{
             document.getElementById("greenPotion").hidden = true;
-            updateHealth(50)
+            updateHealth(playerOne.greenPotion.healingPoints)
+
+            const copyPlayerOne = {...playerOne}
+            copyPlayerOne.greenPotion.healingPoints = 0
             const request = new Request()
-            request.delete(`/api/potions/${4}`)
+            request.put("/api/players", copyPlayerOne)
+            .then((res) => {
+                return res.json()
+            })
+            .then((data) =>{
+                console.log(data)
+            })
+            setPlayerOne(copyPlayerOne)
         }
 
-    const [potions, setPotions] = useState(null);
+        const [playerOne, setPlayerOne] = useState(null);
 
-    useEffect(() => {
-        const request = new Request()
-        request.get("/api/potions")
-        .then((data) => {
-        setPotions(data);
-        })   
-    }, [])
+        useEffect(() => {
+            const request = new Request()
+            request.get("/api/players")
+            .then((data) => {
+            setPlayerOne(data[0]);
+            })   
+        }, [])
 
-    if(!potions){
-        return "Loading..."
-       }
+        if(!playerOne){
+            return "Loading..."
+           }
 
     return (
         <div>

@@ -12,6 +12,9 @@ Many of the images have been altered, here are the links to the originals:
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Remember to:
+npm install
+npm install howler
 
 ## Available Scripts
 
@@ -79,3 +82,44 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+### Final Words and Instructions ###
+
+Thanks to our developers Doro, Johnny and Aims
+A special thanks to our instructor Ben for all his time and effort helping us with the sticky bits
+And of course thankyou to Codeclan for teaching us all we know now
+Instructions on SETUP for our fully functioning CRUD adventure Game
+
+Please git pull the backend:
+in your terminal:
+dropdb adventures
+createdb adventures
+
+Check the Application Properties and ensure username and password is your usual... or
+username: postgres
+password: postgres
+
+Run the application and await the trusty tomcat :8080
+If you have any errors... soz adventurers but you're on your own
+
+Once backend is working please git pull the frontend
+
+In your terminal:
+-npm install
+-npm install howler
+-npm start
+
+Technologies used:
+-Intellij
+-Spring
+-PSql
+-Insomnia
+-Postico
+-React
+-VS Code
+-Howler
+-OpenGameArt
+-gimp
+-Firefox
+-Chrome
+-All designed on MacBook Air/Pro

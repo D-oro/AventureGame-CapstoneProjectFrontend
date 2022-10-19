@@ -62,7 +62,7 @@ progress {
 
 .enemy-box-alt {
     border: solid black 2 px;
-    width: 50%;
+    width: 50vw;
     background-image: url('/src/images/bloodsplats_0007.png');
     background-repeat: no-repeat;
     background-position: 50% 50%;
@@ -73,7 +73,7 @@ progress {
 
 .player-box {
     border: solid black 2 px;
-    width: 50%;
+    width: 50vw;
     background-image: url('/src/images/warrior.gif');
     background-repeat: no-repeat;
     background-position: 50% 30%;
@@ -84,7 +84,7 @@ progress {
 
 .player-box-alt {
     border: solid black 2 px;
-    width: 50%;
+    width: 50vw;
     background-image: url('/src/images/bloodsplats_0007.png');
     background-repeat: no-repeat;
     background-position: 50% 50%;
@@ -95,7 +95,7 @@ progress {
 
 .reward-box {
     display: flex;
-    width: 20%;
+    width: 20vw;
     border: 2px solid black;
     justify-content: center;
     background-color: firebrick;
@@ -110,13 +110,17 @@ progress {
 
 .inventory-box {
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
-    align-items:flex-start;
-    width: 20%;
+    justify-content: flex-start;
+    width: 20vw;
     height: 49.5vh;
     border: 2px solid black;
 /* for testing, change back to firebrick: */
     background-color: firebrick;
+    background-image: url('/src/images/scroll_2.png');
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 .text-box {
@@ -175,6 +179,12 @@ progress {
     font-size: 30px;
     cursor: pointer;
 }
+
+.gold {
+    font-family: 'Silkscreen', cursive;
+    font-size: 18px;
+}
+
 
 
 

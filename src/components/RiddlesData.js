@@ -5,6 +5,7 @@ import Narrator from './Narrator';
 import Treasure from './Treasure';
 import Inventory from './Inventory';
 import '../style/riddle-room/RiddleRoom.css'
+import laugh from "../sounds/evil_laugh_02.ogg"
 
 function RiddlesData(){
     const [riddlesOne, setRiddlesOne] = useState([]);
@@ -43,6 +44,10 @@ function RiddlesData(){
         })
     }, [])
 
+    const laughSound = new Audio(
+        laugh
+    );
+
     const onAnswerClick = (event) => {
         let correctAnswer = riddlesOne.correctAnswer;
         if(event.target.value === correctAnswer){
@@ -53,8 +58,8 @@ function RiddlesData(){
         else{
             setNarratorMessage(`You lose! spikes come out the ground and impale you... GAME OVER!`)
             setResult('lost');
+            laughSound.play()
             playerOne.healthPoints -= playerOne.startHealthPoints
-
         }
     }
 
@@ -65,17 +70,29 @@ function RiddlesData(){
         // console.log(answerKeys);
     const answerButtons = riddlesOne ? answerKeys.map((key, index) => {
         console.log(key)
-        return <button key={index} className='riddle-button' value={riddlesOne[key]} onClick={onAnswerClick}>{riddlesOne[key]}</button>
+        return <button key={index} className='riddle-button' id='riddle-button' value={riddlesOne[key]} onClick={onAnswerClick}>{riddlesOne[key]}</button>
     }) : null;
 
     const handleClickGameOver = () => {
         navigate('/')
     }
 
+    const updateGold = (goldAmount) => {
+        const copyPlayerOne = {...playerOne}
+        copyPlayerOne.gold += goldAmount
+        setPlayerOne(copyPlayerOne)
+    }
 
     const handleClick = () =>{
-        navigate('/map')
-       }
+        const copyPlayerOne = {...playerOne}
+        copyPlayerOne.level +=1
+        const request = new Request()
+        request.put("/api/players", copyPlayerOne)
+        .then(() => {
+            setPlayerOne(copyPlayerOne)
+            navigate('/map')
+       })
+    }
 
         if(!NPCOne){
             return "Loading..."
@@ -91,21 +108,27 @@ function RiddlesData(){
             <progress className='health-bar' id="playerHealth" value={playerOne.healthPoints} max={playerOne.startHealthPoints}></progress>
             <div className='char-name'>Riddle Time!</div>
             
-            <div className='char-name'>{NPCOne.name}</div>
+            <div className='char-name'>The Riddler</div>
             </header>
 
             <main className='main'>
-               <div className='player-box'>
-                    {playerOne.name}
-               </div>
-               <div className='enemy-box'>
-                Risky business... Answer my question to recieve a treasure! Get it wrong and true horror awaits!
+               
+               { playerOne.healthPoints <= 0 ? <div className='player-box-riddle-alt'>{playerOne.name} is dead! <img className="spikes" src={require(`../images/3_spikes.png`)}/></div>:<div className='player-box-riddle'>{playerOne.name}</div>}
+             
+               <div className='enemy-box-riddle'>
+                Risky business... Answer my question to recieve a treasure!
+                <>
+                <img className='riddler' src={require(`../images/Old_man.png`)} alt='oopsie' />
+                </>
                </div>
             </main>
 
             <footer className='footer'>
                 <div className='inventory-box'>
+                    <div className='gold'>GOLD : {playerOne.gold}</div>
                     <Inventory/>
+
+                
                 </div>
                 
                 <div className='text-box'>
@@ -116,11 +139,9 @@ function RiddlesData(){
                         narratorMessage || `${riddlesOne.question}`
                     }/>
 
-                     <div>
-                     {result}
-                    </div>
+                    
                    </div> 
-                    {answerButtons}                    
+                 { playerOne.healthPoints <= 0 || result === 'won' ? <></> : [answerButtons] }                    
                     <div>
                         { result === 'won' ? <button className="back-to-map" onClick={handleClick}>Leave Room!</button> : <></>}
                         { result === 'lost' ? <button className='back-to-home' onClick={handleClickGameOver}>Return To Home</button> : <></>}
@@ -130,7 +151,7 @@ function RiddlesData(){
                 <div className='reward-box'>
                     <div className='reward-box-content'>
                         Correctly answer the question to get a reward!
-                        {  result === 'won' ? <Treasure/> : <></>}
+                        {  result === 'won' ? <Treasure updateGold={updateGold}/> : <></>}
                     </div>
                 </div>
             </footer>
@@ -138,13 +159,4 @@ function RiddlesData(){
     )
 }
 
-
-
-
-
-
-
-export default RiddlesData
-
-
-
+export default RiddlesData;
