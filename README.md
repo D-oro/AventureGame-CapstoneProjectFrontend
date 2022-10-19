@@ -91,6 +91,10 @@ And of course thankyou to Codeclan for teaching us all we know now
 Instructions on SETUP for our fully functioning CRUD adventure Game
 
 Please git pull the backend:
+in your terminal:
+dropdb adventures
+createdb adventures
+
 Check the Application Properties and ensure username and password is your usual... or
 username: postgres
 password: postgres
@@ -100,6 +104,7 @@ If you have any errors... soz adventurers but you're on your own
 
 Once backend is working please git pull the frontend
 
+In your terminal:
 -npm install
 -npm install howler
 -npm start
