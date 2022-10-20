@@ -8,6 +8,7 @@ import RiddlesData from '../components/RiddlesData';
 import FinalBoss from '../components/FinalBoss';
 import Room2 from '../components/Room2';
 import Room3 from '../components/Room3';
+import EndPage from '../components/EndPage'
 
 
 const MainContainer = () => {
@@ -23,6 +24,7 @@ const MainContainer = () => {
                     <Route path="/Room2" element={<Room2 />} />
                     <Route path="/Room3" element = {<Room3 />}/>
                     <Route path="/Riddles" element={<RiddlesData/>} />
+                    <Route path="/endpage" element={<EndPage />} />
                     <Route path="*" element={<ErrorPage />} />
                 </Routes>
             </Router>

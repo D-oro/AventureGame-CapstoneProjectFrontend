@@ -87,7 +87,7 @@ const FinalBoss = () => {
         request.put("/api/players", copyPlayerOne)
         .then(() => {
             setPlayerOne(copyPlayerOne)
-            navigate('/map')
+            navigate('/endpage')
         })
     }
 
