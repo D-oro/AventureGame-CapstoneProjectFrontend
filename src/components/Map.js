@@ -187,13 +187,6 @@ function Map (){
       enableLevel4();
       document.getElementById("MidLeft3").checked = true;
         }
-      if (playerOne.level > 5){
-      enableLevel1();  
-      enableLevel2();
-      enableLevel3();  
-      enableLevel4();
-      document.getElementById("Left1").checked = true;
-        }
       else (console.log(playerOne.level))
   }
 

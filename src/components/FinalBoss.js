@@ -81,7 +81,7 @@ const FinalBoss = () => {
     const handleClick = () => {
 
         const copyPlayerOne = {...playerOne}
-        copyPlayerOne.level +=1
+        copyPlayerOne.level = 1
         copyPlayerOne.healthPoints = copyPlayerOne.startHealthPoints
         const request = new Request()
         request.put("/api/players", copyPlayerOne)
