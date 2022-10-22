@@ -78,7 +78,7 @@ const Room3 = () => {
    
     const navigate = useNavigate()
 
-    const handleClick = () => {
+    const handleLeaveRoom = () => {
 
         const copyPlayerOne = {...playerOne}
         copyPlayerOne.level +=1
@@ -245,7 +245,7 @@ const Room3 = () => {
                     </div>
                     <></>
                     <div>
-                        { NPCOne.healthPoints <= 0 ? <button className="back-to-map" onClick={handleClick}>Leave Room!</button> : <></>}
+                        { NPCOne.healthPoints <= 0 ? <button className="back-to-map" onClick={handleLeaveRoom}>Leave Room!</button> : <></>}
                         { playerOne.healthPoints <= 0 ? <button className='back-to-home' onClick={handleClickGameOver}>Return To Home</button> : <></>}
                     </div>
                 </div>
