@@ -11,8 +11,6 @@ import monsterDeath from "../sounds/shade12.wav"
 import block from "../sounds/sword_clash.9.ogg"
 import MusicPlayer from './MusicPlayer';
 
-
-
 const Room3 = () => {
     
     const [NPCOne, setNPCOne] = useState(null);
@@ -53,10 +51,8 @@ const Room3 = () => {
             setTimeout(() => {
                 setNarratorMessage(`you have been defeated Game Over!`)
             }, 3000)
-
         }
     })
-
 
     const attackSound = new Audio(
         swing1
@@ -74,8 +70,6 @@ const Room3 = () => {
         block
     );
 
-    
-   
     const navigate = useNavigate()
 
     const handleLeaveRoom = () => {
@@ -151,8 +145,6 @@ const Room3 = () => {
         }, 5000)
     }
 
-  
-
     const attackFunction = () => {
         if (NPCOne.healthPoints > 0 && playerOne.healthPoints > 0) {
             attackEnemy();
@@ -164,8 +156,7 @@ const Room3 = () => {
         disableButtonBlock();
         setTimeout(() => {
             if (playerOneRef.current.healthPoints > 0 && NPCOneRef.current.healthPoints > 0) {
-                attackPlayer();
-               
+                attackPlayer();     
             }
         }, 3500);
     }
