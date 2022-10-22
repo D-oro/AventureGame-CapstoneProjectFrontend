@@ -83,51 +83,51 @@ function Map (){
 //Ladder in third row  
     const useLadder3 = () => {
       enableLevel4();
-      if(document.getElementById("Right3").checked == true){
+      if(document.getElementById("Right3").checked === true){
           document.getElementById("Right4").checked = true;
           document.getElementById("Right3").checked = false;
-
+          document.getElementById("ladder3").hidden = true;
           disableLevel3()
           }
-      else{window.alert("I can only go up")}
+      else{console.log("click start")}
     }
 
   // Ladder in second row
     const useLadder2 = () => {
       enableLevel3();
-      if(document.getElementById("MidLeft2").checked == true){
+      if(document.getElementById("MidLeft2").checked === true){
           document.getElementById("MidLeft3").checked = true;
           document.getElementById("MidLeft2").checked = false;
-
+          document.getElementById("ladder2").hidden = true;
           disableLevel2()
           }
-      if(document.getElementById("Left2").checked == true){
-          window.alert("I can only go up")
+      if(document.getElementById("Left2").checked === true){
+          console.log("click start")
           document.getElementById("Left2").checked = false;
           document.getElementById("MidLeft3").checked = true;
-
+          document.getElementById("ladder2").hidden = true;
           disableLevel2()
         } 
-      else{window.alert("I can only go up")}
+      else{console.log("click start")}
     }
 
 // Ladder in first row
     const useLadder1 = () => {
       enableLevel2();
-      if(document.getElementById("MidLeft1").checked == true){
+      if(document.getElementById("MidLeft1").checked === true){
           document.getElementById("MidLeft2").checked = true;
           document.getElementById("MidLeft1").checked = false;
-
+          document.getElementById("ladder1").hidden = true;
           disableLevel1()
           }
-      if(document.getElementById("MidRight1").checked == true){
-          window.alert("I can only go up")
+      if(document.getElementById("MidRight1").checked === true){
+          console.log("click start")
           document.getElementById("MidLeft2").checked = true;
           document.getElementById("MidRight1").checked = false;
-
+          document.getElementById("ladder1").hidden = true;
           disableLevel1()
         } 
-      else{window.alert("I can only go up")}
+      else{console.log("click start")}
     }
 
     const navigate = useNavigate()
@@ -264,7 +264,7 @@ function Map (){
           <label for="Right3"></label>
 
           {/* Ladder */}
-          <button className="ladder" onClick={useLadder3}></button>
+          <button className="ladder" id="ladder3" onClick={useLadder3}></button>
         </div>
 
           {/* Floor */}
@@ -279,7 +279,7 @@ function Map (){
           <label for="Left2"></label>
 
           {/* Ladder */}
-          <button className="ladder" onClick={useLadder2}></button>
+          <button className="ladder" id="ladder2" onClick={useLadder2}></button>
 
           <input type="radio" id="MidLeft2" name="Row2" value="MidLeft2" disabled></input>
           <label for="MidLeft2"></label>
@@ -312,7 +312,7 @@ function Map (){
           <label for="MidLeft1"></label>
 
           {/* Ladder */}
-          <button className="ladder" onClick={useLadder1}></button>
+          <button className="ladder" id="ladder1" onClick={useLadder1}></button>
 
           <input type="radio" id="MidRight1" name="Row1" value="MidRight1" disabled></input>
           <label for="MidRight1"></label>
@@ -336,9 +336,5 @@ function Map (){
     </div>
   );
 }
-
-            {/* <button>
-                <Link to="/room">To the room!</Link>
-            </button> */} 
 
 export default Map
