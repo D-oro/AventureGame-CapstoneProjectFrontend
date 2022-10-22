@@ -19,7 +19,6 @@ const Room = () => {
     const NPCOneRef = useRef(NPCOne)
     const playerOneRef = useRef(playerOne)
     NPCOneRef.current = NPCOne
-    
     playerOneRef.current = playerOne
 
     useEffect(() => {

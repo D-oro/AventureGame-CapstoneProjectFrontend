@@ -11,7 +11,6 @@ import monsterDeath from "../sounds/shade12.wav"
 import block from "../sounds/sword_clash.9.ogg"
 import MusicPlayer from './MusicPlayer';
 
-
 const Room2 = () => {
     
     const [NPCOne, setNPCOne] = useState(null);
@@ -92,7 +91,12 @@ const Room2 = () => {
     const updateHealth = (healthAmount) => {
         const copyPlayerOne = {...playerOne}
         copyPlayerOne.healthPoints += healthAmount
-        copyPlayerOne.startHealthPoints += healthAmount
+        setPlayerOne(copyPlayerOne)
+    }
+
+    const updateGold = (goldAmount) => {
+        const copyPlayerOne = {...playerOne}
+        copyPlayerOne.gold += goldAmount
         setPlayerOne(copyPlayerOne)
     }
 
@@ -148,7 +152,6 @@ const Room2 = () => {
     const attackFunction = () => {
         if (NPCOne.healthPoints > 0 && playerOne.healthPoints > 0) {
             attackEnemy();
-           
         } else {
             return;
         }
@@ -242,7 +245,7 @@ const Room2 = () => {
                 <div className='reward-box'>
                     <div className='reward-box-content'>
                         Defeat {NPCOne.name} to receive a reward!
-                        { NPCOne.healthPoints <= 0 ? <Treasure /> : <></>}
+                        { NPCOne.healthPoints <= 0 ? <Treasure updateGold={updateGold}/> : <></>}
                 </div>
                 </div>
             </footer>

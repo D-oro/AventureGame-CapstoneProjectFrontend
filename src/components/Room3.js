@@ -19,7 +19,6 @@ const Room3 = () => {
     const NPCOneRef = useRef(NPCOne)
     const playerOneRef = useRef(playerOne)
     NPCOneRef.current = NPCOne
-    
     playerOneRef.current = playerOne
 
     useEffect(() => {
@@ -92,7 +91,12 @@ const Room3 = () => {
     const updateHealth = (healthAmount) => {
         const copyPlayerOne = {...playerOne}
         copyPlayerOne.healthPoints += healthAmount
-        copyPlayerOne.startHealthPoints += healthAmount
+        setPlayerOne(copyPlayerOne)
+    }
+
+    const updateGold = (goldAmount) => {
+        const copyPlayerOne = {...playerOne}
+        copyPlayerOne.gold += goldAmount
         setPlayerOne(copyPlayerOne)
     }
 
@@ -148,7 +152,6 @@ const Room3 = () => {
     const attackFunction = () => {
         if (NPCOne.healthPoints > 0 && playerOne.healthPoints > 0) {
             attackEnemy();
-           
         } else {
             return;
         }
@@ -174,7 +177,6 @@ const Room3 = () => {
                 blockEnemy();
             }
         }, 3500);
-
     }
 
     const blockEnemy = () => {
@@ -243,7 +245,7 @@ const Room3 = () => {
                 <div className='reward-box'>
                     <div className='reward-box-content'>
                         Defeat {NPCOne.name} to receive a reward!
-                        { NPCOne.healthPoints <= 0 ? <Treasure /> : <></>}
+                        { NPCOne.healthPoints <= 0 ? <Treasure updateGold={updateGold}/> : <></>}
                 </div>
                 </div>
             </footer>

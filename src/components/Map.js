@@ -188,7 +188,7 @@ function Map (){
       enableLevel3();  
       enableLevel4();
       document.getElementById("MidLeft3").checked = true;
-      document.getElementById("ladder1").hidden = false;
+      document.getElementById("ladder3").hidden = false;
         }
       else (console.log(playerOne.level))
   }
