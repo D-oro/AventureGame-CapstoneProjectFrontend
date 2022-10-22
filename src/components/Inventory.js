@@ -6,6 +6,8 @@ const Inventory = ({updateHealth}) =>{
 
         const showInventory = () => {
 
+            // need alert tooltip
+
              if (playerOne.redPotion.healingPoints !=0 ){
                 document.getElementById("redPotion").hidden = false;
              }
