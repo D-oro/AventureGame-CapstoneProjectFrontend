@@ -1,9 +1,6 @@
 import '../style/Room/Music.css'
 import { Howl, Howler } from 'howler';
 
-
-
-
 const MusicPlayer = () => {
 
     const sound = new Howl({
@@ -20,7 +17,6 @@ const MusicPlayer = () => {
             <button className='button-music'>
                 < img className='music' src={require('../images/lute.png')} alt="nothing here" onClick={() => {
                     
-
                     if (sessionStorage.getItem('isMusicOn') === "false") {
                         sessionStorage.setItem('isMusicOn', true);
                         sound.play();
@@ -35,7 +31,6 @@ const MusicPlayer = () => {
             </button>
         </>
     )
-
 }
 
 export default MusicPlayer;

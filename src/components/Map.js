@@ -5,7 +5,7 @@ import React from 'react';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import {Link} from 'react-router-dom';
 import '../style/map/Map.css'
-
+import ambient from "../sounds/dungeon_ambient.ogg"
 function Map (){
 
   const enableLevel4 = () =>{
@@ -152,7 +152,12 @@ function Map (){
       navigate('/room')
     }
 
+    const ambientSound = new Audio(
+      ambient
+    );
+
     const startGame = () => {
+      ambientSound.play()
       if (playerOne.level === 1){
       enableLevel1();
       document.getElementById("Left1").checked = true;
