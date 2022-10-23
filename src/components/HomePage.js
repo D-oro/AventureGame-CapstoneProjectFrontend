@@ -9,6 +9,7 @@ const HomePage = () =>{
     const [narratorMessage, setNarratorMessage] = useState('');
     const navigate = useNavigate()
 
+
     const handleClick = () =>{
         navigate('/map')
     }

@@ -134,22 +134,27 @@ function Map (){
     const navigate = useNavigate()
 
     const goToFinalBoss = () => {
+      ambientSound.pause()
       navigate('/finalboss')
     }
 
     const goToRoom3 = () => {
+      ambientSound.pause()
       navigate('/room3')
     }
 
     const goToRoom2 = () => {
+      ambientSound.pause()
       navigate('/room2')
     }
 
     const goToRiddles = () => {
+      ambientSound.pause()
       navigate('/riddles')
     }
 
     const goToRoom = () => {
+      ambientSound.pause()
       navigate('/room')
     }
 
