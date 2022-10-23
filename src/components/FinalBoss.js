@@ -10,7 +10,6 @@ import cluck from '../sounds/ChickenSoundEffect.mp3'
 import monsterDeath from "../sounds/shade12.wav"
 import block from "../sounds/sword_clash.9.ogg"
 import MusicPlayer from './MusicPlayer';
-import endmusic from "../sounds/happy_adventure.mp3"
 
 const FinalBoss = () => {
     
@@ -69,15 +68,10 @@ const FinalBoss = () => {
     const blockSound = new Audio(
         block
     ); 
-
-    const endSound = new Audio(
-        endmusic
-    )
    
     const navigate = useNavigate()
 
     const handleLeaveRoom = () => {
-        endSound.play()
         const copyPlayerOne = {...playerOne}
         copyPlayerOne.level = 1
         copyPlayerOne.healthPoints = copyPlayerOne.startHealthPoints

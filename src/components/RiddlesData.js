@@ -6,6 +6,7 @@ import Treasure from './Treasure';
 import Inventory from './Inventory';
 import '../style/riddle-room/RiddleRoom.css'
 import laugh from "../sounds/evil_laugh_02.ogg"
+import MusicPlayer from './MusicPlayer';
 
 function RiddlesData(){
     const [riddlesOne, setRiddlesOne] = useState([]);
@@ -127,8 +128,7 @@ function RiddlesData(){
                 <div className='inventory-box'>
                     <div className='gold'>GOLD : {playerOne.gold}</div>
                     <Inventory/>
-
-                
+                    <MusicPlayer />
                 </div>
                 
                 <div className='text-box'>
