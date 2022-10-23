@@ -74,6 +74,7 @@ progress {
     width: 50vw;
     background-image: url('/src/images/warrior.gif');
     background-repeat: no-repeat;
+    background-size: contain;
     background-position: 50% 30%;
     color: azure;
     font-size: 30px;

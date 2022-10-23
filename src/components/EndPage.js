@@ -9,13 +9,13 @@ const EndPage = () =>{
     const navigate = useNavigate()
 
     const handleMapClick = () =>{
-        endSound.pause()
+        // endSound.pause()
         navigate('/map')
     }
 
     const handleResultsClick = () =>{
         document.getElementById("results").hidden=false;
-        endSound.play()
+        // endSound.play()
     }
 
     const endSound = new Audio(

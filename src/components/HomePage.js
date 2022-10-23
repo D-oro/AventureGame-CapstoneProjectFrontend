@@ -2,14 +2,20 @@ import '../style/home_page/HomePage.css'
 import { useNavigate } from 'react-router';
 import React, {useState, useEffect} from 'react';
 import Request from '../helpers/request';
+import theme from "../sounds/push_ahead.wav"
 
 const HomePage = () =>{
 
     const navigate = useNavigate()
 
     const handleClick = () =>{
+        backgroundSound.play()
         navigate('/map')
     }
+
+    const backgroundSound = new Audio(
+        theme
+      );  
 
     const[userName, setUserName] = useState("")
 
@@ -61,7 +67,6 @@ return(
                 <input type="text" name="username" className="nameinput" placeholder="cookie monster" value={userName} onChange={handleItemInput}></input>
                 <button className="name-button" type="submit">save</button>
             </form>
-
         
             <div className="username">
                 <span className="playerhomepage"></span>
@@ -75,8 +80,7 @@ return(
             so cool!
         </footer>
     </div>
-)
-
+    )
 }
 
 export default HomePage;

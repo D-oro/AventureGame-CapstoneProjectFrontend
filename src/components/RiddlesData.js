@@ -107,7 +107,6 @@ function RiddlesData(){
         <div className='room-container'>
             <header className='header'>
             <progress className='health-bar' id="playerHealth" value={playerOne.healthPoints} max={playerOne.startHealthPoints}></progress>
-            <div className='char-name'>Riddle Time!</div>
             
             <div className='char-name'>The Riddler</div>
             </header>
@@ -118,9 +117,6 @@ function RiddlesData(){
              
                <div className='enemy-box-riddle'>
                 Risky business... Answer my question to recieve a treasure!
-                <>
-                <img className='riddler' src={require(`../images/Old_man.png`)} alt='oopsie' />
-                </>
                </div>
             </main>
 
