@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import Request from '../helpers/request';
 import '../style/Room/Treasure.css'
+import coins from "../sounds/coins.wav"
 
 // button, updates gold on backend and in state
 
@@ -16,8 +17,12 @@ const Treasure = ({updateGold}) =>{
             })   
         }, [])
 
+        const coinSound = new Audio(
+            coins
+        )
+
         const openTreasure = () => {
-        
+            coinSound.play()
             const treasure = document.getElementById("treasure-popup");
             treasure.classList.toggle("show")
             const copyPlayerOne = {...playerOne}

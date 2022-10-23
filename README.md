@@ -8,6 +8,9 @@ Many of the images have been altered, here are the links to the originals:
 - Castle door by Tuomo Untinen: https://opengameart.org/content/castle-door
 - Ladder created by Jordan Irwin (AntumDeluge): https://opengameart.org/content/rope-ladder  
 
+Sounds:
+- coin drop by Hansjörg Malthaner: http://opengameart.org/users/varkalandar
+
 
 # Getting Started with Create React App
 
