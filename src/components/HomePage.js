@@ -2,7 +2,7 @@ import '../style/home_page/HomePage.css'
 import { useNavigate } from 'react-router';
 import React, {useState, useEffect} from 'react';
 import Request from '../helpers/request';
-import theme from "../sounds/push_ahead.wav"
+import theme from "../sounds/quietpush_ahead.wav"
 
 const HomePage = () =>{
 

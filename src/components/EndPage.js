@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import Request from '../helpers/request';
 import { useNavigate } from 'react-router';
 import '../style/EndPage.css'
-import endmusic from "../sounds/happy_adventure.wav"
+// import endmusic from "../sounds/happy_adventure.wav"
 
 const EndPage = () =>{
 
@@ -18,9 +18,9 @@ const EndPage = () =>{
         // endSound.play()
     }
 
-    const endSound = new Audio(
-        endmusic
-    )
+    // const endSound = new Audio(
+    //     endmusic
+    // )
 
     const [playerOne, setPlayerOne] = useState(null);
 
@@ -69,6 +69,9 @@ return(
 
         <footer className="footer-text">
             <button className="start-game" onClick={handleMapClick}>Play again!</button>
+            <div className="credits">This super cool game was our big final project during the 16 week intensive coding bootcamp at Codeclan in Glasgow. 
+            Big thanks to all of the amazing instructors for your support, wit, and kindness. You are amazing!
+            </div>
         </footer>
     </div>
 )
