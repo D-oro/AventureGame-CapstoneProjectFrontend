@@ -55,11 +55,11 @@ return(
             Welcome! This is a super cool game! Made by Aimee, Doro and Johnny
         </header>
 
-        <main>
-            <form onSubmit={saveUserName}>
+        <main className="main-body">
+            <form className="form" onSubmit={saveUserName}>
                 <label htmlFor="username">Your name:</label>
-                <input type="text" name="username" placeholder="cookie monster" value={userName} onChange={handleItemInput}></input>
-                <button type="submit">save</button>
+                <input type="text" name="username" className="nameinput" placeholder="cookie monster" value={userName} onChange={handleItemInput}></input>
+                <button className="name-button" type="submit">save</button>
             </form>
 
             <button className="start-game" onClick={handleClick}>To the game!</button>

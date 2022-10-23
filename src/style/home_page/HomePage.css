@@ -8,19 +8,24 @@
     height: 100vh;
     width: 100vw;
     font-family: 'Silkscreen', cursive;
-    font-size: 2em;
     color: lightgray;
     text-align: center;
 }
 
 .header-text{
+    font-size: 2em;
     padding-left: 10vw;
     padding-right: 10vw;
 }
 
+.main-body{
+    align-content: space-between;
+    height: 50vh;
+    width: 80%;
+    font-size: 1.5em;
+}
+
 .start-game{
-    height: 100px;
-    width: 200px;
     background-image: url('/src/images/button.png');
     background-size: cover;
     border-color: slategray;
@@ -29,4 +34,32 @@
     font-family: 'Silkscreen', cursive;
     font-size: 1em;
     color: lightgray;
+    align-self: flex-end;
+}
+
+.form{
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 1em;
+    padding: 10%;
+}
+
+.nameinput{
+    justify-content: center;
+    align-self: center;
+    font-family: 'Silkscreen', cursive;
+    width: 35vw;
+    font-size: .8em;
+}
+
+.name-button{
+    align-self: center;
+    font-family: 'Silkscreen', cursive;
+    background-image: url('/src/images/button.png');
+    background-size: cover;
+    border-color: slategray;
+    color: lightgray;
+    font-size: .8em;
 }
