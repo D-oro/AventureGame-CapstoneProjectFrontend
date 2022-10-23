@@ -1,30 +1,66 @@
 import '../style/home_page/HomePage.css'
 import { useNavigate } from 'react-router';
-import React from 'react';
-import Narrator from './Narrator';
-import { useState } from 'react';
+import React, {useState, useEffect} from 'react';
+import Request from '../helpers/request';
 
 const HomePage = () =>{
 
-    const [narratorMessage, setNarratorMessage] = useState('');
     const navigate = useNavigate()
-
 
     const handleClick = () =>{
         navigate('/map')
     }
 
+    const[userName, setUserName] = useState("");
+
+    const handleItemInput = (event) => {
+        setUserName(event.target.value);
+      }  
+
+    const saveUserName = (event) => {
+        event.preventDefault();
+        const copyPlayerOne = {...playerOne}
+        copyPlayerOne.name = {userName} 
+        const request = new Request()
+        request.put("/api/players", copyPlayerOne)
+        .then((res) => {
+            return res.json()
+        })
+        .then((data) =>{
+            console.log(data)
+        })
+        setPlayerOne(copyPlayerOne)
+    }
+
+
+    const [playerOne, setPlayerOne] = useState(null);
+
+    useEffect(() => {
+        const request = new Request()
+        request.get("/api/players")
+        .then((data) => {
+        setPlayerOne(data[0]);
+        })   
+    }, [])
+
+    if(!playerOne){
+        return "Loading..."
+       }
+
 return(
     <div className="home-page">
 
         <header className="header-text">
-            <Narrator 
-            message={
-                narratorMessage || `Welcome! This is a super cool game! Made by Aimee, Doro and Johnny`
-            }/>
+            Welcome! This is a super cool game! Made by Aimee, Doro and Johnny
         </header>
 
         <main>
+            <form onSubmit={saveUserName}>
+                <label htmlFor="username">Your name:</label>
+                <input type="text" name="username" value={userName} onChange={handleItemInput}></input>
+                <input type="submit" value="submit"/>
+            </form>
+
             <button className="start-game" onClick={handleClick}>To the game!</button>
         </main>
 
