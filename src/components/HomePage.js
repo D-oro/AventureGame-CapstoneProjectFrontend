@@ -11,7 +11,7 @@ const HomePage = () =>{
         navigate('/map')
     }
 
-    const[userName, setUserName] = useState("");
+    const[userName, setUserName] = useState("")
 
     const handleItemInput = (event) => {
         setUserName(event.target.value);
@@ -19,8 +19,9 @@ const HomePage = () =>{
 
     const saveUserName = (event) => {
         event.preventDefault();
+
         const copyPlayerOne = {...playerOne}
-        copyPlayerOne.name = {userName} 
+        copyPlayerOne.name = userName
         const request = new Request()
         request.put("/api/players", copyPlayerOne)
         .then((res) => {
@@ -30,8 +31,8 @@ const HomePage = () =>{
             console.log(data)
         })
         setPlayerOne(copyPlayerOne)
+        setUserName("")
     }
-
 
     const [playerOne, setPlayerOne] = useState(null);
 
@@ -57,8 +58,8 @@ return(
         <main>
             <form onSubmit={saveUserName}>
                 <label htmlFor="username">Your name:</label>
-                <input type="text" name="username" value={userName} onChange={handleItemInput}></input>
-                <input type="submit" value="submit"/>
+                <input type="text" name="username" placeholder="cookie monster" value={userName} onChange={handleItemInput}></input>
+                <button type="submit">save</button>
             </form>
 
             <button className="start-game" onClick={handleClick}>To the game!</button>
