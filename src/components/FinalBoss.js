@@ -227,7 +227,9 @@ const FinalBoss = () => {
                 <div className='inventory-box'>
                     <div className='gold'>GOLD : {playerOne.gold}</div>
                     <Inventory updateHealth={updateHealth}/>
+                    <div className='music-player'>
                     <MusicPlayer />
+                    </div>
                 </div>
                 
                 <div className='text-box'>
