@@ -2,7 +2,7 @@
     background-image: linear-gradient(to top, black, firebrick);
     background-size: cover;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     flex-direction: column;
     align-items: center;
     height: 100vh;
@@ -12,17 +12,22 @@
     text-align: center;
 }
 
-.header-text{
-    font-size: 2em;
-    padding-left: 10vw;
-    padding-right: 10vw;
+.mainpage-header{
+    font-size: 1.6em;
+    height: 20%;
+    width: 80%;
 }
 
 .main-body{
-    align-content: space-between;
-    height: 50vh;
-    width: 80%;
+    height: 50%;
+    width: 95%;
     font-size: 1.5em;
+}
+
+.mainpage-footer{
+    font-size: 1.5em;
+    height: 10%;
+    width: 95%;
 }
 
 .start-game{
@@ -34,16 +39,14 @@
     font-family: 'Silkscreen', cursive;
     font-size: 1em;
     color: lightgray;
-    align-self: flex-end;
 }
 
 .form{
     display: flex;
     flex-flow: row;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
     font-size: 1em;
-    padding: 10%;
 }
 
 .nameinput{
@@ -62,4 +65,26 @@
     border-color: slategray;
     color: lightgray;
     font-size: .8em;
+}
+
+.username{
+    display: flex;
+    flex-flow: column;
+    height: 30%;
+    width: 98%;
+    padding: 1%;
+}
+
+.playerhomepage{
+    background-image: url("/src/images/player1.png");
+    background-size: cover;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100%;
+}
+
+.namehomepage{
+    height: 50%;
+    width: 100%;
 }

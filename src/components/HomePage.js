@@ -51,7 +51,7 @@ const HomePage = () =>{
 return(
     <div className="home-page">
 
-        <header className="header-text">
+        <header className="mainpage-header">
             Welcome! This is a super cool game! Made by Aimee, Doro and Johnny
         </header>
 
@@ -62,10 +62,16 @@ return(
                 <button className="name-button" type="submit">save</button>
             </form>
 
+        
+            <div className="username">
+                <span className="playerhomepage"></span>
+                <span className="namehomepage">{playerOne.name}</span>
+            </div>
+
             <button className="start-game" onClick={handleClick}>To the game!</button>
         </main>
 
-        <footer className="footer-text">
+        <footer className="mainpage-footer">
             so cool!
         </footer>
     </div>
