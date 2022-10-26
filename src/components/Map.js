@@ -87,7 +87,6 @@ function Map (){
       if(document.getElementById("Right3").checked === true){
           document.getElementById("Right4").checked = true;
           document.getElementById("Right3").checked = false;
-          document.getElementById("ladder3").hidden = true;
           disableLevel3()
           }
       else{console.log("click start")}
@@ -99,14 +98,12 @@ function Map (){
       if(document.getElementById("MidLeft2").checked === true){
           document.getElementById("MidLeft3").checked = true;
           document.getElementById("MidLeft2").checked = false;
-          document.getElementById("ladder2").hidden = true;
           disableLevel2()
           }
       if(document.getElementById("Left2").checked === true){
           console.log("click start")
           document.getElementById("Left2").checked = false;
           document.getElementById("MidLeft3").checked = true;
-          document.getElementById("ladder2").hidden = true;
           disableLevel2()
         } 
       else{console.log("click start")}
@@ -118,14 +115,12 @@ function Map (){
       if(document.getElementById("MidLeft1").checked === true){
           document.getElementById("MidLeft2").checked = true;
           document.getElementById("MidLeft1").checked = false;
-          document.getElementById("ladder1").hidden = true;
           disableLevel1()
           }
       if(document.getElementById("MidRight1").checked === true){
           console.log("click start")
           document.getElementById("MidLeft2").checked = true;
           document.getElementById("MidRight1").checked = false;
-          document.getElementById("ladder1").hidden = true;
           disableLevel1()
         } 
       else{console.log("click start")}
@@ -175,7 +170,6 @@ function Map (){
       enableLevel1();  
       enableLevel2();
       document.getElementById("Right1").checked = true;
-      document.getElementById("ladder1").hidden = false;
       disableLevel3();
       disableLevel4();
       }
@@ -184,7 +178,6 @@ function Map (){
       enableLevel2();
       enableLevel3();
       document.getElementById("Left2").checked = true;
-      document.getElementById("ladder2").hidden = false;
       disableLevel4();
       }
       if (playerOne.level === 4){
@@ -199,7 +192,6 @@ function Map (){
       enableLevel3();  
       enableLevel4();
       document.getElementById("MidLeft3").checked = true;
-      document.getElementById("ladder3").hidden = false;
         }
       else (console.log(playerOne.level))
   }
@@ -278,7 +270,7 @@ function Map (){
           <label for="Right3"></label>
 
           {/* Ladder */}
-          <button className="ladder" id="ladder3" onClick={useLadder3} hidden></button>
+          <button className="ladder" id="ladder3" onClick={useLadder3}></button>
         </div>
 
           {/* Floor */}
@@ -293,7 +285,7 @@ function Map (){
           <label for="Left2"></label>
 
           {/* Ladder */}
-          <button className="ladder" id="ladder2" onClick={useLadder2} hidden></button>
+          <button className="ladder" id="ladder2" onClick={useLadder2}></button>
 
           <input type="radio" id="MidLeft2" name="Row2" value="MidLeft2" disabled></input>
           <label for="MidLeft2"></label>
@@ -326,7 +318,7 @@ function Map (){
           <label for="MidLeft1"></label>
 
           {/* Ladder */}
-          <button className="ladder" id="ladder1" onClick={useLadder1} hidden></button>
+          <button className="ladder" id="ladder1" onClick={useLadder1}></button>
 
           <input type="radio" id="MidRight1" name="Row1" value="MidRight1" disabled></input>
           <label for="MidRight1"></label>
