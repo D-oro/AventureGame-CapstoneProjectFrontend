@@ -2,25 +2,25 @@ import React, {useState, useEffect} from 'react';
 import Request from '../helpers/request';
 import { useNavigate } from 'react-router';
 import '../style/EndPage.css'
-// import endmusic from "../sounds/happy_adventure.wav"
+import endmusic from "../sounds/happy_adventure.wav"
 
 const EndPage = () =>{
 
     const navigate = useNavigate()
 
     const handleMapClick = () =>{
-        // endSound.pause()
+        endSound.pause()
         navigate('/map')
     }
 
     const handleResultsClick = () =>{
         document.getElementById("results").hidden=false;
-        // endSound.play()
+        endSound.play()
     }
 
-    // const endSound = new Audio(
-    //     endmusic
-    // )
+    const endSound = new Audio(
+        endmusic
+    )
 
     const [playerOne, setPlayerOne] = useState(null);
 
