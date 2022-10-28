@@ -1,0 +1,93 @@
+.end-page {
+    background-image: linear-gradient(to top, black, #b22222);
+    background-size: cover;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    font-family: 'Silkscreen', cursive;
+    font-size: 2em;
+    color: lightgray;
+    text-align: center;
+}
+
+.header-text{
+    padding-left: 10vw;
+    padding-right: 10vw;
+}
+
+.start-game{
+    background-image: url('/src/images/button.png');
+    background-size: cover;
+    border-color: slategray;
+    border-width: 3px;
+    border-radius: 3%;
+    font-family: 'Silkscreen', cursive;
+    font-size: 1em;
+    color: lightgray;
+    margin: 5%;
+}
+
+.results-button{
+    background-image: url('/src/images/button.png');
+    background-size: cover;
+    border-color: slategray;
+    border-radius: 3%;
+    border-width: 3px;
+    font-family: 'Silkscreen', cursive;
+    font-size: .7em;
+    color: lightgray;
+}
+
+.results{
+    font-size: .7em;
+    color: black;
+    align-items: center;
+    padding-top: 6%;
+}
+
+.player, .goldcoin, .riddler, .foe{
+    background-size: cover;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.player{
+    background-image: url("/src/images/player1.png");
+    height: 7%;
+    width: 7%;
+}
+
+.goldcoin{
+    background-image: url("/src/images/goldcoin.png");
+    height: 5%;
+    width: 5%;
+}
+
+.riddler{
+    background-image: url("/src/images/Old_man.png");
+    height: 5%;
+    width: 5%;
+}
+
+.foe{
+    background-image: url("/src/images/dragon.png");
+    height: 5%;
+    width: 5%;
+}
+
+table{
+    align-items: center;
+}
+
+td{
+    text-align: center;
+    padding: 2%;
+}
+
+.credits{
+    font-size: .6em;
+}

@@ -19,7 +19,6 @@ const Room = () => {
     const NPCOneRef = useRef(NPCOne)
     const playerOneRef = useRef(playerOne)
     NPCOneRef.current = NPCOne
-    
     playerOneRef.current = playerOne
 
     useEffect(() => {
@@ -70,10 +69,9 @@ const Room = () => {
         block
     );
 
-   
     const navigate = useNavigate()
 
-    const handleClick = () => {
+    const handleLeaveRoom = () => {
 
         const copyPlayerOne = {...playerOne}
         copyPlayerOne.level +=1
@@ -93,7 +91,6 @@ const Room = () => {
     const updateHealth = (healthAmount) => {
         const copyPlayerOne = {...playerOne}
         copyPlayerOne.healthPoints += healthAmount
-        copyPlayerOne.startHealthPoints += healthAmount
         setPlayerOne(copyPlayerOne)
     }
 
@@ -155,7 +152,6 @@ const Room = () => {
     const attackFunction = () => {
         if (NPCOne.healthPoints > 0 && playerOne.healthPoints > 0) {
             attackEnemy();
-           
         } else {
             return;
         }
@@ -242,7 +238,7 @@ const Room = () => {
                     </div>
                     <></>
                     <div>
-                        { NPCOne.healthPoints <= 0 ? <button className="back-to-map" onClick={handleClick}>Leave Room!</button> : <></>}
+                        { NPCOne.healthPoints <= 0 ? <button className="back-to-map" onClick={handleLeaveRoom}>Leave Room!</button> : <></>}
                         { playerOne.healthPoints <= 0 ? <button className='back-to-home' onClick={handleClickGameOver}>Return To Home</button> : <></>}
                     </div>
                 </div>

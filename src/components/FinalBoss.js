@@ -11,8 +11,6 @@ import monsterDeath from "../sounds/shade12.wav"
 import block from "../sounds/sword_clash.9.ogg"
 import MusicPlayer from './MusicPlayer';
 
-
-
 const FinalBoss = () => {
     
     const [NPCOne, setNPCOne] = useState(null);
@@ -21,7 +19,6 @@ const FinalBoss = () => {
     const NPCOneRef = useRef(NPCOne)
     const playerOneRef = useRef(playerOne)
     NPCOneRef.current = NPCOne
-    
     playerOneRef.current = playerOne
 
     useEffect(() => {
@@ -53,10 +50,8 @@ const FinalBoss = () => {
             setTimeout(() => {
                 setNarratorMessage(`you have been defeated Game Over!`)
             }, 3000)
-
         }
     })
-
 
     const attackSound = new Audio(
         swing1
@@ -72,22 +67,19 @@ const FinalBoss = () => {
 
     const blockSound = new Audio(
         block
-    );
-
-    
+    ); 
    
     const navigate = useNavigate()
 
-    const handleClick = () => {
-
+    const handleLeaveRoom = () => {
         const copyPlayerOne = {...playerOne}
-        copyPlayerOne.level +=1
+        copyPlayerOne.level = 1
         copyPlayerOne.healthPoints = copyPlayerOne.startHealthPoints
         const request = new Request()
         request.put("/api/players", copyPlayerOne)
         .then(() => {
             setPlayerOne(copyPlayerOne)
-            navigate('/map')
+            navigate('/endpage')
         })
     }
 
@@ -98,7 +90,12 @@ const FinalBoss = () => {
     const updateHealth = (healthAmount) => {
         const copyPlayerOne = {...playerOne}
         copyPlayerOne.healthPoints += healthAmount
-        copyPlayerOne.startHealthPoints += healthAmount
+        setPlayerOne(copyPlayerOne)
+    }
+
+    const updateGold = (goldAmount) => {
+        const copyPlayerOne = {...playerOne}
+        copyPlayerOne.gold += goldAmount
         setPlayerOne(copyPlayerOne)
     }
 
@@ -151,12 +148,9 @@ const FinalBoss = () => {
         }, 5000)
     }
 
-  
-
     const attackFunction = () => {
         if (NPCOne.healthPoints > 0 && playerOne.healthPoints > 0) {
             attackEnemy();
-           
         } else {
             return;
         }
@@ -165,7 +159,6 @@ const FinalBoss = () => {
         setTimeout(() => {
             if (playerOneRef.current.healthPoints > 0 && NPCOneRef.current.healthPoints > 0) {
                 attackPlayer();
-               
             }
         }, 3500);
     }
@@ -183,7 +176,6 @@ const FinalBoss = () => {
                 blockEnemy();
             }
         }, 3500);
-
     }
 
     const blockEnemy = () => {
@@ -245,14 +237,14 @@ const FinalBoss = () => {
                     </div>
                     <></>
                     <div>
-                        { NPCOne.healthPoints <= 0 ? <button className="back-to-map" onClick={handleClick}>Leave Room!</button> : <></>}
+                        { NPCOne.healthPoints <= 0 ? <button className="back-to-map" onClick={handleLeaveRoom}>Leave Room!</button> : <></>}
                         { playerOne.healthPoints <= 0 ? <button className='back-to-home' onClick={handleClickGameOver}>Return To Home</button> : <></>}
                     </div>
                 </div>
                 <div className='reward-box'>
                     <div className='reward-box-content'>
                         Defeat {NPCOne.name} to receive a reward!
-                        { NPCOne.healthPoints <= 0 ? <Treasure /> : <></>}
+                        { NPCOne.healthPoints <= 0 ? <Treasure updateGold={updateGold}/> : <></>}
                 </div>
                 </div>
             </footer>

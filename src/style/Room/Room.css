@@ -20,9 +20,7 @@
     border: solid black 2px;
     flex-direction: row;
     background-image: url('/src/images/castle-walls.png');
-    background-size: contain;
-    
-    
+    background-size: contain;    
 }
 
 .footer {
@@ -76,6 +74,7 @@ progress {
     width: 50vw;
     background-image: url('/src/images/warrior.gif');
     background-repeat: no-repeat;
+    background-size: contain;
     background-position: 50% 30%;
     color: azure;
     font-size: 30px;
@@ -104,7 +103,7 @@ progress {
 .reward-box-content {
     font-size: 20px;
     font-family: 'Silkscreen', cursive;
-    color: yellow;
+    color: azure;
     margin: 10%;
 }
 
@@ -112,15 +111,16 @@ progress {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: center;
+    align-items: space-between;
     width: 20vw;
     height: 49.5vh;
     border: 2px solid black;
-/* for testing, change back to firebrick: */
     background-color: firebrick;
     background-image: url('/src/images/scroll_2.png');
     background-size: contain;
     background-repeat: no-repeat;
+    background-position: center;
 }
 
 .text-box {
@@ -183,6 +183,7 @@ progress {
 .gold {
     font-family: 'Silkscreen', cursive;
     font-size: 18px;
+    padding-top: 3%;
 }
 
 

@@ -6,6 +6,7 @@ import Treasure from './Treasure';
 import Inventory from './Inventory';
 import '../style/riddle-room/RiddleRoom.css'
 import laugh from "../sounds/evil_laugh_02.ogg"
+import MusicPlayer from './MusicPlayer';
 
 function RiddlesData(){
     const [riddlesOne, setRiddlesOne] = useState([]);
@@ -39,7 +40,6 @@ function RiddlesData(){
         const request = new Request()
         request.get(`/api/riddles/${riddleid}`)
         .then((data) => {
-            // console.log(data)
             setRiddlesOne(data);
         })
     }, [])
@@ -53,7 +53,6 @@ function RiddlesData(){
         if(event.target.value === correctAnswer){
             setNarratorMessage(`Correct! You are a smart one, aren't you!`)
             setResult('won');
-            // console.log(playerOne)
         }
         else{
             setNarratorMessage(`You lose! spikes come out the ground and impale you... GAME OVER!`)
@@ -67,7 +66,6 @@ function RiddlesData(){
         .map(value => ({value, sort:Math.random()}))
         .sort((a , b) => a.sort - b.sort)
         .map(({value}) => value)
-        // console.log(answerKeys);
     const answerButtons = riddlesOne ? answerKeys.map((key, index) => {
         console.log(key)
         return <button key={index} className='riddle-button' id='riddle-button' value={riddlesOne[key]} onClick={onAnswerClick}>{riddlesOne[key]}</button>
@@ -106,20 +104,16 @@ function RiddlesData(){
         <div className='room-container'>
             <header className='header'>
             <progress className='health-bar' id="playerHealth" value={playerOne.healthPoints} max={playerOne.startHealthPoints}></progress>
-            <div className='char-name'>Riddle Time!</div>
             
             <div className='char-name'>The Riddler</div>
             </header>
 
             <main className='main'>
                
-               { playerOne.healthPoints <= 0 ? <div className='player-box-riddle-alt'>{playerOne.name} is dead! <img className="spikes" src={require(`../images/3_spikes.png`)}/></div>:<div className='player-box-riddle'>{playerOne.name}</div>}
+               { playerOne.healthPoints <= 0 ? <div className='player-box-riddle-alt'>{playerOne.name} is dead! <img className="spikes" src={require(`../images/3_spikes.png`)} alt="spikes"/></div>:<div className='player-box-riddle'>{playerOne.name}</div>}
              
                <div className='enemy-box-riddle'>
                 Risky business... Answer my question to recieve a treasure!
-                <>
-                <img className='riddler' src={require(`../images/Old_man.png`)} alt='oopsie' />
-                </>
                </div>
             </main>
 
@@ -127,8 +121,7 @@ function RiddlesData(){
                 <div className='inventory-box'>
                     <div className='gold'>GOLD : {playerOne.gold}</div>
                     <Inventory/>
-
-                
+                    <MusicPlayer />
                 </div>
                 
                 <div className='text-box'>

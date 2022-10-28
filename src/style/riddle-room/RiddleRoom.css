@@ -21,8 +21,6 @@
     flex-direction: row;
     background-image: url('/src/images/castle-walls.png');
     background-size: contain;
-    
-    
 }
 
 .footer {
@@ -51,11 +49,14 @@ progress {
 
 .enemy-box-riddle {
     border: solid black 2 px;
-    width: 50%;
+    width: 40%;
+    height: 100%;
+    background-image: url('/src/images/Old_man.png');
+    background-size: 15%;
     background-repeat: no-repeat;
-    background-position: 50% 50%;
+    background-position: 40% 50%;
     color: azure;
-    font-size: 30px;
+    font-size: 1.3em;
     font-family: 'Silkscreen', cursive;
 }
 
@@ -99,7 +100,6 @@ progress {
     width: 20%;
     height: 49.5vh;
     border: 2px solid black;
-/* for testing, change back to firebrick: */
     background-color: firebrick;
     background-image: url('/src/images/scroll_2.png');
     background-size: contain;
@@ -113,7 +113,6 @@ progress {
     background-color: slategray;
     font-family: 'Silkscreen', cursive;
     align-items: center;
-    
 }
 
 .vs-img {
@@ -133,10 +132,9 @@ progress {
     cursor: pointer;
 }
 
-.riddler {
-    height: 20vh;
-
-}
+/* .riddler {
+    height: 100%;
+} */
 
 .spikes {
     height: 18vh;
