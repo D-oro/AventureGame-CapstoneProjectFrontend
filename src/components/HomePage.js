@@ -2,20 +2,14 @@ import '../style/home_page/HomePage.css'
 import { useNavigate } from 'react-router';
 import React, {useState, useEffect} from 'react';
 import Request from '../helpers/request';
-import theme from "../sounds/quietpush_ahead.wav"
 
 const HomePage = () =>{
 
     const navigate = useNavigate()
 
     const handleClick = () =>{
-        backgroundSound.play()
         navigate('/map')
     }
-
-    const backgroundSound = new Audio(
-        theme
-      );  
 
     const[userName, setUserName] = useState("")
 

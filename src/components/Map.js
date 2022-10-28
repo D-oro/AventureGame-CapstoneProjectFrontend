@@ -158,7 +158,7 @@ function Map (){
     );
 
     const startGame = () => {
-      // ambientSound.play()
+      ambientSound.play()
       if (playerOne.level === 1){
       enableLevel1();
       document.getElementById("Left1").checked = true;
