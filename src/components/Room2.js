@@ -41,7 +41,7 @@ const Room2 = () => {
         const npcOneCopy = { ...NPCOne }
         const playerOneCopy = { ...playerOne }
         if (npcOneCopy.healthPoints <= 0) {
-            // monsterDeathSound.play();
+            monsterDeathSound.play();
             setTimeout(() => {
                 setNarratorMessage(`you have killed ${NPCOne.name} well fought ${playerOne.name}! Claim your reward.`)
             }, 3000)
